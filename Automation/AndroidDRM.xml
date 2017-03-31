@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    
+    							<listeners>
+											  <listener class-name="com.extentereports.listener.ExtentReporterNG" />
+											  <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+											  <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+							 	</listeners>
+<test name="Test">
+      			<parameter name="deviceID" value="G000HH03536701X1"></parameter>
+  		    	<parameter name="deviceOS" value="5.1.1"></parameter>
+  		    	<parameter name="appiumPort" value="4745"></parameter>
+  		    	<parameter name="deviceName" value="KindleFire10"></parameter>
+  		    	<parameter name="deviceType" value="Mobile"></parameter>
+				    <classes>
+				      <class name="com.drm.android.appium.DrmVideoDownload"/>
+				    </classes>
+</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+   							  <listeners>
+											  <listener class-name="com.extentereports.listener.ExtentReporterNG" />
+											  <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+											  <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+							 	</listeners>
+  <!-- <test name="KindleFire10">
+	     			<parameter name="deviceID" value="G000HH03536701X1"></parameter>
+	  		    	<parameter name="deviceOS" value="5.1.1"></parameter>
+	  		    	<parameter name="appiumPort" value="4745"></parameter>
+	  		    	<parameter name="deviceName" value="KindleFire10"></parameter>
+	  		    	<parameter name="deviceType" value="Tablet"></parameter>
+		    <classes>
+		      <class name="com.test.Appium.LiveRewind.LiveRewind_Demo" />
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		    </classes>
+  </test>  -->
+  
+  
+   <test name="GalaxyS6">
+	     			<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
+	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
+	  		    	<parameter name="appiumPort" value="4746"></parameter>
+	  		    	<parameter name="deviceName" value="GalaxyS6"></parameter>
+	  		    	<parameter name="deviceType" value="Mobile"></parameter>
+		    <classes>
+		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		   </classes>
+  </test> 
+  
+ <!--   <test name="Test">
+	     			<parameter name="deviceID" value="FA69S0301938"></parameter>
+	  		    	<parameter name="deviceOS" value="7.1.1"></parameter>
+	  		    	<parameter name="appiumPort" value="4747"></parameter>
+	  		    	<parameter name="deviceName" value="Pixcel"></parameter>
+	  		    	<parameter name="deviceType" value="Mobile"></parameter>
+		    <classes>
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		       <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
+		    </classes>
+  </test> Test
+  
+  <test name="Test">
+	     			<parameter name="deviceID" value="09ee8996"></parameter>
+	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
+	  		    	<parameter name="appiumPort" value="4748"></parameter>
+	  		    	<parameter name="deviceName" value="Nexus7"></parameter>
+	  		    	<parameter name="deviceType" value="Tablet"></parameter>
+		    <classes>
+		     
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
+		    </classes>
+  </test> Test
+  
+  <test name="Test">
+	     			<parameter name="deviceID" value="51f09694"></parameter>
+	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
+	  		    	<parameter name="appiumPort" value="4749"></parameter>
+	  		    	<parameter name="deviceName" value="GalaxyS5"></parameter>
+	  		    	<parameter name="deviceType" value="Mobile"></parameter>
+		    <classes>
+		      
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
+		    </classes>
+  </test> 
+  
+   <test name="Test">
+	     			<parameter name="deviceID" value="32300cd1e1cc6057"></parameter>
+	  		    	<parameter name="deviceOS" value="4.4.2"></parameter>
+	  		    	<parameter name="appiumPort" value="4750"></parameter>
+	  		    	<parameter name="deviceName" value="Tab3-8"></parameter>
+	  		    	<parameter name="deviceType" value="Tablet"></parameter>
+		    <classes>
+		      
+		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
+		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
+		    </classes>
+  </test> Test -->
+  
+  
+  
+  
+</suite> <!-- Suite -->

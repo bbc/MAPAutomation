@@ -1,0 +1,1 @@
+java -cp /Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/bin:/Users/ramakh01/Desktop/AvTestHarness/Testng/jcommander-1.27.jar:/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/lib/*:/Users/ramakh01/Desktop/AvTestHarness/Testng/testng-6.8.7.jar org.testng.TestNG AvtestParallel.xml

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite>
+  <test name="test1">
+    <deviceID>G000HH03536701X1</deviceID>
+    <deviceOS>5.1.1</deviceOS>
+    <AppiumPort>55845</AppiumPort>
+    <deviceName>Amazon KFTBWI</deviceName>
+  </test>
+</Suite>

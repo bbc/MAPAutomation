@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="AvTestHarness">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse/jee-neon/Eclipse.app/Contents/Eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="AvTestHarness.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/extentreports-2.41.0.jar"/>
+        <pathelement location="lib/extentreports-java-2.41.1.jar"/>
+        <pathelement location="lib/selenium-server-standalone-2.53.1.jar"/>
+        <pathelement location="lib/selenium-java-2.53.1.jar"/>
+        <pathelement location="lib/guava-18.0.jar"/>
+        <pathelement location="lib/guice-4.1.0.jar"/>
+        <pathelement location="lib/java-client-4.1.1.jar"/>
+        <pathelement location="lib/jfreechart-1.0.9.jar"/>
+        <pathelement location="lib/jsoup-1.9.2-sources.jar"/>
+        <pathelement location="lib/jsoup-1.9.2.jar"/>
+        <pathelement location="lib/log4j-1.2.17.jar"/>
+        <pathelement location="lib/reportng-1.1.4.jar"/>
+        <pathelement location="lib/SaxonLiaison.jar"/>
+        <pathelement location="lib/selenium-server-2.44.0.jar"/>
+        <pathelement location="lib/selenium-server-standalone-2.51.0.jar"/>
+        <pathelement location="lib/selenium-server-standalone-2.53.0.jar"/>
+        <pathelement location="lib/extentreports-1.2.jar"/>
+        <pathelement location="lib/extentreports-2.40.2.jar"/>
+        <pathelement location="lib/extentreports-java-2.031.jar"/>
+        <pathelement location="lib/freemarker-2.3.23.jar"/>
+        <pathelement location="lib/commons-lang-2.4.jar"/>
+        <pathelement location="lib/commons-validator-1.5.1.jar"/>
+        <pathelement location="lib/jcommander-1.27.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="AvTestHarness.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Appium">
+        <java classname="com.test.Appium.Util.Appium" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="AppiumManager">
+        <java classname="com.test.Appium.Util.AppiumManager" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="AppiumMang">
+        <java classname="com.test.Appium.AppiumManager.AppiumMang" failonerror="true" fork="yes">
+            <env key="Android_HOME" value="/Users/ramakh01/Downloads/android-sdk/"/>
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="AppiumTest">
+        <java classname="com.test.Appium.Util.AppiumTest" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="AvailabelPorts">
+        <java classname="com.test.Appium.Util.AvailabelPorts" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="DemoAppium">
+        <java classname="com.test.Appium.Util.DemoAppium" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="DeviceConfiguration">
+        <java classname="com.test.Appium.Util.DeviceConfiguration" failonerror="true" fork="yes">
+            <env key="ANDROID_HOME" value="/Users/ramakh01/Downloads/android-sdk/"/>
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="DeviceList">
+        <java classname="com.test.Appium.Util.DeviceList" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="iosdevices">
+        <java classname="com.iOS.Appium.LivePlayback.iosdevices" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+    <target name="OpenCharles">
+        <java classname="com.test.Appium.Util.OpenCharles" failonerror="true" fork="yes">
+            <classpath refid="AvTestHarness.classpath"/>
+        </java>
+    </target>
+</project>

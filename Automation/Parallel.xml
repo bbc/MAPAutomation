@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Support Email</comment>
+<entry key="DeviceName">Amazon KFTBWI</entry>
+<entry key="DeviceOS">5.1.1</entry>
+<entry key="DeviceID">G000HH03536701X1</entry>
+<entry key="AppiumPort">56451</entry>
+</properties>
