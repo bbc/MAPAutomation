@@ -141,7 +141,7 @@ public class OnDemandVideoPlayback {
 	@Test(dependsOnMethods = { "openVpidBrowser" })
 	 public void vpideoPlayback() throws Exception {
 	
-	 commonfunction.tapbutton(commonobjects.vpidPlay_button, "Clicking onPlayButton", driver,
+	 commonfunction.tapbutton("Clicking onPlayButton", commonobjects.vpidPlay_button, driver,
 				ScreenshotPath);
 	 Thread.sleep(1000);
 	
@@ -154,7 +154,7 @@ public class OnDemandVideoPlayback {
 				"Entering Full Screen", ScreenshotPath);
 	
 	
-		commonfunction.tapbutton(ondemandobjects.vod_play_subtitle, "Turningsubtitle ON", driver,
+		commonfunction.tapbutton("Turningsubtitle ON", ondemandobjects.vod_play_subtitle, driver,
 				ScreenshotPath);
 	
 	 }

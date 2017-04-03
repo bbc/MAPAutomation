@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="main.java.test.smpUtilityFunctions.AppiumPortFactory"/>
+<fullyQualifiedTypeName name="main.java.test.smpUtilityFunctions.AppiumManager"/>
+<fullyQualifiedTypeName name="main.java.test.smpPageObjects.iOSCommonObjects"/>
+<fullyQualifiedTypeName name="main.java.test.smpFunctions.iOSCommonFunctions"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="com.test.Appium.Util.DeviceConfiguration"/>
+<fullyQualifiedTypeName name="main.java.test.smpUtilityFunctions.CommandPrompt"/>
+<fullyQualifiedTypeName name="main.java.test.smpUtilityFunctions.DeviceList"/>
+<fullyQualifiedTypeName name="main.java.test.smpPageObjects.CommonObjects"/>
+<fullyQualifiedTypeName name="main.java.test.smpPageObjects.OnDemandPageObjects"/>
+<fullyQualifiedTypeName name="main.java.test.smpFunctions.CommonFunction"/>
+<fullyQualifiedTypeName name="main.java.test.smpPageObjects.LiveRewindPageObjects"/>
+<fullyQualifiedTypeName name="main.java.test.smpFunctions.LiveRewindFunctions"/>
+<fullyQualifiedTypeName name="main.java.test.smpUtilityFunctions.PortFactory"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="main.java.test.DRMPageObjects.iOSDRMPageObjects"/>
+<fullyQualifiedTypeName name="main.java.test.DRMMainTests.iOSDRMTest"/>
+<fullyQualifiedTypeName name="org.junit.AfterClass"/>
+<fullyQualifiedTypeName name="io.appium.java_client.android.AndroidDriver"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.testng.asserts.Assertion"/>
+<fullyQualifiedTypeName name="org.testng.AssertJUnit"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="io.appium.java_client.ios.IOSDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="io.appium.java_client.pagefactory.iOSFindBy"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="org.testng.Assert"/>
+</qualifiedTypeNameHistroy>

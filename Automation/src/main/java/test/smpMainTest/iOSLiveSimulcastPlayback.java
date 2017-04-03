@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
@@ -104,7 +105,7 @@ public class iOSLiveSimulcastPlayback {
 			ioscommonfunction.CreateReport(absoluteFilePath, "df43e12f4ba40c8763eb37dc17195717e094ee96", "4723",
 					"9.3.5", "iPad-Air2");
 
-			ioscommonfunction.tapbutton(iospageobjects.update_ignoreButton, "Dismissing the Update Alert", iosdriver);
+			ioscommonfunction.tapbutton(iospageobjects.update_ignoreButton, "Dismissing the Update Alert", iosdriver,ScreenshotPath);
 
 
 
@@ -121,6 +122,9 @@ public class iOSLiveSimulcastPlayback {
 		Thread.sleep(5000);
 
 	}
+	
+	
+	
 
 	@Test(dependsOnMethods = { "PlaybackStart" })
 	public void turnWifiOff() throws Exception {
@@ -146,6 +150,8 @@ public class iOSLiveSimulcastPlayback {
 
 		assertTrue("The Text Matched",
 				iospageobjects.error_message.equalsIgnoreCase(iospageobjects.playback_errorMessage.getText()));
+		
+		iosdriver.rotate(ScreenOrientation.LANDSCAPE);
 		// WebElement error_message =
 		// iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAStaticText[2]"));
 		// String errormessage = error_message.getText();
@@ -170,20 +176,46 @@ public class iOSLiveSimulcastPlayback {
 		// playagain.click();
 		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
 				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")));
-		ioscommonfunction.tapbutton(iospageobjects.playback_start_button, "Starting the Playback", iosdriver);
+		ioscommonfunction.tapbutton(iospageobjects.playback_start_button, "Starting the Playback", iosdriver, ScreenshotPath);
 
+
+	}
+	
+	
+	@Test(dependsOnMethods = { "TurnWiFi_ON" })
+	public void PlaybackRotation() throws Exception {
+
+		try {
+
+			ioscommonfunction.playback_orientation("Playing in LANDSCAPE",iosdriver, ScreenOrientation.LANDSCAPE, 
+					ScreenshotPath);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		try {
+
+			ioscommonfunction.playback_orientation("Playing in PORTRAIT",iosdriver, ScreenOrientation.PORTRAIT, 
+					ScreenshotPath);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 
 	}
 
 
 
-	@Test(dependsOnMethods = { "TurnWiFi_ON" })
+	@Test(dependsOnMethods = { "PlaybackRotation" })
 	public void StopPlayback() throws Exception {
 
 
-		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")));
-		ioscommonfunction.tapbutton(iospageobjects.playback_stop, "Stopping the Playback", iosdriver);
+		iospageobjects.playback_transportcontrol.click();
+		Thread.sleep(100);
+//		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
+//				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")));
+		ioscommonfunction.tapbutton(iospageobjects.playback_stop, "Stopping the Playback", iosdriver,ScreenshotPath);
 
 
 		// iospageobjects.playback_stop.click();
@@ -193,11 +225,6 @@ public class iOSLiveSimulcastPlayback {
 	@Test(dependsOnMethods = { "StopPlayback" })
 	public void ClosePlayback() throws Exception {
 
-		iospageobjects.playback_transportcontrol.click();
-		Thread.sleep(100);
-
-		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[1]")));
 
 		iospageobjects.playback_close.click();
 		Thread.sleep(300);
@@ -208,6 +235,7 @@ public class iOSLiveSimulcastPlayback {
 	public void tearDown() {
 		ioscommonfunction.GenerateReport();
 		iosdriver.quit();
+		iosdriver.resetApp();
 		appiummanager.stopappium();
 	}
 

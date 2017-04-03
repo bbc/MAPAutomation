@@ -20,6 +20,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import main.java.test.smpFunctions.CommonFunction;
 import main.java.test.smpFunctions.LiveRewindFunctions;
 import main.java.test.smpPageObjects.CommonObjects;
@@ -139,6 +140,7 @@ public class SMPParallelExecution {
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
+	//	capa.setCapability(AndroidMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
 		try {
 			driver = new AndroidDriver<>(new URL(appiul_url), capa);
 			// capa.setCapability("newCommandTimeout", timeout);
@@ -263,7 +265,7 @@ public class SMPParallelExecution {
 	public void PlaybackStart() throws Exception {
 
 		try {
-			commonfunction.tapbutton(commonobjects.live_rewind_playback, "Playback Started", driver, ScreenshotPath);
+			commonfunction.tapbutton("Playback Started", commonobjects.live_rewind_playback, driver, ScreenshotPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -356,7 +358,7 @@ public class SMPParallelExecution {
 
 
 
-			commonfunction.tapbutton(commonobjects.vod_play_fullscreen_exit, "Existing the Full Screen button", driver,
+			commonfunction.tapbutton("Existing the Full Screen button", commonobjects.vod_play_fullscreen_exit, driver,
 					ScreenshotPath);
 
 			commonfunction.Navigateback_MainMenu(driver, ScreenshotPath);
@@ -365,8 +367,8 @@ public class SMPParallelExecution {
 					commonobjects.element, driver,
 					commonobjects.listview, ScreenshotPath);
 
-			commonfunction.tapbutton(commonobjects.vpidPlay_button,
-					"Playing the Simulcast to check Live Text displayed", driver, ScreenshotPath);
+			commonfunction.tapbutton("Playing the Simulcast to check Live Text displayed",
+					commonobjects.vpidPlay_button, driver, ScreenshotPath);
 
 			commonfunction.LiveText_Checking(driver, absoluteFilePath);
 
@@ -405,14 +407,14 @@ public class SMPParallelExecution {
 
 	public void OnDemandPlayback(String contentType) throws Exception {
 
-		commonfunction.tapbutton(commonobjects.vpidPlay_button, "Clicking on Play Button", driver, ScreenshotPath);
+		commonfunction.tapbutton("Clicking on Play Button", commonobjects.vpidPlay_button, driver, ScreenshotPath);
 		Thread.sleep(1000);
 
 		commonfunction.playback_enter_exitFullScreen(driver, commonobjects.vpid_playback_fullscreen,
 				"Entering Full Screen", ScreenshotPath);
 
 		if (contentType == "Video") {
-			commonfunction.tapbutton(ondemandobjects.vod_play_subtitle, "Turning subtitle ON", driver, ScreenshotPath);
+			commonfunction.tapbutton("Turning subtitle ON", ondemandobjects.vod_play_subtitle, driver, ScreenshotPath);
 		}
 
 	}

@@ -29,9 +29,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.DeviceList;
 import main.java.test.smpUtilityFunctions.PortFactory;
-
-
-
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.android.Connection;
@@ -56,7 +54,8 @@ public class CommonFunction {
 	Process process;
 	String output;
 
-	AndroidDriver<WebElement> driver;
+//	AndroidDriver<WebElement> driver;
+//	IOSDriver<WebElement> iosdriver;
 	File file;
 
 	PortFactory portFactory = new PortFactory();
@@ -124,14 +123,20 @@ public class CommonFunction {
 		Thread.sleep(5000);
 	}
 
-	public void tapbutton(WebElement element, String testname, AndroidDriver<WebElement> adriver, String path)
-			throws InterruptedException {
+	public void tapbutton(String testname, WebElement element,  AppiumDriver<WebElement> driver, String path)
+			throws Exception {
+		try
+		{
 		
 		logger = extent.startTest(testname);
 		element.click();
 		Thread.sleep(1000);
 		logger.log(LogStatus.INFO,
-				testname + logger.addScreenCapture(capture_ScreenShot(adriver, path, testname)));
+				testname + logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void tapbutton1(WebElement element, String testname, DriverCommand ddriver, String path)
@@ -172,7 +177,7 @@ public class CommonFunction {
 		System.out.println(" Current screen orientation Is : " + driver.getOrientation());
 	}
 
-	public boolean isElementPresent(AndroidDriver<WebElement> driver, By locatorKey) {
+	public boolean isElementPresent(AppiumDriver<WebElement> driver, By locatorKey) {
 		try {
 			driver.findElement(locatorKey);
 			return true;
@@ -183,7 +188,7 @@ public class CommonFunction {
 		// return false;
 	}
 
-	public String capture_ScreenShot(AndroidDriver<WebElement> driver, String ScreenshotPath, String Screenshotname) {
+	public String capture_ScreenShot(AppiumDriver<WebElement> driver, String ScreenshotPath, String Screenshotname) {
 
 		try {
 			// String
@@ -252,14 +257,14 @@ public class CommonFunction {
 
 	}
 
-	public void playback_orientation(AndroidDriver<WebElement> adriver, ScreenOrientation orientation,
+	public void playback_orientation(AppiumDriver<WebElement> driver , ScreenOrientation orientation,
 			String message,
 			String path) throws Exception {
 		logger = extent.startTest(message);
-		adriver.rotate(orientation);
-		Thread.sleep(8000);
+		driver.rotate(orientation);
+		Thread.sleep(5000);
 		logger.log(LogStatus.INFO,
-				message + logger.addScreenCapture(capture_ScreenShot(adriver, path, message)));
+				message + logger.addScreenCapture(capture_ScreenShot(driver, path, message)));
 	}
 
 	public void OnDemandplayback_duration(WebElement element, WebElement element1, WebElement element2, String path,
@@ -370,7 +375,7 @@ public class CommonFunction {
 	}
 
 
-	public void seek_bar_swipe(AndroidDriver<WebElement> driver, WebElement seekbar, int start, double d) {
+	public void seek_bar_swipe(AppiumDriver<WebElement> driver, WebElement seekbar, int start, double d) {
 		int startX = seekbar.getLocation().getX();
 		System.out.println("Startx :" + startX);
 
@@ -536,7 +541,7 @@ public void populateDevices_Names() throws Exception {
 	}
 }
 
-	public void Assert_TransportControls(AndroidDriver<WebElement> adriver, String path, String[] assertions,
+	public void Assert_TransportControls(AppiumDriver<WebElement> driver, String path, String[] assertions,
 			String[] assertions_text, String element) throws Exception {
 		// String assertions_text[] = { "Pause Button present", "Seek Bar
 		// present", "Live Icon present",
@@ -545,7 +550,7 @@ public void populateDevices_Names() throws Exception {
 		logger = extent.startTest("Checking the Playback Transport Controls");
 
 		logger.log(LogStatus.INFO, "TransportContols "
-				+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Assertion")));
+				+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Assertion")));
 
 		// Assert.assertFalse(funct.isElementPresent(driver,
 		// By.id("uk.co.bbc.avtestharnesssmp:id/stop_button")));
@@ -564,7 +569,7 @@ public void populateDevices_Names() throws Exception {
 		Assert.assertFalse(isElementPresent(driver, By.id(element)));
 	}
 
-	public void seekingRandomly(WebElement element, AndroidDriver<WebElement> adriver, String path, double d)
+	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> driver, String path, double d)
 			throws Exception {
 		int seekposition= (int) d;
 
@@ -574,14 +579,14 @@ public void populateDevices_Names() throws Exception {
 		int startX = element.getLocation().getX();
 				//liverewind.live_rewind_progressbar.getLocation().getX();
 
-		seek_bar_swipe(adriver, element, startX, d);// 0.5);
+		seek_bar_swipe(driver, element, startX, d);// 0.5);
 		Thread.sleep(3000);
 
 		logger.log(LogStatus.INFO,
 				"Seeking" + d + "%"
-						+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Multipel Seeking")));
+						+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Multipel Seeking")));
 
-		LiveText_Checking(adriver, path);
+		//LiveText_Checking(adriver, path);
 
 		Thread.sleep(5000);
 
@@ -627,7 +632,7 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void LiveText_Checking(AndroidDriver<WebElement> adriver, String path)
+	public void LiveText_Checking(AppiumDriver<WebElement> adriver, String path)
 			throws Exception, NullPointerException {
 
 		try {
@@ -816,9 +821,9 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void swipingVertical(AndroidDriver<WebElement> adriver) throws InterruptedException {
+	public void swipingVertical(AndroidDriver<WebElement> driver) throws InterruptedException {
 		// Get the size of screen.
-		Dimension size = adriver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 		System.out.println(size);
 
 		// Find swipe start and end point from screen's with and height.
@@ -839,8 +844,8 @@ public void populateDevices_Names() throws Exception {
 		Thread.sleep(2000);
 	}
 
-	public void RunAppinBackground(AndroidDriver<WebElement> adriver, int seconds, String elemnetText) {
-		adriver.runAppInBackground(seconds);
+	public void RunAppinBackground(AppiumDriver<WebElement> driver, int seconds, String elemnetText) {
+		driver.runAppInBackground(seconds);
 		assertTrue(isElementPresent(driver, By.id(elemnetText)));
 
 	}

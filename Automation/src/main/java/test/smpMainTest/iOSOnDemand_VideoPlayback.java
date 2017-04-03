@@ -116,7 +116,7 @@ public class iOSOnDemand_VideoPlayback {
 					"iPad-Air2");
 
 			ioscommonfunction.tapbutton(iospageobjects.update_ignoreButton, "Dismissing the Update Alert",
-					iosdriver);
+					iosdriver,ScreenshotPath);
 
 
 
@@ -132,7 +132,7 @@ public class iOSOnDemand_VideoPlayback {
 		{
 
 			ioscommonfunction.tapbutton(iospageobjects.OnDemand_Video, "Staring the Video OnDemand Playback",
-					iosdriver);
+					iosdriver,ScreenshotPath);
 
 			iospageobjects.playback_transportcontrol.click();
 			Thread.sleep(100);

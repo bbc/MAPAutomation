@@ -2,6 +2,8 @@ package main.java.test.smpMainTest;
 
 import java.io.File;
 
+import org.openqa.selenium.By;
+
 public class SubStringExample{
 	   public static void main(String args[]) {
 		String str = new String("MF - VOD - Production (Combined profiles, HD) : b081ztv2 mediaselector:live  ");
@@ -42,7 +44,18 @@ public class SubStringExample{
 		String progress = "In Progress - 13.5%";
 		
 		System.out.println("progress text is "+progress.substring(0, 12));
-	       
+		
+		
+		
+		for(int i=1;i<6;i++)
+		{
+			for(int j=1;j<3;j++)
+			{
+		
+		//String text = iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell['"+i+"']/UIAStaticText['"+i+"']")).getText();
+			System.out.println("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell["+j+"]/UIAStaticText["+i+"]");
+		}
+		}
 
 	}
 }

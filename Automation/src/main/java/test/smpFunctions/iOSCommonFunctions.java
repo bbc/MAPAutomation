@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +18,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
@@ -27,19 +29,19 @@ public class iOSCommonFunctions {
 	public ExtentTest logger = null;
 	File file;
 
-	public void tapbutton(WebElement element, String testname, IOSDriver<WebElement> idriver)
-			throws InterruptedException {
+//	public void tapbutton(WebElement element, String testname, IOSDriver<WebElement> idriver)
+//			throws InterruptedException {
+//
+//		logger = extent.startTest(testname);
+//		element.click();
+//		Thread.sleep(1000);
+//		logger.log(LogStatus.INFO, testname);
+//		// logger.log(LogStatus.INFO, testname +
+//		// logger.addScreenCapture(capture_ScreenShot(idriver, path,
+//		// testname)));
+//	}
 
-		logger = extent.startTest(testname);
-		element.click();
-		Thread.sleep(1000);
-		logger.log(LogStatus.INFO, testname);
-		// logger.log(LogStatus.INFO, testname +
-		// logger.addScreenCapture(capture_ScreenShot(idriver, path,
-		// testname)));
-	}
-
-	public boolean isElementPresent(IOSDriver<WebElement> iosdriver, By xpath) {
+	public boolean isElementPresent(AppiumDriver<WebElement> iosdriver, By xpath) {
 
 		logger = extent.startTest("Checking Element Present");
 		try {
@@ -51,11 +53,11 @@ public class iOSCommonFunctions {
 		}
 	}
 
-	public String capture_ScreenShot(IOSDriver<WebElement> iosdriver, String ScreenshotPath, String Screenshotname) 
+	public String capture_ScreenShot(AppiumDriver<WebElement> driver, String ScreenshotPath, String Screenshotname) 
 	{
 
 		try {
-			TakesScreenshot ts = (TakesScreenshot) iosdriver;;
+			TakesScreenshot ts = (TakesScreenshot) driver;;
 //			if(platform == "iOS")
 //			{
 //				IOSDriver<WebElement> iosdriver = null;
@@ -119,7 +121,7 @@ public class iOSCommonFunctions {
 		extent.flush();
 	}
 
-	public void seekingRandomly(WebElement element, IOSDriver<WebElement> idriver, String path, double d)
+	public void seeking_Randomly(WebElement element, AppiumDriver<WebElement> idriver, String path, double d)
 			throws Exception {
 		int seekposition = (int) d;
 
@@ -142,7 +144,7 @@ public class iOSCommonFunctions {
 
 	}
 
-	public void seek_bar_swipe(IOSDriver<WebElement> idriver, WebElement seekbar, int start, double d) {
+	public void seek_bar_swipe(AppiumDriver<WebElement> idriver, WebElement seekbar, int start, double d) {
 		int startX = seekbar.getLocation().getX();
 		System.out.println("Startx :" + startX);
 
@@ -166,19 +168,19 @@ public class iOSCommonFunctions {
 		idriver.swipe(startX, yAxis, moveToXDirectionAt, yAxis, 1000);
 	}
 
-	public void turnWifiON(String TestName, IOSDriver<WebElement> idriver, WebElement Wifi,
+	public void turnWifiON(String TestName, AppiumDriver<WebElement> driver, WebElement Wifi,
 			WebElement Hide_ControlCentre,String path, String message)
 			throws Exception {
 
 		logger = extent.startTest(TestName);
 
-		org.openqa.selenium.Dimension d = idriver.manage().window().getSize();
+		org.openqa.selenium.Dimension d = driver.manage().window().getSize();
 
 		int height = d.getHeight();
 		int endHeight = height / 4;
 		int width = d.getWidth();
 		int endWidth = width / 4;
-		idriver.swipe(endWidth, height, endWidth, endHeight, 1000);
+		driver.swipe(endWidth, height, endWidth, endHeight, 1000);
 
 		// WebElement wifi =
 		// iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[2]"));
@@ -192,7 +194,7 @@ public class iOSCommonFunctions {
 
 		// logger.log(LogStatus.INFO, "Turned WiFi OFF");
 
-		logger.log(LogStatus.INFO, message + logger.addScreenCapture(capture_ScreenShot(idriver, path, message)));
+		logger.log(LogStatus.INFO, message + logger.addScreenCapture(capture_ScreenShot(driver, path, message)));
 
 		Hide_ControlCentre.click();
 		Thread.sleep(1000); // the
@@ -202,7 +204,7 @@ public class iOSCommonFunctions {
 	}
 	
 	
-	public void tapbutton(WebElement element, String testname, IOSDriver<WebElement> idriver, String path)
+	public void tapbutton(WebElement element, String testname, AppiumDriver<WebElement> idriver, String path)
 			throws InterruptedException {
 		
 		logger = extent.startTest(testname);
@@ -210,6 +212,17 @@ public class iOSCommonFunctions {
 		Thread.sleep(2000);
 		logger.log(LogStatus.INFO,
 				testname + logger.addScreenCapture(capture_ScreenShot(idriver, path, testname)));
+	}
+	
+	
+	
+	public void playback_orientation(String message, AppiumDriver<WebElement> driver , ScreenOrientation orientation,
+			String path) throws Exception {
+		logger = extent.startTest(message);
+		driver.rotate(orientation);
+		Thread.sleep(5000);
+		logger.log(LogStatus.INFO,
+				message + logger.addScreenCapture(capture_ScreenShot(driver, path, message)));
 	}
 	
 	
@@ -221,5 +234,29 @@ public class iOSCommonFunctions {
 		Thread.sleep(1000);
 		logger.log(LogStatus.INFO,
 				testname + logger.addScreenCapture(capture_ScreenShot(idriver, path, testname)));
+	}
+	
+	
+	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> adriver, String path, double d)
+			throws Exception {
+		int seekposition= (int) d;
+
+		logger = extent.startTest("seekingRandomly",
+				"Seeking randomly to check whether playback resumes from new point");
+
+		int startX = element.getLocation().getX();
+				//liverewind.live_rewind_progressbar.getLocation().getX();
+
+		seek_bar_swipe(adriver, element, startX, d);// 0.5);
+		Thread.sleep(3000);
+
+		logger.log(LogStatus.INFO,
+				"Seeking" + d + "%"
+						+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Multipel Seeking")));
+
+		//LiveText_Checking(adriver, path);
+
+		Thread.sleep(5000);
+
 	}
 }

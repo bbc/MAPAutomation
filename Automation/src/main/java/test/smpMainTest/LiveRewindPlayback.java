@@ -133,9 +133,9 @@ public class LiveRewindPlayback {
 		// Simuclast Rewind Playback");
 		try {
 	
-			commonfunction.tapbutton(commonobjects.vpidPlay_button, "Clicking on PlayButton", driver, ScreenshotPath);
+			commonfunction.tapbutton("Clicking on PlayButton", commonobjects.vpidPlay_button, driver, ScreenshotPath);
 
-			commonfunction.tapbutton(commonobjects.fullscreen_button, "Clicking on Full Screen button", driver,
+			commonfunction.tapbutton("Clicking on Full Screen button", commonobjects.fullscreen_button, driver,
 					ScreenshotPath);
 
 			commonfunction.PlaybackContinue(liverewindobject.live_simulcat_rewind_time, driver, ScreenshotPath);
@@ -227,7 +227,7 @@ public class LiveRewindPlayback {
 
 			System.out.println("Waited for 580 Secds");
 
-			commonfunction.tapbutton(commonobjects.vod_play_fullscreen_exit, "Existing the Full Screen button", driver,
+			commonfunction.tapbutton("Existing the Full Screen button", commonobjects.vod_play_fullscreen_exit, driver,
 					ScreenshotPath);
 
 			commonfunction.Navigateback_MainMenu(driver, ScreenshotPath);
@@ -235,8 +235,8 @@ public class LiveRewindPlayback {
 			commonfunction.selectItemforPlayback(commonobjects.liveEpsiode, "LiveRewind Simulcat",
 					commonobjects.element, driver, commonobjects.listview, ScreenshotPath);
 
-			commonfunction.tapbutton(commonobjects.vpidPlay_button,
-					"Playing the Simulcast to check Live Text displayed", driver, ScreenshotPath);
+			commonfunction.tapbutton("Playing the Simulcast to check Live Text displayed",
+					commonobjects.vpidPlay_button, driver, ScreenshotPath);
 
 			commonfunction.LiveText_Checking(driver, absoluteFilePath);
 

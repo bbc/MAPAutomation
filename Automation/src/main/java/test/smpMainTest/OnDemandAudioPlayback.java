@@ -138,7 +138,7 @@ public class OnDemandAudioPlayback {
 	@Test(dependsOnMethods = { "openVpidBrowser" })
 	public void audioPlayback() throws Exception {
 	
-		commonfunction.tapbutton(commonobjects.vpidPlay_button, "Clicking on Play Button", driver, ScreenshotPath);
+		commonfunction.tapbutton("Clicking on Play Button", commonobjects.vpidPlay_button, driver, ScreenshotPath);
 	 Thread.sleep(1000);
 	
 	
