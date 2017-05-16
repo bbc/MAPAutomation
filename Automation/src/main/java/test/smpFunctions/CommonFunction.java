@@ -30,6 +30,7 @@ import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.DeviceList;
 import main.java.test.smpUtilityFunctions.PortFactory;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDeviceActionShortcuts;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.android.Connection;
@@ -61,6 +62,8 @@ public class CommonFunction {
 	PortFactory portFactory = new PortFactory();
 
 	LiveRewindFunctions liverewindFunctions = new LiveRewindFunctions();
+	
+	public AppiumDriver<WebElement> driver=null;
 
 	/*
 	 * 
@@ -148,24 +151,24 @@ public class CommonFunction {
 
 	}
 
-	public void waitForScreenToLoad(AndroidDriver<WebElement> lDriver, WebElement element, int seconds) {
+	public void waitForScreenToLoad(AppiumDriver<WebElement> driver, WebElement element, int seconds) {
 
-		WebDriverWait wait = new WebDriverWait(lDriver, seconds);
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.visibilityOf(element));
 
 	}
 
-	public void waitForScreenToLoad(IOSDriver<WebElement> idriver, WebElement element, int seconds) {
+	public void waitForScreen_ToLoad(AppiumDriver<WebElement> driver, WebElement element, int seconds) {
 
-		WebDriverWait wait = new WebDriverWait(idriver, seconds);
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.visibilityOf(element));
 
 	}
 
-	public void waitforElement(IOSDriver<WebElement> iosdriver, WebElement element, int seconds) {
+	public void waitforElement(AppiumDriver<WebElement> driver, WebElement element, int seconds) {
 
 	//	driver.get("http://somedomain/url_that_delays_loading");
-		WebElement myDynamicElement = (new WebDriverWait(iosdriver, 10))
+		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("myDynamicElement")));
 	}
 
@@ -173,7 +176,7 @@ public class CommonFunction {
 		return Connection.AIRPLANE;
 	}
 
-	public void getScreen_orientation(AndroidDriver<WebElement> driver) {
+	public void getScreen_orientation(AppiumDriver<WebElement> driver) {
 		System.out.println(" Current screen orientation Is : " + driver.getOrientation());
 	}
 
@@ -208,7 +211,7 @@ public class CommonFunction {
 
 	}
 
-	public void PlaybackContinue(WebElement element, AndroidDriver<WebElement> adriver, String path)
+	public void PlaybackContinue(WebElement element, AppiumDriver<WebElement> adriver, String path)
 			throws Exception {
 
 			logger = extent.startTest("Live rewind Playback", "Checking the Live Simuclast Rewind Playback");
@@ -268,7 +271,7 @@ public class CommonFunction {
 	}
 
 	public void OnDemandplayback_duration(WebElement element, WebElement element1, WebElement element2, String path,
-			AndroidDriver<WebElement> adriver) throws Exception {
+			AppiumDriver<WebElement> driver) throws Exception {
 		
 		
 		logger = extent.startTest("Checking the On-Demand Video Playing");
@@ -327,7 +330,7 @@ public class CommonFunction {
 			System.out.println(" Matched");
 		}
 		logger.log(LogStatus.INFO,
-				"Snapshot below: " + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Playback-Duration")));
+				"Snapshot below: " + logger.addScreenCapture(capture_ScreenShot(driver, path, "Playback-Duration")));
 
 	}
 
@@ -593,7 +596,7 @@ public void populateDevices_Names() throws Exception {
 	}
 
 
-	public void Seekingbackwardforward(WebElement element, String playbackposition, AndroidDriver<WebElement> adriver,
+	public void Seekingbackwardforward(WebElement element, String playbackposition, AppiumDriver<WebElement> driver,
 			String path) throws Exception {
 
 		logger = extent.startTest("Seekingbackwardforward", "Seeking backward and forward");
@@ -614,17 +617,17 @@ public void populateDevices_Names() throws Exception {
 
 		if (playbackposition.equalsIgnoreCase("Beginning")) {
 
-			adriver.swipe(startX, yAxis, endX, yAxis, 9000);
+			driver.swipe(startX, yAxis, endX, yAxis, 9000);
 			logger.log(LogStatus.INFO, "Seeking right to Beginning "
 					+ logger
-					.addScreenCapture(capture_ScreenShot(adriver, path, "Seeking to Beginning")));
+					.addScreenCapture(capture_ScreenShot(driver, path, "Seeking to Beginning")));
 		} else if (playbackposition.equalsIgnoreCase("End"))
 
 		{
 
-			adriver.swipe(endX, yAxis, startX, yAxis, 9000);
+			driver.swipe(endX, yAxis, startX, yAxis, 9000);
 			logger.log(LogStatus.INFO, "Seeking right to End "
-					+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Seeking to End")));
+					+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Seeking to End")));
 
 		}
 
@@ -632,12 +635,12 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void LiveText_Checking(AppiumDriver<WebElement> adriver, String path)
+	public void LiveText_Checking(AppiumDriver<WebElement> driver, String path)
 			throws Exception, NullPointerException {
 
 		try {
 			// String elements = element.getText();
-			boolean livetext = isElementPresent(adriver, By.id("uk.co.bbc.avtestharnesssmp:id/live_icon"));
+			boolean livetext = isElementPresent(driver, By.id("uk.co.bbc.avtestharnesssmp:id/live_icon"));
 			System.out.println("LiveText Value is" + livetext);
 
 			if (livetext == true) {
@@ -662,12 +665,12 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void open_Menu(WebElement element, String testname, AndroidDriver<WebElement> adriver, String path)
+	public void open_Menu(WebElement element, String testname, AppiumDriver<WebElement> driver, String path)
 			throws Exception {
 		logger = extent.startTest(testname);
 		element.click();
 		logger.log(LogStatus.INFO, testname
-				+ logger.addScreenCapture(capture_ScreenShot(adriver, path, testname)));
+				+ logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
 
 		Thread.sleep(3000);
 
@@ -684,7 +687,7 @@ public void populateDevices_Names() throws Exception {
 	}
 
 	public void VpidBrowser(String testname, WebElement element, WebElement element1, String vpid, String Mediatype,
-			WebElement element3, AndroidDriver<WebElement> adriver, String path)
+			WebElement element3, AppiumDriver<WebElement> driver, String path)
 			throws Exception {
 
 		logger = extent.startTest(testname);
@@ -695,7 +698,7 @@ public void populateDevices_Names() throws Exception {
 		Thread.sleep(1000);
 
 		if (Mediatype == "Audio") {
-			adriver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/isAudioSwitch")).click();
+			driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/isAudioSwitch")).click();
 			Thread.sleep(1000);
 
 			element3.click();
@@ -707,7 +710,7 @@ public void populateDevices_Names() throws Exception {
 		}
 
 		logger.log(LogStatus.INFO,
-				testname + logger.addScreenCapture(capture_ScreenShot(adriver, path, testname)));
+				testname + logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
 
 	}
 	
@@ -715,12 +718,12 @@ public void populateDevices_Names() throws Exception {
 	
 	
 	public void playback_retry(String Testname, WebElement element, String path, WebElement element1,
-			String errormessage, String errorbutton, WebElement element2, AndroidDriver<WebElement> adriver)
+			String errormessage, String errorbutton, WebElement element2, AndroidDriver<WebElement> driver)
 			throws Exception
 	{
 		logger = extent.startTest(Testname);
 		
-		adriver.setConnection(networkconnection().AIRPLANE);
+		driver.setConnection(networkconnection().AIRPLANE);
 		
 		// driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/subtitles_view")).click();
 		element.click();
@@ -735,10 +738,10 @@ public void populateDevices_Names() throws Exception {
 		Thread.sleep(6000);
 
 		logger.log(LogStatus.INFO, "Playing in PORTRAIT Mode"
-				+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "PORTRAIT")));
+				+ logger.addScreenCapture(capture_ScreenShot(driver, path, "PORTRAIT")));
 		
 		logger.log(LogStatus.INFO,
-				"Airplane Mode ON" + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Airplane")));
+				"Airplane Mode ON" + logger.addScreenCapture(capture_ScreenShot(driver, path, "Airplane")));
 		System.out.println("Airplane Mode ON");
 		
 		
@@ -746,26 +749,26 @@ public void populateDevices_Names() throws Exception {
 
 		logger.log(LogStatus.INFO, "Checking Playback retry");	
 
-		waitForScreenToLoad(adriver, element1, 1200);// ondemand_page.vod_error_message,
+		waitForScreenToLoad(driver, element1, 1200);// ondemand_page.vod_error_message,
 													// 1200);
 		String error = element1.getText(); // ondemand_page.vod_error_message.getText();//driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/error_message")).getText();
 		System.out.println("Error Message :-------"+error);
 		logger.log(LogStatus.INFO, "Error Message "
-				+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Error Message")));
+				+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Error Message")));
 		
 //		String Elapsed_Time_Beforeretry = ondemand_page.vod_play_elasped_duration.getText();
 //		
 //		System.out.println("Elapsed Time Before Retry" + Elapsed_Time_Beforeretry);
 	    
-		boolean error_message = isElementPresent(adriver, By.id(errormessage));// "uk.co.bbc.avtestharnesssmp:id/error_message"));
+		boolean error_message = isElementPresent(driver, By.id(errormessage));// "uk.co.bbc.avtestharnesssmp:id/error_message"));
 		if(error_message == true)
 		{
-			adriver.setConnection(networkconnection().DATA);
+			driver.setConnection(networkconnection().DATA);
 			logger.log(LogStatus.INFO,
-					"Wifi Mode ON" + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Wifi")));
+					"Wifi Mode ON" + logger.addScreenCapture(capture_ScreenShot(driver, path, "Wifi")));
 			System.out.println("Connected to Mobile WiFi");
 			Thread.sleep(10000);
-			AssertJUnit.assertTrue("Okay Button Present", isElementPresent(adriver, By.id(errorbutton))); // "uk.co.bbc.avtestharnesssmp:id/error_button")));
+			AssertJUnit.assertTrue("Okay Button Present", isElementPresent(driver, By.id(errorbutton))); // "uk.co.bbc.avtestharnesssmp:id/error_button")));
 			Thread.sleep(10000);
 			element2.click();
 			//ondemand_page.vod_try_again_button.click();
@@ -778,7 +781,7 @@ public void populateDevices_Names() throws Exception {
 //			System.out.println("Elapsed Time After Retry" + Elapsed_Time_Afterretry);
 			
 			logger.log(LogStatus.INFO, "Playback Started"
-					+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Playback_AfterRetry")));
+					+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Playback_AfterRetry")));
 		}
 		else
 		{
@@ -821,7 +824,7 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void swipingVertical(AndroidDriver<WebElement> driver) throws InterruptedException {
+	public void swipingVertical(AppiumDriver<WebElement> driver) throws InterruptedException {
 		// Get the size of screen.
 		Dimension size = driver.manage().window().getSize();
 		System.out.println(size);
@@ -850,26 +853,26 @@ public void populateDevices_Names() throws Exception {
 
 	}
 
-	public void Navigateback_MainMenu(AndroidDriver<WebElement> adriver, String path) throws Exception {
+	public void Navigateback_MainMenu(AppiumDriver<WebElement> driver, String path) throws Exception {
 
 		logger = extent.startTest("Navigate back to Main Menu");
 
-		adriver.pressKeyCode(AndroidKeyCode.BACK);
+		((AndroidDeviceActionShortcuts) driver).pressKeyCode(AndroidKeyCode.BACK);
 		Thread.sleep(4000);
 
-		adriver.rotate(ScreenOrientation.PORTRAIT);
+		driver.rotate(ScreenOrientation.PORTRAIT);
 		Thread.sleep(4000);
 
 		logger.log(LogStatus.INFO,
-				"Home Main Menu" + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Home Main Menu")));
+				"Home Main Menu" + logger.addScreenCapture(capture_ScreenShot(driver, path, "Home Main Menu")));
 	}
 
 	public void selectItemforPlayback(String item, String message, List<WebElement> ele,
-			AndroidDriver<WebElement> adriver, String listview, String path)
+			AppiumDriver<WebElement> driver, String listview, String path)
 			throws Exception {
 
 		logger = extent.startTest("Selecting the Item for Playback from List View");
-		logger.log(LogStatus.INFO, message + logger.addScreenCapture(capture_ScreenShot(adriver, path, message)));
+		logger.log(LogStatus.INFO, message + logger.addScreenCapture(capture_ScreenShot(driver, path, message)));
 
 		try {
 
@@ -883,25 +886,25 @@ public void populateDevices_Names() throws Exception {
 
 			while (!found_result) {
 
-				ele = adriver.findElements(By.id(listview));
+				ele = driver.findElements(By.id(listview));
 
 				int size = 0;
 				size = size + ele.size();
 				System.out.println("Size ARE AS " + size);
 
-				for (int i = 0; i < size; i++) {
+				for (int i = 0; i < 4; i++)  {
 
 					String s = ele.get(i).getText();
 					System.out.println("The Assets are:---" + s);
 					System.out.println("The SubSTring of Assets are:---" + s.substring(0, 56));
 
 					// if (s.substring(0, 56).equals(itemtoFound))
-					if (itemtoFound.equals(s.substring(0, 56))) {
+				//	if (s.substring(0, 56).equalsIgnoreCase(a1)) 
+					if (s.substring(0, 56).equalsIgnoreCase(itemtoFound)) {
 
 						found_result = true;
 						System.out.println("Matched");
 						System.out.println("Size Item is " + i);
-
 						System.out.println("Size is " + size);
 
 						int sizes = size - 1;
@@ -909,11 +912,13 @@ public void populateDevices_Names() throws Exception {
 						Thread.sleep(5000);
 						break;
 
-					} else if (counter == 5) {
-						if (!found_result) {
+					} else if (counter == 4) 
+					{
+						if (!found_result && !(s.substring(0, 56).equalsIgnoreCase(itemtoFound)))
+						{
 							counter = 0;
 							System.out.println("NotMatched");
-							scrolling(adriver);
+							scrolling(driver);
 
 						}
 
@@ -930,16 +935,16 @@ public void populateDevices_Names() throws Exception {
 
 
 
-	public void scrolling(AndroidDriver<WebElement> adriver) throws InterruptedException {
+	public void scrolling(AppiumDriver<WebElement> driver) throws InterruptedException {
 		// Get the size of screen.
-		Dimension size = adriver.manage().window().getSize();
+		Dimension size = driver.manage().window().getSize();
 		System.out.println(size);
 
 		// Find swipe start and end point from screen's with and height.
 		// Find starty point which is at bottom side of screen.
-		int starty = (int) (size.height * 0.80);
+		int starty = (int) (size.height * 0.60);
 		// Find endy point which is at top side of screen.
-		int endy = (int) (size.height * 0.20);
+		int endy = (int) (size.height * 0.40);
 		// Find horizontal point where you wants to swipe. It is in middle of
 		// screen width.
 		int startx = size.width / 2;
@@ -947,7 +952,7 @@ public void populateDevices_Names() throws Exception {
 
 		// Swipe from Bottom to Top.
 		Thread.sleep(7000);
-		adriver.swipe(startx, starty, startx, endy, 12000);
+		driver.swipe(startx, starty, startx, endy, 12000);
 
 		// Swipe from Top to Bottom.
 		// driver.swipe(startx, endy, startx, starty, 13000);
