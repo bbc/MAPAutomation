@@ -47,9 +47,9 @@ public class SMPAndroidOnDemandAudioPlayback {
 	public WebDriverWait wait;
 
 	String filename = "OnDemandAudioPlayback";
-	String workingDirectory = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results"; /// System.getProperty("user.dir");
+	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results/LiveSimulcast";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
 
 	File file;// = new File(absoluteFilePath);
 
@@ -63,7 +63,7 @@ public class SMPAndroidOnDemandAudioPlayback {
 	PortFactory portFactory = new PortFactory();
 
 	@BeforeClass
-	@Parameters({ "AppiumPort", "DeviceID", "DeviceOS" })
+	@Parameters({ "appiumPort", "deviceID", "deviceOS" })
 	public void setUp(int port, String deviceId, String OS) throws Exception, MalformedURLException {
 		ap.startAppium(port);
 		ap.AppiumURL();
@@ -75,7 +75,7 @@ public class SMPAndroidOnDemandAudioPlayback {
 		capa.setCapability("deviceName", deviceId);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
-		capa.setCapability("app", "/Users/ramakh01/Desktop/AvTestHarness/BuildsSMP-AN/smp-an-24.4081.apk");
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -90,7 +90,7 @@ public class SMPAndroidOnDemandAudioPlayback {
 	}
 
 	@Test
-	@Parameters({ "DeviceID", "AppiumPort", "DeviceOS", "DeviceName" })
+	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" })
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception {
 		try {
 			commonobjects = new CommonObjects();
@@ -111,7 +111,7 @@ public class SMPAndroidOnDemandAudioPlayback {
 
 
 	@Test(dependsOnMethods = { "OpenAvtest" })
-	public void openVpidBrowser() throws Exception {
+	public void audioSelector() throws Exception {
 
 		try {
 			// commonfunction.open_Menu(commonobjects.menu, "Opening the Menu ",
@@ -135,15 +135,14 @@ public class SMPAndroidOnDemandAudioPlayback {
 
 	}
 
-	@Test(dependsOnMethods = { "openVpidBrowser" })
+	@Test(dependsOnMethods = { "audioSelector" })
 	public void audioPlayback() throws Exception {
 	
 		commonfunction.tapbutton("Clicking on Play Button", commonobjects.vpidPlay_button, driver, ScreenshotPath);
 	 Thread.sleep(1000);
 	
 	
-	 commonfunction.playback_enter_exitFullScreen(driver,
-	 commonobjects.vpid_playback_fullscreen,
+	 commonfunction.playback_enter_exitFullScreen(driver,commonobjects.vpid_playback_fullscreen,
 				"Entering Full Screen", ScreenshotPath);
 
 	 }

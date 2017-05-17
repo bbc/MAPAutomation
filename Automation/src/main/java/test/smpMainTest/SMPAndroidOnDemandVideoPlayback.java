@@ -47,9 +47,9 @@ public class SMPAndroidOnDemandVideoPlayback {
 	public WebDriverWait wait;
 
 	String filename = "OnDemandVideoPlayback";
-	String workingDirectory = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results"; /// System.getProperty("user.dir");
+	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results/LiveSimulcast";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
 
 	File file;// = new File(absoluteFilePath);
 
@@ -63,19 +63,19 @@ public class SMPAndroidOnDemandVideoPlayback {
 	PortFactory portFactory = new PortFactory();
 
 	@BeforeClass
-	@Parameters({ "AppiumPort", "DeviceID", "DeviceOS" })
-	public void setUp(int port, String deviceId, String OS) throws Exception, MalformedURLException {
-		ap.startAppium(port);
+	@Parameters({ "deviceID", "deviceOS", "AppiumPort" })
+	public void setUp(String deviceID, String deviceOS, int appiumPort) throws Exception, MalformedURLException {
+		ap.startAppium(appiumPort);
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
 
 		capa = new DesiredCapabilities();
 		capa.setCapability("appium-version", "1.0");
-		capa.setCapability("deviceName", deviceId);
+		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
-		capa.setCapability("platformVersion", OS);
-		capa.setCapability("app", "/../../../../..-AN/SMP-AN-25.4108-dev.apk");
+		capa.setCapability("platformVersion", deviceOS);
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -90,8 +90,9 @@ public class SMPAndroidOnDemandVideoPlayback {
 	}
 
 	@Test
-	@Parameters({ "DeviceID", "AppiumPort", "DeviceOS", "DeviceName" })
-	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception {
+	@Parameters({ "deviceID", "AppiumPort", "deviceOS", "deviceName" }) 
+	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
+	 {
 		try {
 			commonobjects = new CommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), commonobjects);
@@ -113,7 +114,7 @@ public class SMPAndroidOnDemandVideoPlayback {
 
 
 	@Test(dependsOnMethods = { "OpenAvtest" })
-	public void openVpidBrowser() throws Exception {
+	public void videoSelector() throws Exception {
 
 		try {
 			// commonfunction.open_Menu(commonobjects.menu, "Opening the Menu ",
@@ -138,10 +139,10 @@ public class SMPAndroidOnDemandVideoPlayback {
 
 	}
 
-	@Test(dependsOnMethods = { "openVpidBrowser" })
+	@Test(dependsOnMethods = { "videoSelector" })
 	 public void vpideoPlayback() throws Exception {
 	
-	 commonfunction.tapbutton("Clicking onPlayButton", commonobjects.vpidPlay_button, driver,
+	 commonfunction.tapbutton("Clicking onPlayButton", commonobjects.play_button, driver,
 				ScreenshotPath);
 	 Thread.sleep(1000);
 	
@@ -204,9 +205,6 @@ public class SMPAndroidOnDemandVideoPlayback {
 
 	@Test(dependsOnMethods = { "PlaybackRotation" })
 	 public void Playback_retry() throws Exception {
-	
-	
-	
 	
 	 try {
 	
