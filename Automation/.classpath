@@ -35,8 +35,6 @@
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/saxon-8.7.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/SaxonLiaison.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-java-2.53.1.jar"/>
-	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-selenium-2.51.0.zip"/>
-	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-selenium-2.52.0 (1).zip"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-server-2.44.0.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-server-standalone-2.51.0.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/selenium-server-standalone-2.53.0.jar"/>

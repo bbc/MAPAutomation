@@ -11,6 +11,12 @@ public class CommonObjects {
 	public void CommonObjects() {
 
 	}
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@text='Enable Live Rewind']")
+	public WebElement liverewind_button;
+	
+	@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc'More options']")
+	public WebElement avtest_menu; 
 
 	@AndroidFindBy(xpath = "//android.support.v7.widget.am[@index='1']")
 	public WebElement menu;
@@ -97,14 +103,26 @@ public class CommonObjects {
 
 	public String Simulcast_assertions[] = {
 
-			"uk.co.bbc.avtestharnesssmp:id/stop_button", "uk.co.bbc.avtestharnesssmp:id/live_icon",
-			"uk.co.bbc.avtestharnesssmp:id/volume_button" };
+			"uk.co.bbc.avtestharnesssmp:id/stop_button",
+			"uk.co.bbc.avtestharnesssmp:id/volume_button",
+			"uk.co.bbc.avtestharnesssmp:id/live_icon",
+			"uk.co.bbc.avtestharnesssmp:id/exit_fullscreen_button"
+			};
+	
+	public String Simulcast_assertions_buttonNotPresent[] = {
+
+			"uk.co.bbc.avtestharnesssmp:id/seek_progress_bar",
+			"uk.co.bbc.avtestharnesssmp:id/pause_button",
+			"uk.co.bbc.avtestharnesssmp:id/thumb_container"
+			};
 
 	public String LiveRewdinRewind_assertions[] = { "uk.co.bbc.avtestharnesssmp:id/seek_progress_bar",
 			"uk.co.bbc.avtestharnesssmp:id/pause_button", "uk.co.bbc.avtestharnesssmp:id/live_icon",
 			"uk.co.bbc.avtestharnesssmp:id/volume_button", "uk.co.bbc.avtestharnesssmp:id/exit_fullscreen_button",
 			"uk.co.bbc.avtestharnesssmp:id/play_pause_container", "uk.co.bbc.avtestharnesssmp:id/thumb_container"
 	};
+	
+	
 
 	public String OnDemand_assertions[] = { "uk.co.bbc.avtestharnesssmp:id/seek_progress_bar",
 			"uk.co.bbc.avtestharnesssmp:id/thumb_container",
@@ -133,6 +151,11 @@ public class CommonObjects {
 
 	public String liveRewind_assertions_text[] = { "Pause Button present", "Seek Bar present", "Live Icon present",
 			"Volume button present", "Pause Button present" };
+	
+	public String liveSimulcast_assertions_text[] = { "Stop Button present",  "Live Icon present","Volume button present","Full Screen Button present" };
+	
+	public String liveSimulcast_assertionsNotPresent_text[] = { "Pause Button Notpresent",  "Seekbar NotPresent" };
+	
 
 	public String LiveIcon_text = "uk.co.bbc.avtestharnesssmp:id/live_icon";
 

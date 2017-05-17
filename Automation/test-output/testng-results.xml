@@ -1,45 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="623856" started-at="2017-04-02T18:45:44Z" finished-at="2017-04-02T18:56:08Z">
+  <suite name="Suite" duration-ms="166839" started-at="2017-05-17T11:37:31Z" finished-at="2017-05-17T11:40:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="623856" started-at="2017-04-02T18:45:44Z" finished-at="2017-04-02T18:56:08Z">
-      <class name="main.java.test.DRMMainTests.iOSDRMTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="Setup" is-config="true" duration-ms="10708" started-at="2017-04-02T19:45:44Z" finished-at="2017-04-02T19:45:55Z">
+    <test name="GalaxyS6" duration-ms="166839" started-at="2017-05-17T11:37:31Z" finished-at="2017-05-17T11:40:18Z">
+      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, int)[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="setUp" is-config="true" duration-ms="20332" started-at="2017-05-17T12:37:31Z" finished-at="2017-05-17T12:37:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[51f09694]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6.0.1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4746]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="openDRMApp()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="openDRMApp" duration-ms="590" started-at="2017-04-02T19:45:55Z" finished-at="2017-04-02T19:45:56Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="OpenAvtest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="OpenAvtest" duration-ms="9693" started-at="2017-05-17T12:37:52Z" finished-at="2017-05-17T12:38:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[51f09694]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4746]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[6.0.1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[GalaxyS6]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openDRMApp -->
-        <test-method status="PASS" signature="vpid_Download()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="vpid_Download" duration-ms="52602" started-at="2017-04-02T19:45:56Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.openDRMApp" finished-at="2017-04-02T19:46:48Z">
+        </test-method> <!-- OpenAvtest -->
+        <test-method status="PASS" signature="PlaybackStart()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="PlaybackStart" duration-ms="8271" started-at="2017-05-17T12:38:01Z" depends-on-methods="main.java.test.smpMainTest.SMPAndroidLiveSimulcast.OpenAvtest" finished-at="2017-05-17T12:38:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- vpid_Download -->
-        <test-method status="PASS" signature="check_Vpid()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="check_Vpid" duration-ms="33762" started-at="2017-04-02T19:46:48Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.vpid_Download" finished-at="2017-04-02T19:47:22Z">
+        </test-method> <!-- PlaybackStart -->
+        <test-method status="PASS" signature="PlaybackContinues()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="PlaybackContinues" duration-ms="95014" started-at="2017-05-17T12:38:09Z" depends-on-methods="main.java.test.smpMainTest.SMPAndroidLiveSimulcast.PlaybackStart" finished-at="2017-05-17T12:39:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- check_Vpid -->
-        <test-method status="PASS" signature="DownloadProgress()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="DownloadProgress" duration-ms="278573" started-at="2017-04-02T19:47:22Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.check_Vpid" finished-at="2017-04-02T19:52:00Z">
+        </test-method> <!-- PlaybackContinues -->
+        <test-method status="PASS" signature="liveSimulcast_Assertions_Present()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="liveSimulcast_Assertions_Present" duration-ms="6708" started-at="2017-05-17T12:39:45Z" depends-on-methods="main.java.test.smpMainTest.SMPAndroidLiveSimulcast.PlaybackContinues" finished-at="2017-05-17T12:39:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DownloadProgress -->
-        <test-method status="PASS" signature="downloads_VPIDS_Completed()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="downloads_VPIDS_Completed" duration-ms="36231" started-at="2017-04-02T19:52:00Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.DownloadProgress" finished-at="2017-04-02T19:52:37Z">
+        </test-method> <!-- liveSimulcast_Assertions_Present -->
+        <test-method status="PASS" signature="liveSimulcast_Assertions_NotPresent()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="liveSimulcast_Assertions_NotPresent" duration-ms="10129" started-at="2017-05-17T12:39:51Z" depends-on-methods="main.java.test.smpMainTest.SMPAndroidLiveSimulcast.liveSimulcast_Assertions_Present" finished-at="2017-05-17T12:40:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- downloads_VPIDS_Completed -->
-        <test-method status="PASS" signature="Playbackoffline()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="Playbackoffline" duration-ms="147616" started-at="2017-04-02T19:52:37Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.downloads_VPIDS_Completed" finished-at="2017-04-02T19:55:04Z">
+        </test-method> <!-- liveSimulcast_Assertions_NotPresent -->
+        <test-method status="PASS" signature="LiveplaybackStop()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="LiveplaybackStop" duration-ms="11588" started-at="2017-05-17T12:40:01Z" depends-on-methods="main.java.test.smpMainTest.SMPAndroidLiveSimulcast.liveSimulcast_Assertions_NotPresent" finished-at="2017-05-17T12:40:13Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Playbackoffline -->
-        <test-method status="PASS" signature="Delete_Downloaded()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@64bfbc86]" name="Delete_Downloaded" duration-ms="63758" started-at="2017-04-02T19:55:04Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.Playbackoffline" finished-at="2017-04-02T19:56:08Z">
+        </test-method> <!-- LiveplaybackStop -->
+        <test-method status="PASS" signature="End()[pri:0, instance:main.java.test.smpMainTest.SMPAndroidLiveSimulcast@5649fd9b]" name="End" is-config="true" duration-ms="5087" started-at="2017-05-17T12:40:13Z" finished-at="2017-05-17T12:40:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Delete_Downloaded -->
-      </class> <!-- main.java.test.DRMMainTests.iOSDRMTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- End -->
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveSimulcast -->
+    </test> <!-- GalaxyS6 -->
+  </suite> <!-- Suite -->
 </testng-results>

@@ -211,10 +211,10 @@ public class CommonFunction {
 
 	}
 
-	public void PlaybackContinue(WebElement element, AppiumDriver<WebElement> adriver, String path)
+	public void PlaybackContinue(String text,WebElement element, AppiumDriver<WebElement> adriver, String path)
 			throws Exception {
 
-			logger = extent.startTest("Live rewind Playback", "Checking the Live Simuclast Rewind Playback");
+			logger = extent.startTest(text);
 
 
 		String startduration = element.getText();
@@ -544,7 +544,7 @@ public void populateDevices_Names() throws Exception {
 	}
 }
 
-	public void Assert_TransportControls(AppiumDriver<WebElement> driver, String path, String[] assertions,
+	public void Assert_TransportControls(AppiumDriver<WebElement> driver, String path, String[] assertionsPresent,
 			String[] assertions_text, String element) throws Exception {
 		// String assertions_text[] = { "Pause Button present", "Seek Bar
 		// present", "Live Icon present",
@@ -557,19 +557,63 @@ public void populateDevices_Names() throws Exception {
 
 		// Assert.assertFalse(funct.isElementPresent(driver,
 		// By.id("uk.co.bbc.avtestharnesssmp:id/stop_button")));
-		logger.log(LogStatus.PASS, "Stop button not present");
+	//	logger.log(LogStatus.PASS, "Stop button not present");
 
 		for (int j = 0; j < assertions_text.length; j++) {
 			logger.log(LogStatus.PASS, assertions_text[j]);
 		}
 		// for (int i = 0; i < funct.Rewind_assertions.length; i++)
-		for (int i = 0; i < assertions.length; i++) {
-			System.out.println(assertions[i]);
-			assertTrue(isElementPresent(driver, By.id(assertions[i])));
+		for (int i = 0; i < assertionsPresent.length; i++) {
+			System.out.println(assertionsPresent[i]);
+			assertTrue(isElementPresent(driver, By.id(assertionsPresent[i])));
+			
 
 		}
 
 		Assert.assertFalse(isElementPresent(driver, By.id(element)));
+	}
+	
+	
+	
+	
+	public void Assert_TransportControlsNotPresent(AppiumDriver<WebElement> driver, String path, String[] assertionsNotPresent,
+			String[] assertions_text) throws Exception {
+		// String assertions_text[] = { "Pause Button present", "Seek Bar
+		// present", "Live Icon present",
+		// "Volume button present", "Pause Button present" };
+
+		logger = extent.startTest("Checking the Transport Controls Not Present");
+
+		logger.log(LogStatus.INFO, "TransportContols "
+				+ logger.addScreenCapture(capture_ScreenShot(driver, path, "Assertion")));
+
+		// Assert.assertFalse(funct.isElementPresent(driver,
+		// By.id("uk.co.bbc.avtestharnesssmp:id/stop_button")));
+	
+
+		for (int j = 0; j < assertions_text.length; j++) {
+			logger.log(LogStatus.PASS, assertions_text[j]);
+		}
+		// for (int i = 0; i < funct.Rewind_assertions.length; i++)
+		for (int i = 0; i < assertionsNotPresent.length; i++) {
+			System.out.println(assertionsNotPresent[i]);
+			//assertTrue(isElementPresent(driver, By.id(assertionsNotPresent[i])));
+			Assert.assertFalse(isElementPresent(driver, By.id(assertionsNotPresent[i])), "Element Not Found");
+			//assertTrue(is(driver, By.id(assertionsNotPresent[i])));
+			
+
+		}
+
+		
+	}
+	
+	
+	
+
+	private void assertFalse(boolean elementPresent) {
+		
+		// TODO Auto-generated method stub
+		
 	}
 
 	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> driver, String path, double d)

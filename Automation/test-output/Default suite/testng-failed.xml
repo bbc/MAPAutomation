@@ -3,18 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="main.java.test.DRMMainTests.iOSDRMTest">
+      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast">
         <methods>
-          <include name="Playbackoffline"/>
-          <include name="downloads_VPIDS_Completed"/>
-          <include name="Setup"/>
-          <include name="Delete_Downloaded"/>
-          <include name="vpid_Download"/>
-          <include name="DownloadProgress"/>
-          <include name="openDRMApp"/>
-          <include name="check_Vpid"/>
+          <include name="OpenAvtest"/>
+          <include name="liveRewind_Assertions"/>
+          <include name="PlaybackContinues"/>
+          <include name="LiveplaybackStop"/>
+          <include name="PlaybackStart"/>
         </methods>
-      </class> <!-- main.java.test.DRMMainTests.iOSDRMTest -->
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveSimulcast -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
