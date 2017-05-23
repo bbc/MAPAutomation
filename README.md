@@ -30,7 +30,9 @@ After execution a ExtentReport will be created under Result folder with DeviceNa
 # iOS 
 
 You need a provisioned device
+
 iOS dev certs
+
 Latest Xcode
 
 
