@@ -63,18 +63,18 @@ public class SMPAndroidOnDemandAudioPlayback {
 	PortFactory portFactory = new PortFactory();
 
 	@BeforeClass
-	@Parameters({ "appiumPort", "deviceID", "deviceOS" })
-	public void setUp(int port, String deviceId, String OS) throws Exception, MalformedURLException {
-		ap.startAppium(port);
+	@Parameters({ "deviceID", "deviceOS", "appiumPort" })
+	public void setUp(String deviceID, String deviceOS, int appiumPort) throws Exception, MalformedURLException {
+		ap.startAppium(appiumPort);
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
 
 		capa = new DesiredCapabilities();
 		capa.setCapability("appium-version", "1.0");
-		capa.setCapability("deviceName", deviceId);
+		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
-		capa.setCapability("platformVersion", OS);
+		capa.setCapability("platformVersion", deviceOS);
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");

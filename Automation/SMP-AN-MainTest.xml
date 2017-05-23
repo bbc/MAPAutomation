@@ -24,7 +24,7 @@
    <test name="Galaxy-S5">
 	     			<parameter name="deviceID" value="51f09694"></parameter>
 	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
-	  		    	<parameter name="AppiumPort" value="4746"></parameter>
+	  		    	<parameter name="appiumPort" value="4746"></parameter>
 	  		    	<parameter name="deviceName" value="Galaxy-S5"></parameter>
 	  		    <!-- 	<parameter name="deviceType" value="Mobile"></parameter> --> 
 		    <classes>

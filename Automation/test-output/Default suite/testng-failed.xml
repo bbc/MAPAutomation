@@ -3,15 +3,19 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast">
+      <class name="main.java.test.smpMainTest.iOSOnDemand_VideoPlayback">
         <methods>
+          <include name="TurnWiFi_ON"/>
+          <include name="playbackseeking"/>
           <include name="OpenAvtest"/>
-          <include name="liveRewind_Assertions"/>
-          <include name="PlaybackContinues"/>
-          <include name="LiveplaybackStop"/>
-          <include name="PlaybackStart"/>
+          <include name="playback_ErrorMessage"/>
+          <include name="OnDemand_PlaybackStart"/>
+          <include name="turn_WiFiOff"/>
+          <include name="Setup"/>
+          <include name="tearDown"/>
+          <include name="OnDemand_PlaybackPause"/>
         </methods>
-      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveSimulcast -->
+      </class> <!-- main.java.test.smpMainTest.iOSOnDemand_VideoPlayback -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

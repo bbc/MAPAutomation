@@ -55,8 +55,8 @@ public class iOSLiveSimulcastPlayback {
 			
 			
 		capabilities = new DesiredCapabilities();
-		capabilities.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.6");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MCP's iPad");
+		capabilities.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.6.4");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPadAir2");
 		capabilities.setCapability(MobileCapabilityType.UDID, "df43e12f4ba40c8763eb37dc17195717e094ee96");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.3.5");

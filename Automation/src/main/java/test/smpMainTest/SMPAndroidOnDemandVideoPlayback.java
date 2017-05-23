@@ -63,7 +63,7 @@ public class SMPAndroidOnDemandVideoPlayback {
 	PortFactory portFactory = new PortFactory();
 
 	@BeforeClass
-	@Parameters({ "deviceID", "deviceOS", "AppiumPort" })
+	@Parameters({ "deviceID", "deviceOS", "appiumPort" })
 	public void setUp(String deviceID, String deviceOS, int appiumPort) throws Exception, MalformedURLException {
 		ap.startAppium(appiumPort);
 		ap.AppiumURL();
@@ -90,7 +90,7 @@ public class SMPAndroidOnDemandVideoPlayback {
 	}
 
 	@Test
-	@Parameters({ "deviceID", "AppiumPort", "deviceOS", "deviceName" }) 
+	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
 	 {
 		try {

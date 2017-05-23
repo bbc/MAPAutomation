@@ -11,18 +11,40 @@
     <parameter name="deviceID" value="51f09694"/>
     <parameter name="deviceName" value="Galaxy-S5"/>
     <classes>
-      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback">
+      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast">
         <methods>
-          <include name="playbackseeking"/>
-          <include name="PlaybackRotation"/>
-          <include name="playback_pause"/>
-          <include name="videoSelector"/>
-          <include name="vpideoPlayback"/>
+          <include name="End"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveSimulcast -->
+      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback">
+        <methods>
           <include name="OpenAvtest"/>
           <include name="playback_resume"/>
-          <include name="videoPlaying"/>
-          <include name="Playback_retry"/>
+          <include name="audioPlaying"/>
           <include name="Playback_SeektoEnd"/>
+          <include name="CheckPlayback_retry"/>
+          <include name="playback_pause"/>
+          <include name="playbackseeking"/>
+          <include name="audioSelector"/>
+          <include name="audioPlayback"/>
+          <include name="PlaybackRotation"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback -->
+      <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback">
+        <methods>
+          <include name="liveRewind_Assertions"/>
+          <include name="seeking_randomly"/>
+          <include name="OpenAvtest"/>
+          <include name="PlaybackContinues"/>
+          <include name="PlaybackStart"/>
+          <include name="playbackseeking_backard_forward"/>
+          <include name="LiveRewindplaybackpause"/>
+          <include name="LiveRewindplaybackresume"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback -->
+      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback">
+        <methods>
           <include name="End"/>
           <include name="setUp"/>
         </methods>
