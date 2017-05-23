@@ -26,3 +26,11 @@ devices which are connected to the system. Here you no need to change device id/
 
 # Report
 After execution a ExtentReport will be created under Result folder with DeviceName+TestName
+
+# iOS 
+
+You need a provisioned device
+iOS dev certs
+Latest Xcode
+
+
