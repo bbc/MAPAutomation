@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/slf4j-jdk14-1.7.7.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/testng-6.8.7.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-5.0.0-BETA8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

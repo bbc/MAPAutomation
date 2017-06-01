@@ -34,9 +34,6 @@ public class iOSDRMTest {
 	public iOSDRMPageObjects iosdrmpageobjects;
 	public CommonObjects commonobjects;
 
-	public List<String> deviceID = new ArrayList<String>();
-	public List<String> deviceOS = new ArrayList<String>();
-	public List<String> deviceName = new ArrayList<String>();
 
 	
 	public DesiredCapabilities capa;
@@ -68,11 +65,24 @@ public class iOSDRMTest {
 	
 	iOSCommonObjects iospageobjects;
 
-
+	public String deviceName=null;
+	public String deviceOS=null;
+	public String deviceUDID=null;
 
 	@BeforeClass
-	public void Setup() throws Exception
-
+	public void getDeviceDetails() throws Exception
+	{
+		deviceName = ioscommonfunction.retrunDeviceInfo("DeviceName");
+		deviceOS = ioscommonfunction.retrunDeviceInfo("ProductVersion");
+		deviceUDID = ioscommonfunction.retrunDeviceInfo("UniqueDeviceID");
+	    System.out.println("The Device Name is :-"+  deviceName);
+	    System.out.println("The Device OS version is :-"+  deviceOS);
+	    System.out.println("The Device UDID is :-"+  deviceUDID);
+	    
+	    Setup(deviceName,deviceUDID,deviceOS);
+	}
+	
+	public void Setup(String dName,String dUDID, String dOS) throws Exception
 	{
 		appiummanager.startAppium(4723);
 		appiummanager.AppiumURL();
@@ -81,15 +91,18 @@ public class iOSDRMTest {
 
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.6");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MCP's iPad");
-		capabilities.setCapability(MobileCapabilityType.UDID, "df43e12f4ba40c8763eb37dc17195717e094ee96");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, dName);
+		capabilities.setCapability(MobileCapabilityType.UDID, dUDID);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.3.5");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, dOS);
 		capabilities.setCapability(MobileCapabilityType.APP,
-				"/Users/ramakh01/Desktop/Automation/Automation/DRM_iOS/DRMSampleApp.ipa");
+				"/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/DRM_iOS/DRMTestApp.ipa");
 		capabilities.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, false);
-
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");//"XCUITest");
+		//capabilities.setCapability("useNewWDA", true);
+		capabilities.setCapability("wdaLaunchTimeout", 3000);
+		capabilities.setCapability("wdaLocalPort", 8100);
 
 		try {
 
@@ -111,9 +124,9 @@ public class iOSDRMTest {
 			iospageobjects = new iOSCommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(iosdriver), iospageobjects);
 
-			ioscommonfunction.CreateReport(absoluteFilePath, "df43e12f4ba40c8763eb37dc17195717e094ee96", "4723",
-					"9.3.5",
-					"iPad-Air2");
+			ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
+					deviceOS,
+					deviceName);
 
 			
 
@@ -126,6 +139,21 @@ public class iOSDRMTest {
 	@Test(dependsOnMethods={"openDRMApp"})
 	public void vpid_Download() throws Exception
 	{
+		
+		iosdriver.findElementByAccessibilityId("Add").click();
+		Thread.sleep(3000);
+		
+		iosdriver.findElementByAccessibilityId("Clear text").click();
+		Thread.sleep(3000);
+		
+		WebElement VPID_Field = iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeTextField"));
+		VPID_Field.sendKeys("b08th1rx");
+		
+		iosdriver.findElementByAccessibilityId("Download").click();
+		Thread.sleep(3000);
+		
+
+		
 		for(int i=0;i<iosdrmpageobjects.vpids.length;i++)
 		{
 		iosdrmpageobjects.addDownload_Button.click();
@@ -291,9 +319,13 @@ public class iOSDRMTest {
 	@Test(dependsOnMethods = { "downloads_VPIDS_Completed" })
 	public void Playbackoffline() throws Exception {
 		//
-		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
+		/*ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
 				iospageobjects.dismiss_wholewindow, ScreenshotPath,
-				"Download Status After Network OFF " + iosdrmpageobjects.progressStatus.getText());
+				"Download Status After Network OFF " + iosdrmpageobjects.progressStatus.getText());*/
+		
+		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
+		
 		Thread.sleep(2000);
 
 		// drmcommonfunction.swipe(iosdrmpageobjects.downloadcomplete_button,

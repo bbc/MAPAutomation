@@ -17,8 +17,9 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")
 	public WebElement playback_start_button;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[3")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeTableView[1]/XCUIElementTypeCell[3")
 	public WebElement BBC_two_Live;
+	
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAStaticText[1]")
 	public WebElement playback_title;
@@ -67,6 +68,9 @@ public class iOSCommonObjects {
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIASegmentedControl[1]/UIAButton[2]")
 	public WebElement unmediated_tab;
+	
+	@iOSFindBy(accessibility="Dismiss")
+	public WebElement error_dimiss_button;
 
 	
 	@iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]")
@@ -78,7 +82,8 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[1]")
 	public WebElement airplane_mode;
 	
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[2]")
+	//@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[2]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[5]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther")
 	public WebElement wifi_mode;
 	
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]")
@@ -90,8 +95,10 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIAScrollView[1]/UIAStaticText[2]")
 	public WebElement update_message;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]")
+	@iOSFindBy(xpath = "//XCUIElementTypeCell[1]/XCUIElementTypeUIAButton[1]")
+			//"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[4]/XCUIElementTypeAlert[1]/XCUIElementTypeView[1]/XCUIElementTypeCell[1]/XCUIElementTypeUIAButton[1]")
 	public WebElement update_ignoreButton;
+	
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[2]")
 	public WebElement update_showButton;
@@ -105,10 +112,23 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAStaticText[1]")
 	public WebElement down_chevron;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]")
-	public WebElement dismiss_wholewindow;
-
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[7]")
+	public WebElement iOS9_dismiss_wholewindow;
+	
+	
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+	//XCUIElementTypeApplication/XCUIElementTypeWindow[7]")
+	public WebElement iOS10_dismiss_wholewindow;
+	
+	
+	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]")
+    public WebElement transport_controls; 
+	
 	public String error_message = "An unknown error occurred";
+	
+	public String Live_Channel = "MF - Video Live - Production (BBC Two, HD Simulcast)";
 
 
 }
