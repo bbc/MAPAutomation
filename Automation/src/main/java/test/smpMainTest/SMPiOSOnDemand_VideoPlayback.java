@@ -2,6 +2,7 @@ package main.java.test.smpMainTest;
 
 import static org.testng.AssertJUnit.assertTrue;
 
+import java.awt.Rectangle;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -43,12 +46,15 @@ public class SMPiOSOnDemand_VideoPlayback {
 	String message;
 	public WebDriverWait wait;
 
-	String filename = "iOS_OnDemandVideoPlayback";
-	String workingDirectory = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results"; /// System.getProperty("user.dir");
-	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results/iOS/";
-	File screenhotfiles = new File(ScreenshotPath);
+	//String filename = "iOS_OnDemandVideoPlayback";
 	File file;// = new File(absoluteFilePath);
+
+	public String filename;
+	public String workingDirectory;  
+	public String absoluteFilePath;
+	public String ScreenshotPath;    //"/../Automation/Results/iOSDRM";
+	File screenhotfiles;
+	
 	AppiumManager appiummanager = new AppiumManager();
 
 	iOSCommonFunctions ioscommonfunction = new iOSCommonFunctions();
@@ -65,6 +71,9 @@ public class SMPiOSOnDemand_VideoPlayback {
 	public String deviceName=null;
 	public String deviceOS=null;
 	public String deviceUDID=null;
+	
+	String duration_started ;
+	String duration_afterseek;
 
 	@BeforeClass
 	public void getDeviceDetails() throws Exception
@@ -122,10 +131,25 @@ public class SMPiOSOnDemand_VideoPlayback {
 			iospageobjects = new iOSCommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(iosdriver), iospageobjects);
 
-			ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
-					deviceOS, deviceName);
-			
-			Thread.sleep(3000);
+			 try
+				{
+				filename = "SMP_iOS_OnDemandVideoPlayback";
+				workingDirectory =  commonfunction.ResultFolder(commonobjects.ParentDirectoy);  
+				absoluteFilePath = workingDirectory + File.separator + filename;
+				ScreenshotPath =  workingDirectory+File.separator+commonfunction.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
+				screenhotfiles = new File(ScreenshotPath);
+				
+				ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
+						deviceOS,
+						deviceName);
+				}catch(NullPointerException e)
+				{
+					e.printStackTrace();
+				}
+			//ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
+//					deviceOS, deviceName);
+//			
+//			Thread.sleep(3000);
 			
 			ioscommonfunction.tapAccessabilityButton("Dismiss APP Update", iosdriver,"Ignore" ,ScreenshotPath);
 
@@ -147,18 +171,61 @@ public class SMPiOSOnDemand_VideoPlayback {
 			assertTrue(ioscommonfunction.isAccessabilityElementPresent(iosdriver, "smp_subtitles_button"));
 			assertTrue(ioscommonfunction.isAccessabilityElementPresent(iosdriver, "Playback position"));
 			
+			duration_started = iospageobjects.playback_duration.getText();
+			System.out.println("The Duration when Playback Started :- "+ duration_started);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	
-	@Test(dependsOnMethods = { "OnDemand_PlaybackStart" })
+	@Test(dependsOnMethods={"OnDemand_PlaybackStart"})
+	public void turnOnSubtitle_Seeking() throws Exception
+	{
+		if(iospageobjects.playback_subtitle_button.isDisplayed())
+		{
+			 
+			ioscommonfunction.tapAccessabilityButton("Turning Subtitle ON", iosdriver, "smp_subtitles_button", ScreenshotPath);
+			 ioscommonfunction.swipe_seekbar(iospageobjects.seekbar, iosdriver,"Forward" ,500);
+			 duration_afterseek = iospageobjects.playback_duration.getText();
+			
+		}else 
+		{
+		    	iospageobjects.playback_transportcontrol.click();
+			 ioscommonfunction.tapAccessabilityButton("Turning Subtitle ON", iosdriver, "smp_subtitles_button", ScreenshotPath);
+			 ioscommonfunction.swipe_seekbar(iospageobjects.seekbar, iosdriver,"Forward",500);
+			 duration_afterseek = iospageobjects.playback_duration.getText();
+		}
+				//duration_afterseek = iospageobjects.playback_duration.getText();
+				System.out.println("The Duration when Playback seeked Firsttime :- "+ duration_afterseek);
+	}
+	
+	@Test(dependsOnMethods = { "turnOnSubtitle_Seeking" })
+	public void Seeking() throws Exception
+	{
+		
+		if(iospageobjects.seekbar.isDisplayed())
+		{
+			
+		    ioscommonfunction.swipe_seekbar(iospageobjects.seekbar, iosdriver, "Forward" ,200);
+			//swipe_seekbar(iospageobjects.seekbar, iosdriver,30,300);
+		    duration_afterseek = iospageobjects.playback_duration.getText();
+		}else 
+		{
+			 iospageobjects.playback_transportcontrol.click();
+			 ioscommonfunction.swipe_seekbar(iospageobjects.seekbar, iosdriver,"Forward" ,200);
+			 duration_afterseek = iospageobjects.playback_duration.getText();
+		}
+		//duration_afterseek = iospageobjects.playback_duration.getText();
+		System.out.println("The Duration when Playback seeked Secondtime :- "+ duration_afterseek);
+		
+	}
+	
+	
+	@Test(dependsOnMethods = { "Seeking" })
 	public void Turn_WiFiOff() throws Exception {
 	    
-//		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
-//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
-		
 		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
 				ScreenshotPath, "Wifi Off",deviceOS);
 	}
@@ -166,9 +233,27 @@ public class SMPiOSOnDemand_VideoPlayback {
 	@Test(dependsOnMethods = { "Turn_WiFiOff" })
 	public void playback_ErrorMessage() throws Exception {
 
-		commonfunction.waitForScreen_ToLoad(iosdriver,
-				iosdriver.findElementByAccessibilityId("Dismiss"), 2600);
+		//commonfunction.waitForScreen_ToLoad(iosdriver,
+			//	iosdriver.findElementByAccessibilityId("Dismiss"), 60);
 		//assertTrue(ioscommonfunction.isAccessabilityElementPresent(iosdriver, "In progress"));
+		
+		
+		if(iospageobjects.subtitletext.isDisplayed())
+		{
+			String subtitle = iospageobjects.subtitletext.getText();
+		
+			System.out.println("The Subtitle are:---" + subtitle);	
+		}
+		
+		if(!iospageobjects.seekbar.isDisplayed())
+		{
+			iospageobjects.playback_transportcontrol.click();
+		    ioscommonfunction.swipe_seekbar(iospageobjects.seekbar, iosdriver,"backward",200);
+			//swipe_seekbar(iospageobjects.seekbar, iosdriver,30,300);
+		    //duration_afterseek = iospageobjects.playback_duration.getText();
+		}
+		
+		ioscommonfunction.isElementPresent(iospageobjects.errormessage,iosdriver,80);
 		
 		assertTrue(ioscommonfunction.isAccessabilityElementPresent(iosdriver, "Dismiss"));
 		
@@ -198,7 +283,10 @@ public class SMPiOSOnDemand_VideoPlayback {
 				ScreenshotPath, "Wifi Off",deviceOS);
 		
 		ioscommonfunction.tapAccessabilityButton("Hitting the Play again", iosdriver,"play_pause_button" ,ScreenshotPath);
-		Thread.sleep(200);
+		Thread.sleep(100);
+		
+		String duration_afterRetry = iospageobjects.playback_duration.getText();
+		System.out.println("The Duration when Playback seeked Secondtime :- "+ duration_afterRetry);
 		
 
 
@@ -307,6 +395,28 @@ public class SMPiOSOnDemand_VideoPlayback {
 		appiummanager.stopappium();
 		
 	}
+	
+	public void swipe_seekbar(WebElement element, AppiumDriver<WebElement> driver, int startposition ,int seekposition) throws Exception
+	{
+				
+		int startX = element.getLocation().getX();
+		//System.out.println("Startx :" + startX);
+
+		// Get end point of seekbar.
+		int endX = element.getSize().getWidth();
+		//System.out.println("Endx  :" + endX);
+
+		// Get vertical location of seekbar.
+		int yAxis = element.getLocation().getY();
+		//System.out.println("Yaxis  :" + yAxis);
+
+		//Thread.sleep(500);
+		//driver.swipe(endX, yAxis, startX, yAxis, 2000);
+		driver.swipe(startX+startposition, yAxis, endX-seekposition, yAxis, 100);
+		//driver.swipe(0, 936, 300, 936, 300);
+		
+		
+		}
 
 
 }

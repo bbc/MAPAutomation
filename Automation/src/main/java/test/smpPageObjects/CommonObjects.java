@@ -1,5 +1,6 @@
 package main.java.test.smpPageObjects;
 
+import java.io.File;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -197,5 +198,9 @@ public class CommonObjects {
 	public String liveEpsiode = "MF - Video Live - Production (BBC Two, HD Simulcast) : b";
 
 	public List<WebElement> element;
+	
+	public String ParentDirectoy = "Results/SMP-iOS";
+	
+	public String SubDirectory =  "Screenshot";
 
 }

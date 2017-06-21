@@ -5,14 +5,15 @@
     <classes>
       <class name="main.java.test.DRMMainTests.iOSDRMTest">
         <methods>
-          <include name="Playbackoffline"/>
+          <include name="deleteAllQueued"/>
           <include name="downloads_VPIDS_Completed"/>
-          <include name="Delete_Downloaded"/>
           <include name="getDeviceDetails"/>
+          <include name="Download_Pause"/>
           <include name="vpid_Download"/>
           <include name="DownloadProgress"/>
           <include name="openDRMApp"/>
           <include name="check_Vpid"/>
+          <include name="Playback_offline"/>
         </methods>
       </class> <!-- main.java.test.DRMMainTests.iOSDRMTest -->
     </classes>

@@ -1,8 +1,12 @@
 package main.java.test.smpPageObjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.WithTimeout;
+import io.appium.java_client.pagefactory.iOSFindAll;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 public class iOSCommonObjects {
@@ -45,12 +49,16 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[11]")
 	public WebElement playback_PIP; // picture in picture button
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[10]")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther[3]/XCUIElementTypeOther[4]/XCUIElementTypeButton[3]")
+	@iOSFindBy(accessibility = "smp_subtitles_button")
 	public WebElement playback_subtitle_button;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAStaticText[11]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther[3]/XCUIElementTypeStaticText")
 	public WebElement playback_duration;
 
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeStaticText[8]")
+	public WebElement subtitletext;
+	
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAElement[2]")
 	public WebElement playback_progressbar;
 
@@ -69,8 +77,17 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIASegmentedControl[1]/UIAButton[2]")
 	public WebElement unmediated_tab;
 	
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
 	@iOSFindBy(accessibility="Dismiss")
 	public WebElement error_dimiss_button;
+	
+	@WithTimeout(time = 80, unit = TimeUnit.SECONDS)
+	@iOSFindBy(accessibility="An unknown error occurred")
+	public WebElement errormessage;
+	
+	@iOSFindBy(accessibility="play_pause_button")
+	public WebElement Video_play_pause_button;
 
 	
 	@iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]")
@@ -122,6 +139,11 @@ public class iOSCommonObjects {
 	//XCUIElementTypeApplication/XCUIElementTypeWindow[7]")
 	public WebElement iOS10_dismiss_wholewindow;
 	
+	
+  //  @iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther")
+    //AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther
+    @iOSFindBy(accessibility = "Playback position")
+	public WebElement seekbar;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]")
     public WebElement transport_controls; 

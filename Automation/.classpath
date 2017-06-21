@@ -46,5 +46,51 @@
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/testng-6.8.7.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/Automation/Automation/lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/java-client-5.0.0-BETA8.jar"/>
+	<classpathentry kind="lib" path="lib/asm-5.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/asm-commons-5.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/ATUReporter_Selenium_testNG_5.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/ATUTestRecorder_2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-validator-1.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-2.40.2.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-2.41.0.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-3.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-java-2.031.jar"/>
+	<classpathentry kind="lib" path="lib/extentreports-java-2.41.1.jar"/>
+	<classpathentry kind="lib" path="lib/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="lib/guava-18.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="lib/guice-4.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-4.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/java2html-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/jbehave-core-3.8-sources.jar.zip"/>
+	<classpathentry kind="lib" path="lib/jbehave-core-3.8.jar"/>
+	<classpathentry kind="lib" path="lib/jcommander-1.27.jar"/>
+	<classpathentry kind="lib" path="lib/jcommon-1.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.9.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/logging-selenium-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/neodatis-odb-1.9-beta-1.jar"/>
+	<classpathentry kind="lib" path="lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/saxon-8.7 2.jar"/>
+	<classpathentry kind="lib" path="lib/saxon-8.7.jar"/>
+	<classpathentry kind="lib" path="lib/SaxonLiaison.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-2.53.1.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.51.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.53.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.53.1.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/serenity.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-jdk14-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/testng-6.8.7.jar"/>
+	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/lib/java-client-5.0.0-BETA8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/lib/java-client-5.0.0-BETA8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

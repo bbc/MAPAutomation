@@ -1003,4 +1003,59 @@ public void populateDevices_Names() throws Exception {
 		Thread.sleep(2000);
 	}
 
+	
+	
+	public void resultFolder(String path, String screenspath)
+	{
+		try{
+			
+			  String strDirectoy = path;  //"MAPAutomation/Automation/Result";
+			  String strManyDirectories=screenspath; //"iOS-DRM/Screenshot";
+
+			  // Create one directory
+			  boolean success = (
+			  new File(strDirectoy)).mkdir();
+			  if (success) {
+			  System.out.println("Directory: " 
+			   + strDirectoy + " created");
+			  }  
+			  // Create multiple directories
+			  success = (new File(strManyDirectories)).mkdirs();
+			  if (success) {
+			  System.out.println("Directories: " 
+			   + strManyDirectories + " created");
+			  }
+
+			  }catch (Exception e){//Catch exception if any
+			  System.err.println("Error: " + e.getMessage());
+			  }
+			  }
+	
+	
+	public String ResultFolder(String path)
+	{
+		String strManyDirectories=null;
+		 try{
+			//  String strDirectoy = path;
+			  strManyDirectories= path;
+
+			  // Create one directory
+			  boolean  
+			  // Create multiple directories
+			  success = (new File(strManyDirectories)).mkdirs();
+			  if (success) {
+			  System.out.println("Directories: " 
+			   + strManyDirectories + " created");
+			  }
+
+			  }catch (Exception e){//Catch exception if any
+			  System.err.println("Error: " + e.getMessage());
+			  }
+		 return strManyDirectories;
+			  }
+	
+
+
 }
+	
+

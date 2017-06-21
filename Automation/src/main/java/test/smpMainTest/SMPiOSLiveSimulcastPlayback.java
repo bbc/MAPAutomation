@@ -44,11 +44,13 @@ public class SMPiOSLiveSimulcastPlayback {
 
 	iOSCommonFunctions ioscommonfunction = new iOSCommonFunctions();
 
-	String filename = "iOSLivePlaybck";
-	String workingDirectory = "/Users/ramakh01/Desktop/Automation/Automation/Results"; /// System.getProperty("user.dir");
-	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/Automation/Automation/Results/iOS/";
-	File screenhotfiles = new File(ScreenshotPath);
+	public String filename;
+	public String workingDirectory;  
+	public String absoluteFilePath;
+	public String ScreenshotPath;    //"/../Automation/Results/iOSDRM";
+	File screenhotfiles;
+	
+	
 	public String deviceName=null;
 	public String deviceOS=null;
 	public String deviceUDID=null;
@@ -124,12 +126,21 @@ public class SMPiOSLiveSimulcastPlayback {
 			iospageobjects = new iOSCommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(iosdriver), iospageobjects);
 
-//			ioscommonfunction.CreateReport(absoluteFilePath, "df43e12f4ba40c8763eb37dc17195717e094ee96", "4723",
-//					"9.3.5", "iPad-Air2");
-			ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
-					deviceOS, deviceName);
-			
-			Thread.sleep(3000);
+			 try
+				{
+				filename = "SMP_iOS_LivePlayback";
+				workingDirectory =  commonfunction.ResultFolder(commonobjects.ParentDirectoy);  
+				absoluteFilePath = workingDirectory + File.separator + filename;
+				ScreenshotPath =  workingDirectory+ File.separator+commonfunction.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
+				screenhotfiles = new File(ScreenshotPath);
+				
+				ioscommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
+						deviceOS,
+						deviceName);
+				}catch(NullPointerException e)
+				{
+					e.printStackTrace();
+				}
 			
 			//update ignore
 			//iosdriver.findElementByAccessibilityId("Ignore").click();
@@ -167,7 +178,9 @@ public class SMPiOSLiveSimulcastPlayback {
 	@Test(dependsOnMethods = { "turnWifiOff" })
 	public void playback_ErrorMessage() throws Exception {
 
-		commonfunction.waitForScreenToLoad(iosdriver,iosdriver.findElementByAccessibilityId("An unknown error occurred"), 2600);
+		//commonfunction.waitForScreenToLoad(iosdriver,iosdriver.findElementByAccessibilityId("An unknown error occurred"), 2600);
+		
+		ioscommonfunction.isElementPresent(iospageobjects.errormessage,iosdriver,80);
 		
 		assertTrue(ioscommonfunction.isAccessabilityElementPresent(iosdriver, "Dismiss"));
 		

@@ -14,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.DisplayOrder;
@@ -47,20 +48,23 @@ public class iOSCommonFunctions {
 //		// testname)));
 //	}
 
-	public boolean isElementPresent(AppiumDriver<WebElement> iosdriver, By xpath) {
+	public boolean isElement_Present(AppiumDriver<WebElement> idriver,  String subtitletext) {
 
 		logger = extent.startTest("Checking Element Present");
+		
 		try {
-			iosdriver.findElement(xpath);
+			idriver.findElementsByXPath(subtitletext);
 			return true;
 		} catch (NoSuchElementException e) {
 			// e.printStackTrace();
 			return false;
 		}
+		// return false;
 	}
 	
 	
-	public boolean isAccessabilityElementPresent(AppiumDriver<WebElement> iosdriver, String Name) {
+	public boolean isAccessabilityElementPresent(AppiumDriver<WebElement> iosdriver, String Name) 
+	{
 
 		logger = extent.startTest("Checking Element Present");
 		try {
@@ -99,10 +103,39 @@ public class iOSCommonFunctions {
 		}
 
 	}
+	
+	
+	/*public void ResultFolder(String rName, String appFolder, String testFolder)
+	{
+		try
+		{
+			  String strDirectoy ="/../../rName";
+			  String strManyDirectories="/appFolder/testFolder";
+			  boolean success = (
+					  new File(strDirectoy)).mkdir();
+					  if (success) {
+					  System.out.println("Directory: " 
+					   + strDirectoy + " created");
+					  }  
+					  // Create multiple directories
+					  success = (new File(strManyDirectories)).mkdirs();
+					  if (success) {
+					  System.out.println("Directories: " 
+					   + strManyDirectories + " created");
+					  }
+
+					  }catch (Exception e){//Catch exception if any
+					  System.err.println("Error: " + e.getMessage());
+					  }
+			}*/
+	
+	
 
 	public void CreateReport(String absoluteFilePath, String deviceID, String deviceOS, String Port, String deviceName)
 			throws Exception, FileAlreadyExistsException, InterruptedException {
 		try {
+			
+			  
 
 			extent = new ExtentReports(absoluteFilePath + "_" + deviceName + ".html", true, DisplayOrder.NEWEST_FIRST);
 
@@ -140,9 +173,9 @@ public class iOSCommonFunctions {
 		extent.flush();
 	}
 
-	public void seeking_Randomly(WebElement element, AppiumDriver<WebElement> idriver, String path, double d)
+	public void seeking_Randomly(WebElement element, AppiumDriver<WebElement> idriver, int seek_position ,String path)
 			throws Exception {
-		int seekposition = (int) d;
+	//	int seekposition = (int) d;
 
 		logger = extent.startTest("seekingRandomly",
 				"Seeking randomly to check whether playback resumes from new point");
@@ -150,12 +183,14 @@ public class iOSCommonFunctions {
 		int startX = element.getLocation().getX();
 		// liverewind.live_rewind_progressbar.getLocation().getX();
 
-		seek_bar_swipe(idriver, element, startX, d);// 0.5);
+		//seek_bar_swipe(idriver, element, startX, d);// 0.5);
+		
+		swipe_seekbar(element, idriver, "forward" ,seek_position);
 		Thread.sleep(500);
 
 		
 		logger.log(LogStatus.INFO,
-				"Seeking" + seekposition + "%" + logger.addScreenCapture(capture_ScreenShot(idriver, path,"Seeking Random")));
+				"Seeking" + seek_position + "%" + logger.addScreenCapture(capture_ScreenShot(idriver, path,"Seeking Random")));
 
 		// LiveText_Checking(idriver, path);
 
@@ -163,7 +198,8 @@ public class iOSCommonFunctions {
 
 	}
 
-	public void seek_bar_swipe(AppiumDriver<WebElement> idriver, WebElement seekbar, int start, double d) {
+	public void seek_bar_swipe(AppiumDriver<WebElement> idriver, WebElement seekbar)
+	{
 		int startX = seekbar.getLocation().getX();
 		System.out.println("Progress bar Startx :" + startX);
 
@@ -177,16 +213,45 @@ public class iOSCommonFunctions {
 
 		// Set sllebar move to position.
 		// endX * 0.6 means at 60% of seek bar width.
-		int moveToXDirectionAt = (int) (endX * d);
-		System.out.println("Moving seek bar at " + moveToXDirectionAt + " In X direction.");
+	//	int moveToXDirectionAt = (int) (endX * d);
+		//System.out.println("Moving seek bar at " + moveToXDirectionAt + " In X direction.");
 
 		// Moving seekbar using TouchAction class.
 		// TouchAction act=new TouchAction(driver);
 		// act.press(startX,yAxis).moveTo(moveToXDirectionAt,yAxis).release().perform();
 		// Thread.sleep(3000);
 	//	idriver.swipe(startX, yAxis, moveToXDirectionAt, yAxis, 2000);
-		idriver.swipe(startX-100, yAxis-5, startX-100,0, 100);
+		idriver.swipe(startX, yAxis-50, startX,yAxis-50, 100);
 	}
+	
+	
+	public void swipe_seekbar(WebElement element, AppiumDriver<WebElement> driver, String seekdirection,int seekposition) throws Exception
+	{
+				
+		int startX = element.getLocation().getX();
+		//System.out.println("Startx :" + startX);
+
+		// Get end point of seekbar.
+		int endX = element.getSize().getWidth();
+		//System.out.println("Endx  :" + endX);
+
+		// Get vertical location of seekbar.
+		int yAxis = element.getLocation().getY();
+		//System.out.println("Yaxis  :" + yAxis);
+
+		if(seekdirection.equalsIgnoreCase("forward" ))
+		{
+		//Thread.sleep(500);
+		//driver.swipe(endX, yAxis, startX, yAxis, 2000);
+		driver.swipe(startX, yAxis, endX-seekposition, yAxis, 50);
+		//driver.swipe(0, 936, 300, 936, 300);
+		}else if(seekdirection.equalsIgnoreCase("backward"))
+		{
+		driver.swipe(endX-seekposition, yAxis, startX+seekposition, yAxis, 50);
+		}
+	}
+	
+	
 	
 	
 	public void seekbar_swipe(AppiumDriver<WebElement> idriver, WebElement seekbar, double d) {
@@ -227,7 +292,7 @@ public class iOSCommonFunctions {
 		driver.swipe(width-100, height-5, width-100,0, 50);
 		
 		driver.findElementByAccessibilityId(networkConnection).click();
-		Thread.sleep(3000);
+		Thread.sleep(500);
 		
 
 		logger.log(LogStatus.INFO, message + logger.addScreenCapture(capture_ScreenShot(driver, path, message)));
@@ -241,14 +306,14 @@ public class iOSCommonFunctions {
 		System.out.println("Device OS is :"+Device_OSversion);
 		//ioscommobjects.iOS9_dismiss_wholewindow.click();
 		driver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther")).click();
-		Thread.sleep(1000); 
+		Thread.sleep(500); 
 		}if(Device_OSversion >= device_OS)
 		{
 		System.out.println("Device OS is :"+Device_OSversion);
 		driver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow")).click();
 		
 		//ioscommobjects.iOS10_dismiss_wholewindow.click();
-		Thread.sleep(2000); 
+		Thread.sleep(500); 
 		}
 
 	}
@@ -269,7 +334,7 @@ public class iOSCommonFunctions {
 		
 		logger = extent.startTest(testname);
 		idriver.findElementByAccessibilityId(accessabilityText).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		logger.log(LogStatus.INFO,
 				testname + logger.addScreenCapture(capture_ScreenShot(idriver, path, testname)));
 	}
@@ -297,9 +362,9 @@ public class iOSCommonFunctions {
 	}
 	
 	
-	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> adriver, String path, double d)
+	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> adriver, int seek_position,String path)
 			throws Exception {
-		int seekposition= (int) d;
+		//int seekposition= (int) d;
 
 		logger = extent.startTest("seekingRandomly",
 				"Seeking randomly to check whether playback resumes from new point");
@@ -307,11 +372,12 @@ public class iOSCommonFunctions {
 		int startX = element.getLocation().getX();
 				//liverewind.live_rewind_progressbar.getLocation().getX();
 
-		seek_bar_swipe(adriver, element, startX, d);// 0.5);
+		//seek_bar_swipe(adriver, element, startX, d);// 0.5);
+		swipe_seekbar(element, adriver,"backward" ,seek_position);
 		Thread.sleep(3000);
 
 		logger.log(LogStatus.INFO,
-				"Seeking" + d + "%"
+				"Seeking" + seek_position + "%"
 						+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Multipel Seeking")));
 
 		//LiveText_Checking(adriver, path);
@@ -358,4 +424,18 @@ public class iOSCommonFunctions {
 	    	 }  
 	
 	
+	 public boolean isElementPresent(WebElement elementName, AppiumDriver<WebElement> idriver,int timeout){
+	        try{
+	            WebDriverWait wait = new WebDriverWait(idriver, timeout);
+	            wait.until(ExpectedConditions.visibilityOf(elementName));
+//	            if(elementName.isDisplayed())
+//	            {
+//	            	elementName.click();
+//	            }
+	            return true;
+	           
+	        }catch(Exception e){
+	            return false;
+	        }
+	    }
 }

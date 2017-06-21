@@ -1,6 +1,7 @@
 package main.java.test.smpMainTest;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -169,7 +170,29 @@ public class StringData {
     	String[] arguments = new String[] {"/usr/local/bin/ideviceinfo"};
      	Process p =Runtime.getRuntime().exec(arguments);
      	BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+     
+    		try{
+    			  String strDirectoy = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/HarishDRM";
+    			//  String strManyDirectories=screenspath; //"iOS-DRM/Screenshot";
+
+    			  // Create one directory
+    			  boolean success = (
+    			  new File(strDirectoy)).mkdir();
+    			  if (success)
+    			  {
+    			  System.out.println("Directory: " 
+    			   + strDirectoy + " created");
+    			  }  
+    			 
+    			  }catch (Exception e){//Catch exception if any
+    			  System.err.println("Error: " + e.getMessage());
+    			  }
+    		
+    			  }
+     	
+     	
+     	
+     	
     }
     
      	
-}
