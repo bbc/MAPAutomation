@@ -51,6 +51,8 @@ public class SMPAndroidLiveRewindPlayback {
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
 	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast_Rewind";
+//	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
+
 
 	File file;// = new File(absoluteFilePath);
 
@@ -76,10 +78,11 @@ public class SMPAndroidLiveRewindPlayback {
 
 		capa = new DesiredCapabilities();
 		capa.setCapability("appium-version", "1.0");
-		capa.setCapability("deviceName", deviceId);
+		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
+		capa.setCapability("platformVersion", deviceOS);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -94,9 +97,9 @@ public class SMPAndroidLiveRewindPlayback {
 	}
 
 	@Test
-	@Parameters({ "AppiumPort", "deviceID", "deviceOS", "deviceName" })
+	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
-	{
+	 {
 		
 		commonobjects = new CommonObjects();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), commonobjects);
@@ -144,7 +147,7 @@ public class SMPAndroidLiveRewindPlayback {
 		// Simuclast Rewind Playback");
 		try {
 	
-			commonfunction.tapbutton("Clicking on PlayButton", commonobjects.vpidPlay_button, driver, ScreenshotPath);
+			commonfunction.tapbutton("Clicking on PlayButton", commonobjects.play_button, driver, ScreenshotPath);
 
 			commonfunction.tapbutton("Clicking on Full Screen button", commonobjects.fullscreen_button, driver,
 					ScreenshotPath);

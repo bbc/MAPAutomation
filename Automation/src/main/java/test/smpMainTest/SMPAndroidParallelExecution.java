@@ -40,10 +40,10 @@ public class SMPAndroidParallelExecution {
 	public WebDriverWait wait;
 	private StringBuffer verificationErrors = new StringBuffer();
 
-	// String filename = "SMPParallelTest";
-	String workingDirectory = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results"; /// System.getProperty("user.dir");
+	//String filename = "SMPParallelTest";
+	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results/ParallelTests";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/ParallelTests";
 	File file;// = new File(absoluteFilePath);
 	ExtentReports extent;
 	ExtentTest logger;
@@ -112,8 +112,6 @@ public class SMPAndroidParallelExecution {
 
 				setUp(appiumport, Deviceid, DeviceosName);
 
-
-
 				OpenAvtest();
 
 			} catch (Exception e) {
@@ -136,7 +134,11 @@ public class SMPAndroidParallelExecution {
 		capa.setCapability("deviceName", deviceId);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
+<<<<<<< HEAD
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
+=======
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
+>>>>>>> SMP-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -210,7 +212,7 @@ public class SMPAndroidParallelExecution {
 			/*
 			 * OnDemand Video Tests
 			 * 
-			 */
+			
 
 			commonfunction.CreateReport(absoluteFilePath + File.separator + "OnDemandVideo", Deviceid, DeviceosName,
 					Integer.toString(appiumport), Devicename);
@@ -238,7 +240,7 @@ public class SMPAndroidParallelExecution {
 			/*
 			 * 
 			 * Ondemand Audio Tests
-			 */
+			
 
 			commonfunction.CreateReport(absoluteFilePath + File.separator + "OnDemandAudio", Deviceid, DeviceosName,
 					Integer.toString(appiumport), Devicename);
@@ -259,7 +261,7 @@ public class SMPAndroidParallelExecution {
 
 			Playback_SeektoEnd();
 
-			End();
+			End(); */
 
 		} 
 		catch (Exception e) {

@@ -3,6 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback">
         <methods>
           <include name="liveRewind_Assertions"/>
@@ -15,6 +16,21 @@
           <include name="LiveRewindplaybackresume"/>
         </methods>
       </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback -->
+=======
+      <class name="main.java.test.smpMainTest.iOSOnDemand_VideoPlayback">
+        <methods>
+          <include name="TurnWiFi_ON"/>
+          <include name="playbackseeking"/>
+          <include name="OpenAvtest"/>
+          <include name="playback_ErrorMessage"/>
+          <include name="OnDemand_PlaybackStart"/>
+          <include name="turn_WiFiOff"/>
+          <include name="Setup"/>
+          <include name="tearDown"/>
+          <include name="OnDemand_PlaybackPause"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.iOSOnDemand_VideoPlayback -->
+>>>>>>> SMP-AN
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

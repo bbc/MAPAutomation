@@ -65,7 +65,7 @@ public class SMPAndroidLiveSimulcast {
 
 
 	@BeforeClass
-	@Parameters({ "deviceID", "deviceOS", "AppiumPort" })
+	@Parameters({ "deviceID", "deviceOS", "appiumPort" })
 	public void setUp(String deviceID, String deviceOS, int appiumPort)
 			throws Exception, MalformedURLException {
 		ap.startAppium(appiumPort);
@@ -93,7 +93,7 @@ public class SMPAndroidLiveSimulcast {
 	}
 
 	@Test
-	@Parameters({ "deviceID", "AppiumPort", "deviceOS", "deviceName" }) 
+	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
 	{
 		
