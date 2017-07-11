@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="AppiumPort" value="4746"/>
+  <parameter name="deviceType" value="Mobile"/>
+  <parameter name="appiumPort" value="4745"/>
   <parameter name="deviceOS" value="6.0.1"/>
-  <parameter name="deviceID" value="51f09694"/>
-  <parameter name="deviceName" value="GalaxyS6"/>
-  <test name="GalaxyS6(failed)">
-    <parameter name="AppiumPort" value="4746"/>
+  <parameter name="deviceID" value="1115fbd9e7622a04"/>
+  <parameter name="deviceName" value="Note4"/>
+  <test name="Test(failed)">
+    <parameter name="deviceType" value="Mobile"/>
+    <parameter name="appiumPort" value="4745"/>
     <parameter name="deviceOS" value="6.0.1"/>
-    <parameter name="deviceID" value="51f09694"/>
-    <parameter name="deviceName" value="GalaxyS6"/>
+    <parameter name="deviceID" value="1115fbd9e7622a04"/>
+    <parameter name="deviceName" value="Note4"/>
     <classes>
-      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast">
+      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
         <methods>
-          <include name="OpenAvtest"/>
-          <include name="liveSimulcast_Assertions_NotPresent"/>
-          <include name="PlaybackContinues"/>
-          <include name="LiveplaybackStop"/>
-          <include name="liveSimulcast_Assertions_Present"/>
-          <include name="PlaybackStart"/>
-          <include name="End"/>
+          <include name="deleteQueued"/>
+          <include name="Download_Resume"/>
+          <include name="Downloaded_VideoPlayback_Offline"/>
+          <include name="Downloaded_AudioPlayback_Offline"/>
+          <include name="Vpid_Download"/>
           <include name="setUp"/>
+          <include name="Downloads_Complete"/>
+          <include name="Addingto_Queue"/>
+          <include name="Open_DRMApp"/>
+          <include name="Download_Pause"/>
+          <include name="delete_Downloaded"/>
+          <include name="teatDown"/>
         </methods>
-      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveSimulcast -->
+      </class> <!-- main.java.test.DRMMainTests.AndroidDRMTest -->
     </classes>
-  </test> <!-- GalaxyS6(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -64,6 +64,7 @@ public class CommonFunction {
 	LiveRewindFunctions liverewindFunctions = new LiveRewindFunctions();
 	
 	public AppiumDriver<WebElement> driver=null;
+	public char[][] DRM;
 
 	/*
 	 * 

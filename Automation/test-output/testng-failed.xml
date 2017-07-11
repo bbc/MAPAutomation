@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="deviceType" value="Mobile"/>
+  <parameter name="appiumPort" value="4745"/>
+  <parameter name="deviceOS" value="6.0.1"/>
+  <parameter name="deviceID" value="1115fbd9e7622a04"/>
+  <parameter name="deviceName" value="Note4"/>
+  <test name="Test(failed)">
+    <parameter name="deviceType" value="Mobile"/>
+    <parameter name="appiumPort" value="4745"/>
+    <parameter name="deviceOS" value="6.0.1"/>
+    <parameter name="deviceID" value="1115fbd9e7622a04"/>
+    <parameter name="deviceName" value="Note4"/>
     <classes>
-      <class name="main.java.test.DRMMainTests.iOSDRMTest">
+      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
         <methods>
-          <include name="deleteAllQueued"/>
-          <include name="downloads_VPIDS_Completed"/>
-          <include name="getDeviceDetails"/>
+          <include name="deleteQueued"/>
+          <include name="Download_Resume"/>
+          <include name="Downloaded_VideoPlayback_Offline"/>
+          <include name="Downloaded_AudioPlayback_Offline"/>
+          <include name="Vpid_Download"/>
+          <include name="setUp"/>
+          <include name="Downloads_Complete"/>
+          <include name="Addingto_Queue"/>
+          <include name="Open_DRMApp"/>
           <include name="Download_Pause"/>
-          <include name="vpid_Download"/>
-          <include name="DownloadProgress"/>
-          <include name="openDRMApp"/>
-          <include name="check_Vpid"/>
-          <include name="Playback_offline"/>
+          <include name="delete_Downloaded"/>
+          <include name="teatDown"/>
         </methods>
-      </class> <!-- main.java.test.DRMMainTests.iOSDRMTest -->
+      </class> <!-- main.java.test.DRMMainTests.AndroidDRMTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

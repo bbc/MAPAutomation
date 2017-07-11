@@ -1,49 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="8" passed="8">
+<testng-results skipped="5" failed="1" total="10" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="681965" started-at="2017-06-21T10:23:47Z" finished-at="2017-06-21T10:35:09Z">
+  <suite name="Suite" duration-ms="158982" started-at="2017-07-07T14:17:02Z" finished-at="2017-07-07T14:19:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="681965" started-at="2017-06-21T10:23:47Z" finished-at="2017-06-21T10:35:09Z">
-      <class name="main.java.test.DRMMainTests.iOSDRMTest">
-        <test-method status="PASS" signature="getDeviceDetails()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="getDeviceDetails" is-config="true" duration-ms="25803" started-at="2017-06-21T11:23:47Z" finished-at="2017-06-21T11:24:13Z">
+    <test name="Test" duration-ms="158982" started-at="2017-07-07T14:17:02Z" finished-at="2017-07-07T14:19:41Z">
+      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="setUp" is-config="true" duration-ms="21629" started-at="2017-07-07T15:17:02Z" finished-at="2017-07-07T15:17:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1115fbd9e7622a04]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6.0.1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4745]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Mobile]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Note4]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getDeviceDetails -->
-        <test-method status="PASS" signature="openDRMApp()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="openDRMApp" duration-ms="308" started-at="2017-06-21T11:24:13Z" finished-at="2017-06-21T11:24:13Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Open_DRMApp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Open_DRMApp" duration-ms="18966" started-at="2017-07-07T15:17:23Z" finished-at="2017-07-07T15:17:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1115fbd9e7622a04]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6.0.1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4745]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Mobile]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Note4]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openDRMApp -->
-        <test-method status="PASS" signature="vpid_Download()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="vpid_Download" duration-ms="56871" started-at="2017-06-21T11:24:13Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.openDRMApp" finished-at="2017-06-21T11:25:10Z">
+        </test-method> <!-- Open_DRMApp -->
+        <test-method status="PASS" signature="deleteQueued(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="deleteQueued" duration-ms="63016" started-at="2017-07-07T15:17:42Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Open_DRMApp" finished-at="2017-07-07T15:18:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mobile]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- vpid_Download -->
-        <test-method status="PASS" signature="Download_Pause()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="Download_Pause" duration-ms="19698" started-at="2017-06-21T11:25:10Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.vpid_Download" finished-at="2017-06-21T11:25:30Z">
+        </test-method> <!-- deleteQueued -->
+        <test-method status="PASS" signature="Vpid_Download(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Vpid_Download" duration-ms="20483" started-at="2017-07-07T15:18:45Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.deleteQueued" finished-at="2017-07-07T15:19:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mobile]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Vpid_Download -->
+        <test-method status="PASS" signature="Addingto_Queue()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Addingto_Queue" duration-ms="18110" started-at="2017-07-07T15:19:06Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Vpid_Download" finished-at="2017-07-07T15:19:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Addingto_Queue -->
+        <test-method status="FAIL" signature="Download_Pause()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Download_Pause" duration-ms="9450" started-at="2017-07-07T15:19:24Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Addingto_Queue" finished-at="2017-07-07T15:19:33Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: Locator map: 
+- native content: "By.xpath: //android.widget.TextView[@text='Paused']" 
+- html content: "by id or name "download_paused""
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
+System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: Locator map: 
+- native content: "By.xpath: //android.widget.TextView[@text='Paused']" 
+- html content: "by id or name "download_paused""
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
+System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
+Driver info: driver.version: unknown
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:110)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:57)
+	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$1cfb2d03.getText(<generated>)
+	at main.java.test.DRMMainTests.AndroidDRMTest.Download_Pause(AndroidDRMTest.java:334)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Download_Pause -->
-        <test-method status="PASS" signature="check_Vpid()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="check_Vpid" duration-ms="4630" started-at="2017-06-21T11:25:30Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.Download_Pause" finished-at="2017-06-21T11:25:35Z">
+        <test-method status="SKIP" signature="Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Download_Resume" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Download_Pause" finished-at="2017-07-07T15:19:34Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method AndroidDRMTest.Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- check_Vpid -->
-        <test-method status="PASS" signature="DownloadProgress()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="DownloadProgress" duration-ms="2636" started-at="2017-06-21T11:25:35Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.check_Vpid" finished-at="2017-06-21T11:25:37Z">
+        </test-method> <!-- Download_Resume -->
+        <test-method status="SKIP" signature="Downloads_Complete(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Downloads_Complete" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Download_Resume" finished-at="2017-07-07T15:19:34Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method AndroidDRMTest.Downloads_Complete(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.Downloads_Complete(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DownloadProgress -->
-        <test-method status="PASS" signature="downloads_VPIDS_Completed()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="downloads_VPIDS_Completed" duration-ms="199754" started-at="2017-06-21T11:25:37Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.DownloadProgress" finished-at="2017-06-21T11:28:57Z">
+        </test-method> <!-- Downloads_Complete -->
+        <test-method status="SKIP" signature="Downloaded_VideoPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Downloaded_VideoPlayback_Offline" duration-ms="1" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Downloads_Complete" finished-at="2017-07-07T15:19:34Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method AndroidDRMTest.Downloaded_VideoPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.Downloaded_VideoPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- downloads_VPIDS_Completed -->
-        <test-method status="PASS" signature="Playback_offline()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="Playback_offline" duration-ms="193660" started-at="2017-06-21T11:28:57Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.downloads_VPIDS_Completed" finished-at="2017-06-21T11:32:11Z">
+        </test-method> <!-- Downloaded_VideoPlayback_Offline -->
+        <test-method status="SKIP" signature="Downloaded_AudioPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Downloaded_AudioPlayback_Offline" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Downloaded_VideoPlayback_Offline" finished-at="2017-07-07T15:19:34Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method AndroidDRMTest.Downloaded_AudioPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.Downloaded_AudioPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Playback_offline -->
-        <test-method status="PASS" signature="deleteAllQueued()[pri:0, instance:main.java.test.DRMMainTests.iOSDRMTest@6321e813]" name="deleteAllQueued" duration-ms="178585" started-at="2017-06-21T11:32:11Z" depends-on-methods="main.java.test.DRMMainTests.iOSDRMTest.Playback_offline" finished-at="2017-06-21T11:35:09Z">
+        </test-method> <!-- Downloaded_AudioPlayback_Offline -->
+        <test-method status="SKIP" signature="delete_Downloaded()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="delete_Downloaded" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Downloaded_AudioPlayback_Offline" finished-at="2017-07-07T15:19:34Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method AndroidDRMTest.delete_Downloaded()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.delete_Downloaded()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteAllQueued -->
-      </class> <!-- main.java.test.DRMMainTests.iOSDRMTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- delete_Downloaded -->
+        <test-method status="PASS" signature="teatDown()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="teatDown" is-config="true" duration-ms="6672" started-at="2017-07-07T15:19:34Z" finished-at="2017-07-07T15:19:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teatDown -->
+      </class> <!-- main.java.test.DRMMainTests.AndroidDRMTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

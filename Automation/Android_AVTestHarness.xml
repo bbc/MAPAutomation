@@ -20,19 +20,29 @@
 		    </classes>
   </test>  -->
   
+  <test name="Test">
+      			<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
+  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
+  		    	<parameter name="appiumPort" value="4745"></parameter>
+  		    	<parameter name="deviceName" value="Note4"></parameter>
+  		    	<parameter name="deviceType" value="Mobile"></parameter>
+				    <classes>
+				      <class name="main.java.test.DRMMainTests.AndroidDRMTest"/>
+				    </classes>
+</test> 
   
-   <test name="GalaxyS6">
-	     			<parameter name="deviceID" value="51f09694"></parameter>
+   <!-- <test name="GalaxyS6">
+	     			<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
 	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
 	  		    	<parameter name="AppiumPort" value="4746"></parameter>
 	  		    	<parameter name="deviceName" value="GalaxyS6"></parameter>
-	  		    <!-- 	<parameter name="deviceType" value="Mobile"></parameter> --> 
+	  		    	<parameter name="deviceType" value="Mobile"></parameter> 
 		    <classes>
-		      <class name="main.java.test.smpMainTest.SMPAndroidLiveSimulcast" />
-		      <!-- <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
-		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" /> -->
+		      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback" /> 
+		      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback" />
+		     <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback" /> 
 		   </classes>
-  </test> 
+  </test>  -->
   
  <!--   <test name="Test">
 	     			<parameter name="deviceID" value="FA69S0301938"></parameter>
