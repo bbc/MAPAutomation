@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <parameter name="deviceType" value="Mobile"/>
   <parameter name="appiumPort" value="4745"/>
@@ -13,24 +14,28 @@
     <parameter name="deviceOS" value="6.0.1"/>
     <parameter name="deviceID" value="1115fbd9e7622a04"/>
     <parameter name="deviceName" value="Note4"/>
+=======
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+>>>>>>> DRM-AN
     <classes>
-      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
+      <class name="SMPANPUMA.PUMATest.Android_PumaTests">
         <methods>
-          <include name="deleteQueued"/>
-          <include name="Download_Resume"/>
-          <include name="Downloaded_VideoPlayback_Offline"/>
-          <include name="Downloaded_AudioPlayback_Offline"/>
-          <include name="Vpid_Download"/>
+          <include name="Play_VideoOnDemand"/>
+          <include name="CheckingPlayback_LiveRewind"/>
+          <include name="PlaybackRotation"/>
+          <include name="Pause_VideoOnDemand"/>
+          <include name="getAllDetails"/>
+          <include name="Play_LiveRewindTest"/>
+          <include name="Pause_LiveRewindTest"/>
+          <include name="CheckingPlayback_VOD"/>
+          <include name="RunTest"/>
           <include name="setUp"/>
-          <include name="Downloads_Complete"/>
-          <include name="Addingto_Queue"/>
-          <include name="Open_DRMApp"/>
-          <include name="Download_Pause"/>
-          <include name="delete_Downloaded"/>
-          <include name="teatDown"/>
+          <include name="OpenAvtest"/>
         </methods>
-      </class> <!-- main.java.test.DRMMainTests.AndroidDRMTest -->
+      </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
     </classes>
+<<<<<<< HEAD
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
 =======
@@ -54,3 +59,7 @@
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
 >>>>>>> SMP-AN
+=======
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
+>>>>>>> DRM-AN

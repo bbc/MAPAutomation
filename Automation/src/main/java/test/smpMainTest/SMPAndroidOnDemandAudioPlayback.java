@@ -50,7 +50,7 @@ public class SMPAndroidOnDemandAudioPlayback {
 	String filename = "OnDemandAudioPlayback";
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
 
 	File file;// = new File(absoluteFilePath);
 
@@ -65,7 +65,11 @@ public class SMPAndroidOnDemandAudioPlayback {
 
 	@BeforeClass
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@Parameters({ "AppiumPort", "deviceID", "deviceOS" })
+=======
+	@Parameters({ "appiumPort", "deviceID", "deviceOS" })
+>>>>>>> DRM-AN
 	public void setUp(int port, String deviceId, String OS) throws Exception, MalformedURLException {
 		ap.startAppium(port);
 =======
@@ -83,11 +87,15 @@ public class SMPAndroidOnDemandAudioPlayback {
 		capa.setCapability("platformName", "Android");
 <<<<<<< HEAD
 		capa.setCapability("platformVersion", OS);
+<<<<<<< HEAD
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
 =======
 		capa.setCapability("platformVersion", deviceOS);
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
 >>>>>>> SMP-AN
+=======
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
+>>>>>>> DRM-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -103,10 +111,14 @@ public class SMPAndroidOnDemandAudioPlayback {
 
 	@Test
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@Parameters({ "AppiumPort", "deviceID", "deviceOS", "deviceName" })
 =======
 	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" })
 >>>>>>> SMP-AN
+=======
+	@Parameters({ "appiumPort", "deviceID", "deviceOS", "deviceName" })
+>>>>>>> DRM-AN
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception {
 		try {
 			commonobjects = new CommonObjects();

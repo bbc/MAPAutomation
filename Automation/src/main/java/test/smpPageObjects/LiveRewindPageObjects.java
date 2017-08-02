@@ -1,5 +1,6 @@
 package main.java.test.smpPageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -35,6 +36,8 @@ public class LiveRewindPageObjects {
 		public WebElement menu_phone;
 		
 		
+		@AndroidFindBy(xpath="//android.widget.TextView[@text='Use Live RDot Environment']")
+		public WebElement enable_rDot;
 		
 		
 		@AndroidFindBy(xpath="//android.widget.TextView[@text='Enable Live Rewind']")

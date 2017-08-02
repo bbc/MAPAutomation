@@ -2,14 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <<<<<<< HEAD
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="deviceType" value="Mobile"/>
   <parameter name="appiumPort" value="4745"/>
-  <parameter name="deviceOS" value="6.0.1"/>
-  <parameter name="deviceID" value="1115fbd9e7622a04"/>
-  <parameter name="deviceName" value="Note4"/>
-  <test name="Test(failed)">
-    <parameter name="deviceType" value="Mobile"/>
+  <parameter name="deviceOS" value="5.1.1"/>
+  <parameter name="deviceID" value="G000HH03536701X1"/>
+  <parameter name="deviceName" value="KindleFire10"/>
+  <test name="KindleFire10(failed)">
     <parameter name="appiumPort" value="4745"/>
+<<<<<<< HEAD
     <parameter name="deviceOS" value="6.0.1"/>
     <parameter name="deviceID" value="1115fbd9e7622a04"/>
     <parameter name="deviceName" value="Note4"/>
@@ -25,9 +24,15 @@
     <parameter name="deviceID" value="51f09694"/>
     <parameter name="deviceName" value="Galaxy-S5"/>
 >>>>>>> SMP-AN
+=======
+    <parameter name="deviceOS" value="5.1.1"/>
+    <parameter name="deviceID" value="G000HH03536701X1"/>
+    <parameter name="deviceName" value="KindleFire10"/>
+>>>>>>> DRM-AN
     <classes>
-      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
+      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback">
         <methods>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <include name="deleteQueued"/>
           <include name="Download_Resume"/>
@@ -69,14 +74,12 @@
         <methods>
           <include name="End"/>
 >>>>>>> SMP-AN
+=======
+>>>>>>> DRM-AN
           <include name="setUp"/>
-          <include name="Downloads_Complete"/>
-          <include name="Addingto_Queue"/>
-          <include name="Open_DRMApp"/>
-          <include name="Download_Pause"/>
-          <include name="delete_Downloaded"/>
-          <include name="teatDown"/>
+          <include name="End"/>
         </methods>
+<<<<<<< HEAD
 <<<<<<< HEAD
       </class> <!-- main.java.test.DRMMainTests.AndroidDRMTest -->
     </classes>
@@ -86,4 +89,30 @@
     </classes>
   </test> <!-- Galaxy-S5(failed) -->
 >>>>>>> SMP-AN
+=======
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback -->
+      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback">
+        <methods>
+          <include name="End"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback -->
+      <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback">
+        <methods>
+          <include name="liveRewind_Assertions"/>
+          <include name="seeking_randomly"/>
+          <include name="OpenAvtest"/>
+          <include name="enableRDot_live" invocation-numbers="0"/>
+          <include name="PlaybackContinues"/>
+          <include name="setUp"/>
+          <include name="PlaybackStart"/>
+          <include name="End"/>
+          <include name="playbackseeking_backard_forward"/>
+          <include name="LiveRewindplaybackpause"/>
+          <include name="LiveRewindplaybackresume"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback -->
+    </classes>
+  </test> <!-- KindleFire10(failed) -->
+>>>>>>> DRM-AN
 </suite> <!-- Failed suite [Suite] -->

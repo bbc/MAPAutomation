@@ -2,7 +2,11 @@ package main.java.test.smpFunctions;
 
 import static org.testng.AssertJUnit.assertTrue;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +46,16 @@ public class CommonFunction {
 	public ExtentReports extent = null;
 	public ExtentTest logger = null;
 
-	private static String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
-	private static String adbPath = sdkPath + File.separator + "./adb";
+	String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
+	String adbPath = sdkPath + File.separator + "./adb";
 	String[] commandDevices = new String[] { adbPath, "devices" };
+	 String clearlogs = sdkPath + File.separator + "adb logcat " + "-c";
 	CommandPrompt cmd = new CommandPrompt();
 
+	 String AndroidsdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
+	 String mediaselector = sdkPath + File.separator + "adb shell logcat"+"|"+"grep " + "http://open.*";
+	 String rdot = sdkPath + File.separator + "adb shell logcat"+"|"+"grep " + "https://r.bbc.*";
+	
 	public List<String> deviceIDs = new ArrayList<String>();
 	public List<String> deviceOSs = new ArrayList<String>();
 	public List<String> deviceNames = new ArrayList<String>();
@@ -137,6 +146,25 @@ public class CommonFunction {
 		Thread.sleep(1000);
 		logger.log(LogStatus.INFO,
 				testname + logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
+//		String MediaS = getMediaSelectorURL(mediaselector, "http://");
+//		System.out.println("MdiaSelector:-"+MediaS);
+//		logger.log(LogStatus.PASS, MediaS);
+		//clearLog();
+	
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void CheckMediaSelector()
+	{
+		try
+		{
+		logger = extent.startTest("Checking MediaSelector URL");
+		String MediaS = getMediaSelectorURL(mediaselector,"http://");
+		System.out.println("MdiaSelector:-"+MediaS);
+		logger.log(LogStatus.PASS, MediaS);
 		}catch(Exception e)
 		{
 			e.printStackTrace();
@@ -215,7 +243,7 @@ public class CommonFunction {
 	public void PlaybackContinue(String text,WebElement element, AppiumDriver<WebElement> adriver, String path)
 			throws Exception {
 
-			logger = extent.startTest(text);
+		logger = extent.startTest(text);
 
 
 		String startduration = element.getText();
@@ -236,10 +264,10 @@ public class CommonFunction {
 		do {
 			// timecount = liverewind.live_simulcat_rewind_time.getText();
 			durationCount = element.getText();
-
+			
 			etime++;
-		} while (etime < 200);
-
+		} while (etime < 240);
+		//logger.log(LogStatus.PASS, getRDOTURL(rdot));
 		// String Time_Played_After =
 		// liverewind.live_simulcat_rewind_time.getText();
 		String durationElapsed = element.getText();
@@ -259,6 +287,23 @@ public class CommonFunction {
 		}
 
 
+	}
+	
+	
+	public void CheckRDotUrls()
+	{
+		
+		try
+		{
+		logger = extent.startTest("Checking rDot URL's");
+		String RDOTs = getRDOTURL(rdot);
+		System.out.println("RDOT Stat's URL's:-"+RDOTs);
+		logger.log(LogStatus.PASS, RDOTs);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void playback_orientation(AppiumDriver<WebElement> driver , ScreenOrientation orientation,
@@ -1055,8 +1100,85 @@ public void populateDevices_Names() throws Exception {
 		 return strManyDirectories;
 			  }
 	
+	
+	public  String getMediaSelectorURL(String requestselector, String filter)
+	{
+		String MURL = null;
+	   
+	    try {
+	        Process p = Runtime.getRuntime().exec(requestselector);
+	        InputStream is = p.getInputStream();
+	        InputStreamReader isr = new InputStreamReader(is);
+	        BufferedReader	br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	        String line = "";
+	        int count=0;
+	     	while((line= br.readLine()) != null)
+	     	{
+	     		String datas[]=line.split(filter); //("http://");
+	     		for(int i=0;i<datas.length;i++)
+	     		{
+	     			 System.out.println("MediaSelector URL:-"+datas[i]);
+	     			 MURL=datas[i];
+	     		}
+	     		if(count==0)
+	            {
+	            	break;
+	            }
+	            count++; 
+	     	}
+	    }catch(Exception e)
+	     	{
+	     		e.printStackTrace();
+	     	}
+	        return MURL;
+	}
 
+	
+	public String getRDOTURL(String requestselector)
+	{
+		String RDOTURL = null;
+	   
+	    try {
+	        Process p = Runtime.getRuntime().exec(requestselector);
+	        InputStream is = p.getInputStream();
+	        InputStreamReader isr = new InputStreamReader(is);
+	        BufferedReader	br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	        String line = "";
+	        int count=0;
+	     	while((line= br.readLine()) != null)
+	     	{
+	     		String datas[]=line.split("https://");
+	     		for(int i=0;i<datas.length;i++)
+	     		{
+	     			System.out.println("RDOT URL:-"+datas[i]);
+	     			RDOTURL=datas[i];
+	     		}
+	     		if(count==0)
+	            {
+	            	break;
+	            }
+	            count++; 
+	           
+	     	}
+	    }catch(Exception e)
+	     	{
+	     		e.printStackTrace();
+	     	}
+	        return RDOTURL;
+	}
 
+	
+	public  void clearLog(){
+	    try {
+	    	
+	            Process p = Runtime.getRuntime().exec(clearlogs);
+
+	   } catch (IOException e) 
+	    {
+	    e.printStackTrace();
+	    }
+	   
+	}
 }
 	
 

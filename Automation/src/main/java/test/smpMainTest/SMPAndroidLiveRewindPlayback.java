@@ -3,6 +3,7 @@ package main.java.test.smpMainTest;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -50,9 +51,13 @@ public class SMPAndroidLiveRewindPlayback {
 	String filename = "LiveRewind";
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
+<<<<<<< HEAD
 	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast_Rewind";
 //	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
 
+=======
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
+>>>>>>> DRM-AN
 
 	File file;// = new File(absoluteFilePath);
 
@@ -68,7 +73,7 @@ public class SMPAndroidLiveRewindPlayback {
 
 
 	@BeforeClass
-	@Parameters({ "AppiumPort", "deviceID", "deviceOS" })
+	@Parameters({ "appiumPort", "deviceID", "deviceOS" })
 	public void setUp(int port, String deviceId, String OS)
 			throws Exception, MalformedURLException {
 		ap.startAppium(port);
@@ -81,8 +86,12 @@ public class SMPAndroidLiveRewindPlayback {
 		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
+<<<<<<< HEAD
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
 		capa.setCapability("platformVersion", deviceOS);
+=======
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
+>>>>>>> DRM-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -97,7 +106,11 @@ public class SMPAndroidLiveRewindPlayback {
 	}
 
 	@Test
+<<<<<<< HEAD
 	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
+=======
+	@Parameters({ "appiumPort", "deviceID", "deviceOS", "deviceName" })
+>>>>>>> DRM-AN
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
 	 {
 		
@@ -117,18 +130,35 @@ public class SMPAndroidLiveRewindPlayback {
 
 
 	@Test(dependsOnMethods={ "OpenAvtest" })
-	public void enableRDot_live() throws Exception
+	@Parameters({"deviceOS"})
+	public void enableRDot_live(String deviceOS) throws Exception
 		{
 		
-			commonobjects.menu.click();
-			Thread.sleep(2000);
+		NumberFormat numberformat = NumberFormat.getInstance();
+		Double Device_OSversion = numberformat.parse(deviceOS).doubleValue();
+		System.out.println("DeviceOS"+Device_OSversion);
+		
+		if(Device_OSversion >= 6.0)
+		{	
+		commonobjects.menuoptions.click();
+		Thread.sleep(1000);
+		commonfunction.tapbutton("Enabling the LiveRdot", commonobjects.enable_liveRdot, driver, ScreenshotPath);
+		Thread.sleep(1000);
+		commonfunction.tapbutton("Checking the LiveRdot is enabled", commonobjects.menuoptions, driver, ScreenshotPath);
+		Thread.sleep(2000);
+		}
+		else
+		{
+		commonobjects.menu.click();
+		Thread.sleep(1000);
+		commonfunction.tapbutton("Enabling the LiveRdot", commonobjects.enable_liveRdot, driver, ScreenshotPath);
+		Thread.sleep(1000);
+		commonfunction.tapbutton("Checking the LiveRdot is enabled", commonobjects.menu, driver, ScreenshotPath);
+		Thread.sleep(2000);
+		}
 			
-			commonfunction.tapbutton("Enabling the LiveRdot", commonobjects.enable_liveRdot, driver, ScreenshotPath);
-			
-			commonfunction.tapbutton("Checking the LiveRdot is enabled", commonobjects.menu, driver, ScreenshotPath);
-			
-			driver.pressKeyCode(AndroidKeyCode.BACK);
-			Thread.sleep(2000);
+		driver.pressKeyCode(AndroidKeyCode.BACK);
+		Thread.sleep(2000);
 		}
 
 	@Test(dependsOnMethods = { "enableRDot_live" })

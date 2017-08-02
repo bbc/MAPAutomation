@@ -19,9 +19,12 @@ public class CommonObjects {
 	@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc'More options']")
 	public WebElement avtest_menu; 
 
-	@AndroidFindBy(xpath = "//android.support.v7.widget.am[@index='1']")
+	@AndroidFindBy(xpath = "//android.support.v7.widget.ao[@index='1']")
 	public WebElement menu;
 
+	@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc='More options']")
+	public WebElement menuoptions;
+	
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[@index='0']")
 	public WebElement home;
 

@@ -1,183 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testng-results skipped="5" failed="1" total="10" passed="4">
+=======
+<testng-results skipped="0" failed="0" total="10" passed="10">
+>>>>>>> DRM-AN
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="158982" started-at="2017-07-07T14:17:02Z" finished-at="2017-07-07T14:19:41Z">
+  <suite name="Default suite" duration-ms="328352" started-at="2017-08-01T09:51:09Z" finished-at="2017-08-01T09:56:38Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="158982" started-at="2017-07-07T14:17:02Z" finished-at="2017-07-07T14:19:41Z">
-      <class name="main.java.test.DRMMainTests.AndroidDRMTest">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="setUp" is-config="true" duration-ms="21629" started-at="2017-07-07T15:17:02Z" finished-at="2017-07-07T15:17:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1115fbd9e7622a04]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[6.0.1]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[4745]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Mobile]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Note4]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="328352" started-at="2017-08-01T09:51:09Z" finished-at="2017-08-01T09:56:38Z">
+      <class name="SMPANPUMA.PUMATest.Android_PumaTests">
+        <test-method status="PASS" signature="RunTest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="RunTest" is-config="true" duration-ms="267" started-at="2017-08-01T10:51:09Z" finished-at="2017-08-01T10:51:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RunTest -->
+        <test-method status="PASS" signature="getAllDetails()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="getAllDetails" duration-ms="7" started-at="2017-08-01T10:51:10Z" finished-at="2017-08-01T10:51:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllDetails -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="setUp" duration-ms="21603" started-at="2017-08-01T10:51:10Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.getAllDetails" finished-at="2017-08-01T10:51:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Open_DRMApp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Open_DRMApp" duration-ms="18966" started-at="2017-07-07T15:17:23Z" finished-at="2017-07-07T15:17:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1115fbd9e7622a04]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[6.0.1]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[4745]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Mobile]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Note4]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="OpenAvtest" duration-ms="7741" started-at="2017-08-01T10:51:31Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.setUp" finished-at="2017-08-01T10:51:39Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Open_DRMApp -->
-        <test-method status="PASS" signature="deleteQueued(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="deleteQueued" duration-ms="63016" started-at="2017-07-07T15:17:42Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Open_DRMApp" finished-at="2017-07-07T15:18:45Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mobile]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- OpenAvtest -->
+        <test-method status="PASS" signature="Play_LiveRewindTest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="Play_LiveRewindTest" duration-ms="15063" started-at="2017-08-01T10:51:39Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.OpenAvtest" finished-at="2017-08-01T10:51:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteQueued -->
-        <test-method status="PASS" signature="Vpid_Download(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Vpid_Download" duration-ms="20483" started-at="2017-07-07T15:18:45Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.deleteQueued" finished-at="2017-07-07T15:19:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mobile]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- Play_LiveRewindTest -->
+        <test-method status="PASS" signature="CheckingPlayback_LiveRewind()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="CheckingPlayback_LiveRewind" duration-ms="102659" started-at="2017-08-01T10:51:54Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_LiveRewindTest" finished-at="2017-08-01T10:53:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Vpid_Download -->
-        <test-method status="PASS" signature="Addingto_Queue()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Addingto_Queue" duration-ms="18110" started-at="2017-07-07T15:19:06Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Vpid_Download" finished-at="2017-07-07T15:19:24Z">
+        </test-method> <!-- CheckingPlayback_LiveRewind -->
+        <test-method status="PASS" signature="PlaybackRotation()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="PlaybackRotation" duration-ms="17603" started-at="2017-08-01T10:53:37Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_LiveRewind" finished-at="2017-08-01T10:53:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Addingto_Queue -->
-        <test-method status="FAIL" signature="Download_Pause()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Download_Pause" duration-ms="9450" started-at="2017-07-07T15:19:24Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Addingto_Queue" finished-at="2017-07-07T15:19:33Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Can't locate an element by this strategy: Locator map: 
-- native content: "By.xpath: //android.widget.TextView[@text='Paused']" 
-- html content: "by id or name "download_paused""
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
-System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
-Driver info: driver.version: unknown]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: Locator map: 
-- native content: "By.xpath: //android.widget.TextView[@text='Paused']" 
-- html content: "by id or name "download_paused""
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
-System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
-Driver info: driver.version: unknown
-	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:110)
-	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:57)
-	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$1cfb2d03.getText(<generated>)
-	at main.java.test.DRMMainTests.AndroidDRMTest.Download_Pause(AndroidDRMTest.java:334)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Download_Pause -->
-        <test-method status="SKIP" signature="Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Download_Resume" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Download_Pause" finished-at="2017-07-07T15:19:34Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method AndroidDRMTest.Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method AndroidDRMTest.Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- Download_Resume -->
         <test-method status="SKIP" signature="Downloads_Complete(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a]" name="Downloads_Complete" duration-ms="0" started-at="2017-07-07T15:19:34Z" depends-on-methods="main.java.test.DRMMainTests.AndroidDRMTest.Download_Resume" finished-at="2017-07-07T15:19:34Z">
           <exception class="java.lang.Throwable">
@@ -437,4 +299,30 @@ Driver info: driver.version: unknown
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 >>>>>>> SMP-AN
+=======
+        </test-method> <!-- PlaybackRotation -->
+        <test-method status="PASS" signature="Pause_LiveRewindTest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="Pause_LiveRewindTest" duration-ms="17830" started-at="2017-08-01T10:53:54Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.PlaybackRotation" finished-at="2017-08-01T10:54:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_LiveRewindTest -->
+        <test-method status="PASS" signature="Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="Play_VideoOnDemand" duration-ms="70300" started-at="2017-08-01T10:54:12Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Pause_LiveRewindTest" finished-at="2017-08-01T10:55:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Play_VideoOnDemand -->
+        <test-method status="PASS" signature="CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="CheckingPlayback_VOD" duration-ms="53932" started-at="2017-08-01T10:55:22Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_VideoOnDemand" finished-at="2017-08-01T10:56:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckingPlayback_VOD -->
+        <test-method status="PASS" signature="Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="Pause_VideoOnDemand" duration-ms="17829" started-at="2017-08-01T10:56:16Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_VOD" finished-at="2017-08-01T10:56:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_VideoOnDemand -->
+        <test-method status="PASS" signature="End()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@6e6c3152]" name="End" is-config="true" duration-ms="3496" started-at="2017-08-01T10:56:34Z" finished-at="2017-08-01T10:56:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- End -->
+      </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+>>>>>>> DRM-AN
 </testng-results>

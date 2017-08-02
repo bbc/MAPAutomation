@@ -4,17 +4,25 @@
   <test name="Default test(failed)">
     <classes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback">
+=======
+      <class name="SMPANPUMA.PUMATest.Android_PumaTests">
+>>>>>>> DRM-AN
         <methods>
-          <include name="liveRewind_Assertions"/>
-          <include name="seeking_randomly"/>
+          <include name="Play_VideoOnDemand"/>
+          <include name="CheckingPlayback_LiveRewind"/>
+          <include name="PlaybackRotation"/>
+          <include name="Pause_VideoOnDemand"/>
+          <include name="getAllDetails"/>
+          <include name="Play_LiveRewindTest"/>
+          <include name="Pause_LiveRewindTest"/>
+          <include name="CheckingPlayback_VOD"/>
+          <include name="RunTest"/>
+          <include name="setUp"/>
           <include name="OpenAvtest"/>
-          <include name="PlaybackContinues"/>
-          <include name="PlaybackStart"/>
-          <include name="playbackseeking_backard_forward"/>
-          <include name="LiveRewindplaybackpause"/>
-          <include name="LiveRewindplaybackresume"/>
         </methods>
+<<<<<<< HEAD
       </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback -->
 =======
       <class name="main.java.test.smpMainTest.iOSOnDemand_VideoPlayback">
@@ -31,6 +39,9 @@
         </methods>
       </class> <!-- main.java.test.smpMainTest.iOSOnDemand_VideoPlayback -->
 >>>>>>> SMP-AN
+=======
+      </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
+>>>>>>> DRM-AN
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -44,13 +44,18 @@ import main.java.test.smpUtilityFunctions.PortFactory;
 
 public class AndroidDRMTest 
 {
-	
+	public String filename;
+	public String workingDirectory;  
+	public String absoluteFilePath;
+	public String ScreenshotPath; 
+	public String Screenshot_Path;
+	File screenhotfiles;
 		
 		public DesiredCapabilities capa;
 		public AndroidDriver<WebElement> androiddriver;
 		AndroidDRMPageObjects androiddrmpom;
-		String vpid = "p0559g4p"; // available for next 4 months
-		String vpid1 = "p056gw3d";// "p051y9gp"; // "b07xnzs2";
+		String vpid = "p056gnk4"; // available for next 4 months
+		String vpid1 = "b08wzz53";// "p051y9gp"; // "b07xnzs2";
 		String vpid2="p055zqqn";
 		public WebDriverWait wait;
 		CommonFunction funct = new CommonFunction();
@@ -63,10 +68,10 @@ public class AndroidDRMTest
 		
 		String vpids[] = {"p055zqqn","p053ntqd"};
 		
-		String filename = "BuyDRM";
-	    String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";
-		String absoluteFilePath = workingDirectory+File.separator+filename;
-		public String Screenshot_Path= "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/AndroidDRM";
+//		String filename = "BuyDRM";
+//	    String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";
+//		String absoluteFilePath = workingDirectory+File.separator+filename;
+//		public String Screenshot_Path= "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/AndroidDRM";
 		
 		
 		
@@ -100,23 +105,41 @@ public class AndroidDRMTest
 				e.printStackTrace();
 			}
 		   	
+			
 		}
 		
 		@Test
 		@Parameters({"deviceID","deviceOS","appiumPort", "deviceType","deviceName"})
-		public void Open_DRMApp(String deviceId, String OS, String port, String deviceType, String devicename) throws InterruptedException, IOException, ParseException
+		public void Open_DRMApp(String deviceId, String OS, String port, String deviceType, String devicename) throws Exception
 		{
+			androiddrmpom = new AndroidDRMPageObjects();
+			PageFactory.initElements(new AppiumFieldDecorator(androiddriver), androiddrmpom);
+			
+			androiddriver.setConnection(Connection.WIFI);
+			
+			
+			try
+			{
+			filename = "AndroidDRM";
+			workingDirectory =  funct.ResultFolder(androiddrmpom.ParentDirectoy);  
+			absoluteFilePath = workingDirectory + File.separator + filename;
+			ScreenshotPath =  workingDirectory+ File.separator+funct.ResultFolder(androiddrmpom.SubDirectory);    //"/../Automation/Results/iOSDRM";
+			//screenhotfiles = new File(Screenshot_Path);
+			Screenshot_Path = ScreenshotPath;
+			
+			funct.CreateReport(absoluteFilePath, deviceId, "4723",
+					OS,
+					devicename);
+			
+			}catch(NullPointerException e)
+			{
+				e.printStackTrace();
+			}
+			
 			try
 			{	
-					extent = new ExtentReports(absoluteFilePath+"_"+devicename+".html", true, DisplayOrder.NEWEST_FIRST);
 			
-//			extent.config()
-//	        .documentTitle("AVTestharnessApp Report")
-//	        .reportName("LiveSimulcast Playback");
-			
-			
-		
-			
+			extent = new ExtentReports(absoluteFilePath+"_"+devicename+".html", true, DisplayOrder.NEWEST_FIRST);
 			HashMap<String, String> sysInfo = new HashMap<String, String>();
 			
 			sysInfo.put("Device Name ", devicename);
@@ -146,17 +169,7 @@ public class AndroidDRMTest
 				System.out.println(e.getMessage());
 			}
 			
-			
-			
-			
-			androiddrmpom = new AndroidDRMPageObjects();
-			PageFactory.initElements(new AppiumFieldDecorator(androiddriver), androiddrmpom);
-			
-			//String downlo = drmpom.download_button.getText();
-			//System.out.println("Text is "+downlo);
-			
-			androiddriver.setConnection(Connection.WIFI);
-		//	setConnection(networkconnection().WIFI);
+	
 			
 		/*	drmpom.menuoption.click();
 			Thread.sleep(2000);
@@ -177,9 +190,6 @@ public class AndroidDRMTest
 			driver.pressKeyCode(AndroidKeyCode.BACK);*/
 			
 		}
-		
-		
-		
 		@Test(dependsOnMethods={"Open_DRMApp"})
 		@Parameters({"deviceType"})
 		public void deleteQueued(String devicetype) throws Exception
@@ -373,8 +383,8 @@ public class AndroidDRMTest
 		}
 		
 		@Test(dependsOnMethods={"Download_Resume"})
-		@Parameters({"deviceType"})
-		public void Downloads_Complete(String deviceType) throws Exception
+		//@Parameters({"deviceType"})
+		public void Downloads_Complete() throws Exception //String deviceType
 			
 		{	
 			logger = extent.startTest("Download Complete");
@@ -396,11 +406,9 @@ public class AndroidDRMTest
 			Assert.assertEquals("In Progress", androiddrmpom.download_progress.getText());
 			
 			
-			androiddriver.openNotifications();
+//			androiddriver.openNotifications();
 			
-			
-			
-//			androiddriver.runAppInBackground(140);
+     		androiddriver.runAppInBackground(120);
 //			
 //			androiddriver.openNotifications();
 //			if(!androiddriver.findElement(By.xpath("//android.widget.TextView[@content-desc='Downloading...'] and [@index'2']")).isDisplayed())
@@ -410,7 +418,7 @@ public class AndroidDRMTest
 			
 		    logger.log(LogStatus.INFO, "App in Background " +logger.addScreenCapture( funct.capture_ScreenShot(androiddriver, Screenshot_Path, "Background App")));
 			
-			Download_menu(deviceType);
+			//Download_menu(deviceType);
 
 	/*		drmpom.menuoption.click();
 			Thread.sleep(2000);
@@ -428,12 +436,12 @@ public class AndroidDRMTest
 			//funct.waitForScreenToLoad(driver, drmpom.download_complete, 50); 
 		 	
 		 
-			vpid1_one_status = androiddriver.findElement(By.xpath("//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.TextView[@index='1']")).getText();
-			if(vpid1_one_status!="Download Completed")
-			{
-	        String vpid1_expire_date = androiddriver.findElement(By.xpath("//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.TextView[@index='3']")).getText();	
-	        System.out.println(vpid1_expire_date);
-			}
+//			vpid1_one_status = androiddriver.findElement(By.xpath("//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.TextView[@index='1']")).getText();
+//			if(vpid1_one_status!="Download Completed")
+//			{
+//	        String vpid1_expire_date = androiddriver.findElement(By.xpath("//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.TextView[@index='3']")).getText();	
+//	        System.out.println(vpid1_expire_date);
+//			}
 			
 			logger.log(LogStatus.INFO, "App in Foreground " +logger.addScreenCapture( funct.capture_ScreenShot(androiddriver, Screenshot_Path, "Foreground App")));
 			
@@ -450,7 +458,7 @@ public class AndroidDRMTest
 	        	
 	        }
 			
-			if(androiddriver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewVpid")).getText() != vpid1)
+		/*	if(androiddriver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewVpid")).getText() != vpid1)
 			{
 				for(int i=0;i<=1;i++)
 				{
@@ -462,12 +470,9 @@ public class AndroidDRMTest
 					System.out.println(androiddriver.findElement(By.xpath("//android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.TextView[@index="+"'"+i+"']")).getText());
 			
 				}
-//				System.out.println(driver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewMediaType")).getText());
-//	        	System.out.println(driver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewTime")).getText());
-//	        	System.out.println(driver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewProgress")).getText());
-//	        	System.out.println(driver.findElement(By.id("uk.co.bbc.drmtestapp.android:id/textViewFileSize")).getText());
+
 				
-			}
+			}*/
 			
 		}	
 			
@@ -568,8 +573,6 @@ public class AndroidDRMTest
 				
 				logger = extent.startTest("Deleting the Downloaded VPID's");
 				
-				
-
 				androiddriver.pressKeyCode(AndroidKeyCode.BACK);
 				
 				androiddriver.rotate(ScreenOrientation.PORTRAIT);
