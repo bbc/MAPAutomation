@@ -1,5 +1,6 @@
 package main.java.test.smpPageObjects;
 
+import java.io.File;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -73,6 +74,9 @@ public class CommonObjects {
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/placeholder_play_button")
 	public WebElement vpidPlay_button;
+	
+	@AndroidFindBy(xpath= "//android.widget.TextView[@text='Use Live RDot Environment' and @index='0']")
+	public WebElement enable_liveRdot;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/placeholder_play_button")
 	public WebElement play_button;
@@ -197,5 +201,9 @@ public class CommonObjects {
 	public String liveEpsiode = "MF - Video Live - Production (BBC Two, HD Simulcast) : b";
 
 	public List<WebElement> element;
+	
+	public String ParentDirectoy = "Results/SMP-iOS";
+	
+	public String SubDirectory =  "Screenshot";
 
 }

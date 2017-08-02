@@ -1,8 +1,12 @@
 package main.java.test.smpPageObjects;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.WithTimeout;
+import io.appium.java_client.pagefactory.iOSFindAll;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 public class iOSCommonObjects {
@@ -17,8 +21,9 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")
 	public WebElement playback_start_button;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[3")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeTableView[1]/XCUIElementTypeCell[3")
 	public WebElement BBC_two_Live;
+	
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAStaticText[1]")
 	public WebElement playback_title;
@@ -44,12 +49,16 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[11]")
 	public WebElement playback_PIP; // picture in picture button
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAButton[10]")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther[3]/XCUIElementTypeOther[4]/XCUIElementTypeButton[3]")
+	@iOSFindBy(accessibility = "smp_subtitles_button")
 	public WebElement playback_subtitle_button;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAStaticText[11]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther[3]/XCUIElementTypeStaticText")
 	public WebElement playback_duration;
 
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeStaticText[8]")
+	public WebElement subtitletext;
+	
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[2]/UIAElement[2]")
 	public WebElement playback_progressbar;
 
@@ -67,6 +76,18 @@ public class iOSCommonObjects {
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIASegmentedControl[1]/UIAButton[2]")
 	public WebElement unmediated_tab;
+	
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
+	@iOSFindBy(accessibility="Dismiss")
+	public WebElement error_dimiss_button;
+	
+	@WithTimeout(time = 80, unit = TimeUnit.SECONDS)
+	@iOSFindBy(accessibility="An unknown error occurred")
+	public WebElement errormessage;
+	
+	@iOSFindBy(accessibility="play_pause_button")
+	public WebElement Video_play_pause_button;
 
 	
 	@iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]")
@@ -78,7 +99,8 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[1]")
 	public WebElement airplane_mode;
 	
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[2]")
+	//@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAScrollView[1]/UIAElement[2]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[5]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther")
 	public WebElement wifi_mode;
 	
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]")
@@ -90,8 +112,10 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIAScrollView[1]/UIAStaticText[2]")
 	public WebElement update_message;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]")
+	@iOSFindBy(xpath = "//XCUIElementTypeCell[1]/XCUIElementTypeUIAButton[1]")
+			//"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[4]/XCUIElementTypeAlert[1]/XCUIElementTypeView[1]/XCUIElementTypeCell[1]/XCUIElementTypeUIAButton[1]")
 	public WebElement update_ignoreButton;
+	
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[4]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[2]")
 	public WebElement update_showButton;
@@ -105,10 +129,28 @@ public class iOSCommonObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]/UIAStaticText[1]")
 	public WebElement down_chevron;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[7]")
-	public WebElement dismiss_wholewindow;
-
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+//	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[7]")
+	public WebElement iOS9_dismiss_wholewindow;
+	
+	
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[6]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+	//XCUIElementTypeApplication/XCUIElementTypeWindow[7]")
+	public WebElement iOS10_dismiss_wholewindow;
+	
+	
+  //  @iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther")
+    //AppiumAUT/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[7]/XCUIElementTypeOther
+    @iOSFindBy(accessibility = "Playback position")
+	public WebElement seekbar;
+	
+	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]")
+    public WebElement transport_controls; 
+	
 	public String error_message = "An unknown error occurred";
+	
+	public String Live_Channel = "MF - Video Live - Production (BBC Two, HD Simulcast)";
 
 
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
@@ -63,9 +64,15 @@ public class SMPAndroidOnDemandVideoPlayback {
 	PortFactory portFactory = new PortFactory();
 
 	@BeforeClass
+<<<<<<< HEAD
+	@Parameters({ "AppiumPort", "deviceID", "deviceOS" })
+	public void setUp(int port, String deviceId, String OS) throws Exception, MalformedURLException {
+		ap.startAppium(port);
+=======
 	@Parameters({ "deviceID", "deviceOS", "appiumPort" })
 	public void setUp(String deviceID, String deviceOS, int appiumPort) throws Exception, MalformedURLException {
 		ap.startAppium(appiumPort);
+>>>>>>> SMP-AN
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
@@ -74,8 +81,13 @@ public class SMPAndroidOnDemandVideoPlayback {
 		capa.setCapability("appium-version", "1.0");
 		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
+<<<<<<< HEAD
+		capa.setCapability("platformVersion", OS);
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
+=======
 		capa.setCapability("platformVersion", deviceOS);
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
+>>>>>>> SMP-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -90,9 +102,14 @@ public class SMPAndroidOnDemandVideoPlayback {
 	}
 
 	@Test
+<<<<<<< HEAD
+	@Parameters({ "AppiumPort", "deviceID", "deviceOS", "deviceName" })
+	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception {
+=======
 	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
 	 {
+>>>>>>> SMP-AN
 		try {
 			commonobjects = new CommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), commonobjects);
@@ -103,6 +120,11 @@ public class SMPAndroidOnDemandVideoPlayback {
 			ondemandobjects = new OnDemandPageObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 
+			commonobjects.menu.click();
+			Thread.sleep(3000);
+			
+			driver.findElement(By.xpath("//android.widget.TextView[@text='Use Live RDot Environment' and @index='0']")).click();
+			Thread.sleep(1000);
 
 			commonfunction.CreateReport(absoluteFilePath, deviceID, Port, deviceOS, deviceName);
 

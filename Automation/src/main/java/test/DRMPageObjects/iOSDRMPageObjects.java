@@ -1,9 +1,12 @@
 package main.java.test.DRMPageObjects;
 
-import org.openqa.selenium.By;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.WithTimeout;
+import io.appium.java_client.pagefactory.iOSFindAll;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 public class iOSDRMPageObjects {
@@ -17,7 +20,7 @@ public class iOSDRMPageObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]")
 	public WebElement addDownload_Button;
 
-	@iOSFindBy(xpath = " //UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIATextField[1] ")
+	@iOSFindBy(xpath = " //XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeTextField")
 	public WebElement enterVPIDField;
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIATextField[1]/UIAButton[1]")
@@ -64,9 +67,60 @@ public class iOSDRMPageObjects {
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAProgressIndicator[1]")
 	public WebElement progressStatus;
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
+	@iOSFindBy(accessibility = "Download Complete")
+	public WebElement iOSDownload_Complete;
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
+	@iOSFindBy(xpath = "/XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[/XCUIElementTypeStaticText")
+	public WebElement iOSDownload_SecondComplete;
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
+	public WebElement iOSDownloadFirst_Complete;
+	
+	@WithTimeout(time = 60, unit = TimeUnit.SECONDS)
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+	public WebElement iOSDownloadSecond_Complete;
+	
+	
+	@iOSFindAll({
+        @iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[11]XCUIElementTypeOther"),
+        @iOSFindBy(accessibility = "Playback position")
+})
+	public WebElement seekbar;
+	
+	@iOSFindBy(accessibility = "Playback position")
+	public WebElement playbackseekbar;
+	
+	@iOSFindBy(accessibility = "Remove")
+	public WebElement iOSDownload_Remove;
+	
+	@iOSFindBy(accessibility = "Pause")
+	public WebElement iOSDownload_Pause;
+	
+	@iOSFindBy(accessibility = "Paused")
+	public WebElement iOSDownload_Paused;
+	
+	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText")
+	public WebElement Download_Status1;
+	
+	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeStaticText")
+	public WebElement Download_Status2;
+	
+	@iOSFindBy(accessibility = "Resume")
+	public WebElement iOSDownload_Resume;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAStaticText[1]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	public WebElement audio_downloadcomplete_button;
+	
+	
+	@iOSFindBy(xpath="//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
+	public WebElement downloadInProgress_button;
+	
+	@iOSFindBy(xpath="//XCUIElementTypeCel")
+	public WebElement cell_element;
 	
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]")
 	public WebElement video_downloadcomplete_button;
@@ -86,11 +140,14 @@ public class iOSDRMPageObjects {
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIASlider[1]")
 	public WebElement volume_slider;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAStaticText[2]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[11]/XCUIElementTypeOther[3]/XCUIElementTypeStaticText")
 	public WebElement playbackduration;
 
-	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAElement[4]")
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[11]/XCUIElementTypeOther")
 	public WebElement playback_progressbar;
+	
+	@iOSFindBy(accessibility = "Playback position")
+	public WebElement playbackprogressbar;
 
 	@iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[9]")
 	public WebElement playback_subtitle;
@@ -99,7 +156,12 @@ public class iOSDRMPageObjects {
 
 	public String video_Vpid = "b08l42h9"; // "p04y8x4y";
 	
-	public String[] vpids ={"b08l64xc","p04y8x4y"};
+	public String[] vpids ={"b08th1rx","b08rz09d"};
+	
+	public String[] vpids_list ={"b08rypgn","b008m5t2","b08t3kfd","b08tc3k8"};
+	
+	public String[] mediatype ={"Video","Video"};
+
 
 	WebElement elements[] = { downloadingStatus, downloadingVPID, downloadingVPID_FileSize, downloadingVPID_Expiry,
 			downloadingVPID_MediaType };
@@ -109,6 +171,8 @@ public class iOSDRMPageObjects {
 	@iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAButton[1]")
 	public WebElement remove_downloaded_button;
 	
+	public String ParentDirectoy = "Results/iOS-DRM";
 	
+	public String SubDirectory =  "Screenshot";
 	
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
@@ -49,7 +50,9 @@ public class SMPAndroidLiveRewindPlayback {
 	String filename = "LiveRewind";
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast_Rewind";
+//	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
+
 
 	File file;// = new File(absoluteFilePath);
 
@@ -65,9 +68,10 @@ public class SMPAndroidLiveRewindPlayback {
 
 
 	@BeforeClass
-	@Parameters({ "deviceID", "deviceOS", "appiumPort" })
-	public void setUp(String deviceID, String deviceOS, int appiumPort) throws Exception, MalformedURLException {
-		ap.startAppium(appiumPort);
+	@Parameters({ "AppiumPort", "deviceID", "deviceOS" })
+	public void setUp(int port, String deviceId, String OS)
+			throws Exception, MalformedURLException {
+		ap.startAppium(port);
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
@@ -76,8 +80,9 @@ public class SMPAndroidLiveRewindPlayback {
 		capa.setCapability("appium-version", "1.0");
 		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
+		capa.setCapability("platformVersion", OS);
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
 		capa.setCapability("platformVersion", deviceOS);
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -101,22 +106,32 @@ public class SMPAndroidLiveRewindPlayback {
 
 		liverewindobject = new LiveRewindPageObjects();
 		PageFactory.initElements(new AppiumFieldDecorator(driver), liverewindobject);
-
-
-		commonobjects.menu.click();
-		Thread.sleep(3000);
-
-		driver.pressKeyCode(AndroidKeyCode.BACK);
-
-		Thread.sleep(3000);
+		
+	//	driver.findElement(By.xpath("//android.widget.TextView[@text='Use Live RDot Environment' and @index='0']")).click();
+	//	Thread.sleep(1000);
+		
 
 		commonfunction.CreateReport(absoluteFilePath, deviceID, Port, deviceOS, deviceName);
 
 	}
 
 
+	@Test(dependsOnMethods={ "OpenAvtest" })
+	public void enableRDot_live() throws Exception
+		{
+		
+			commonobjects.menu.click();
+			Thread.sleep(2000);
+			
+			commonfunction.tapbutton("Enabling the LiveRdot", commonobjects.enable_liveRdot, driver, ScreenshotPath);
+			
+			commonfunction.tapbutton("Checking the LiveRdot is enabled", commonobjects.menu, driver, ScreenshotPath);
+			
+			driver.pressKeyCode(AndroidKeyCode.BACK);
+			Thread.sleep(2000);
+		}
 
-	@Test(dependsOnMethods = { "OpenAvtest" })
+	@Test(dependsOnMethods = { "enableRDot_live" })
 	public void PlaybackStart() throws Exception {
 
 

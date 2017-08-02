@@ -39,10 +39,6 @@ public class iOSDemoApp {
 	CommonObjects cobjects;
 	OnDemandPageObjects ondemandobjects;
 
-	public List<String> deviceID = new ArrayList<String>();
-	public List<String> deviceOS = new ArrayList<String>();
-	public List<String> deviceName = new ArrayList<String>();
-
 	public IOSDriver<WebElement> iosdriver = null;
 	public DesiredCapabilities capabilities;
 	String message;
@@ -70,8 +66,24 @@ public class iOSDemoApp {
 
 	PortFactory portFactory = new PortFactory();
 
+	public String deviceName=null;
+	public String deviceOS=null;
+	public String deviceUDID=null;
+
 	@BeforeClass
-	public void setUp() throws Exception, MalformedURLException
+	public void getDeviceDetails() throws Exception
+	{
+		deviceName = ioscommonfunction.retrunDeviceInfo("DeviceName");
+		deviceOS = ioscommonfunction.retrunDeviceInfo("ProductVersion");
+		deviceUDID = ioscommonfunction.retrunDeviceInfo("UniqueDeviceID");
+	    System.out.println("The Device Name is :-"+  deviceName);
+	    System.out.println("The Device OS version is :-"+  deviceOS);
+	    System.out.println("The Device UDID is :-"+  deviceUDID);
+	    
+	    Setup(deviceName,deviceUDID,deviceOS);
+	}
+	
+	public void Setup(String dName,String dUDID, String dOS) throws Exception
 	{
 		appiummanager.startAppium(4723);
 		appiummanager.AppiumURL();
@@ -80,10 +92,10 @@ public class iOSDemoApp {
 
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.6");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MCP's iPad");
-		capabilities.setCapability(MobileCapabilityType.UDID, "df43e12f4ba40c8763eb37dc17195717e094ee96");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, dName);
+		capabilities.setCapability(MobileCapabilityType.UDID, dUDID);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.3.5");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, dOS);
 		capabilities.setCapability(MobileCapabilityType.APP,
 				"/Users/ramakh01/Desktop/AvTestHarness/iOSApp/AVTestHarness.ipa");
 		capabilities.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
@@ -204,8 +216,8 @@ public class iOSDemoApp {
 	@Test(dependsOnMethods = { "listview2" })
 	public void play() throws Exception {
 
-		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
+		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
 
 	}
 

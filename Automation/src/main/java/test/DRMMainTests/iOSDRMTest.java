@@ -2,8 +2,6 @@ package main.java.test.DRMMainTests;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
@@ -16,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
@@ -34,24 +33,6 @@ public class iOSDRMTest {
 	public iOSDRMPageObjects iosdrmpageobjects;
 	public CommonObjects commonobjects;
 
-	public List<String> deviceID = new ArrayList<String>();
-	public List<String> deviceOS = new ArrayList<String>();
-	public List<String> deviceName = new ArrayList<String>();
-
-	
-	public DesiredCapabilities capa;
-	String message;
-
-	public WebDriverWait wait;
-
-	String filename = "iOSDRM";
-	String workingDirectory = "/Users/ramakh01/Desktop/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
-	String absoluteFilePath = workingDirectory + File.separator + filename;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAPAutomation/Automation/Results/iOSDRM/";
-	File screenhotfiles = new File(ScreenshotPath);
-
-	File file;// = new File(absoluteFilePath);
-
 	AppiumManager appiummanager = new AppiumManager();
 
 	iOSCommonFunctions ioscommonfunction = new iOSCommonFunctions();
@@ -67,12 +48,45 @@ public class iOSDRMTest {
 	IOSDriver<WebElement> iosdriver;
 	
 	iOSCommonObjects iospageobjects;
+	
+	String playbackduration_beforeseek;
+	
+	String playbackduration_afterseek;
+
+	public String deviceName=null;
+	public String deviceOS=null;
+	public String deviceUDID=null;
+	
+	public DesiredCapabilities capa;
+	String message;
+
+	public WebDriverWait wait;
 
 
+	File file;// = new File(absoluteFilePath);
+
+	public String filename;
+	public String workingDirectory;  
+	public String absoluteFilePath;
+	public String ScreenshotPath;    //"/../Automation/Results/iOSDRM";
+	File screenhotfiles;
+	
 
 	@BeforeClass
-	public void Setup() throws Exception
-
+	public void getDeviceDetails() throws Exception
+	{
+		deviceName = ioscommonfunction.retrunDeviceInfo("DeviceName");
+		deviceOS = ioscommonfunction.retrunDeviceInfo("ProductVersion");
+		deviceUDID = ioscommonfunction.retrunDeviceInfo("UniqueDeviceID");
+	    System.out.println("The Device Name is :-"+  deviceName);
+	    System.out.println("The Device OS version is :-"+  deviceOS);
+	    System.out.println("The Device UDID is :-"+  deviceUDID);
+	    
+	    Setup(deviceName,deviceUDID,deviceOS);
+	
+	}
+	
+	public void Setup(String dName,String dUDID, String dOS) throws Exception
 	{
 		appiummanager.startAppium(4723);
 		appiummanager.AppiumURL();
@@ -81,15 +95,18 @@ public class iOSDRMTest {
 
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.6");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MCP's iPad");
-		capabilities.setCapability(MobileCapabilityType.UDID, "df43e12f4ba40c8763eb37dc17195717e094ee96");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, dName);
+		capabilities.setCapability(MobileCapabilityType.UDID, dUDID);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.3.5");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, dOS);
 		capabilities.setCapability(MobileCapabilityType.APP,
-				"/Users/ramakh01/Desktop/Automation/Automation/DRM_iOS/DRMSampleApp.ipa");
+				"/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/DRM_iOS/DRMSampleApp.ipa");
 		capabilities.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, false);
-
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");//"XCUITest");
+		capabilities.setCapability("useNewWDA", true);
+		capabilities.setCapability("wdaLaunchTimeout", 3000);
+		capabilities.setCapability("wdaLocalPort", 8100);
 
 		try {
 
@@ -110,255 +127,319 @@ public class iOSDRMTest {
 			
 			iospageobjects = new iOSCommonObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(iosdriver), iospageobjects);
-
-			ioscommonfunction.CreateReport(absoluteFilePath, "df43e12f4ba40c8763eb37dc17195717e094ee96", "4723",
-					"9.3.5",
-					"iPad-Air2");
-
 			
-
+			
+			commonobjects = new CommonObjects();
+			PageFactory.initElements(new AppiumFieldDecorator(iosdriver), commonobjects);
+			
+			 try
+				{
+				filename = "iOS_DRM";
+				workingDirectory =  drmcommonfunction.ResultFolder(iosdrmpageobjects.ParentDirectoy);  
+				absoluteFilePath = workingDirectory + File.separator + filename;
+				ScreenshotPath =  workingDirectory+File.separator+drmcommonfunction.ResultFolder(iosdrmpageobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
+			//	screenhotfiles = new File(ScreenshotPath);
+				
+				drmcommonfunction.CreateReport(absoluteFilePath, deviceUDID, "4723",
+						deviceOS,
+						deviceName);
+				}catch(NullPointerException e)
+				{
+					e.printStackTrace();
+				}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	
+	
+	
+	
+	/*
+	 * Adding  the VPID's to download, Two Video VPID's are added
+	 * 
+	 */
+	
 	@Test(dependsOnMethods={"openDRMApp"})
 	public void vpid_Download() throws Exception
 	{
+		
 		for(int i=0;i<iosdrmpageobjects.vpids.length;i++)
 		{
-		iosdrmpageobjects.addDownload_Button.click();
+			
+			drmcommonfunction.tapAccessabilityButton("Download Button", iosdriver, "Add", ScreenshotPath);		
 		Thread.sleep(1000);
 		
-		iosdrmpageobjects.vpidClearButton.click();
+		drmcommonfunction.tapAccessabilityButton("Clear Default VPID ", iosdriver, "Clear text", ScreenshotPath);
 		Thread.sleep(600);
 		
-		ioscommonfunction.enterText(iosdrmpageobjects.enterVPIDField, "Entering the VPID's", iosdrmpageobjects.vpids[i], iosdriver, ScreenshotPath);
+		drmcommonfunction.enterText(iosdrmpageobjects.enterVPIDField, "Entering the VPID's", iosdrmpageobjects.vpids[i], iosdriver, ScreenshotPath);
 		
-		ioscommonfunction.tapbutton(iosdrmpageobjects.downloadButton, "Adding a VPID's to Download",iosdriver, ScreenshotPath);
+		drmcommonfunction.tapAccessabilityButton("Downloading ", iosdriver, "Download", ScreenshotPath);
+		
+		drmcommonfunction.isAccessabilityElementPresent(iosdriver, "Waiting for Media Selector");
+		Thread.sleep(4000);
 		}
-		
-//		smpcommonfunctions.tapbutton("Adding a Audio VPID to Download", iosdrmpageobjects.downloadButton, iosdriver, ScreenshotPath);
-		
+		Thread.sleep(10000);
 	}
 	
-	@Test(dependsOnMethods={"vpid_Download"})
-	public void check_Vpid() throws Exception, ArrayIndexOutOfBoundsException
 	
+	/*
+	 * Checking Pause and Resume Functionality
+	 * Asserting the download status
+	 * 
+	 */
+	
+	@Test(dependsOnMethods={"vpid_Download"})
+	public void Download_Pause() throws Exception, ArrayIndexOutOfBoundsException
 	{
+		//Thread.sleep(4000);
+	    if(iosdrmpageobjects.iOSDownload_Pause.isDisplayed())
+	    {
+	    	drmcommonfunction.tapAccessabilityButton("Pause Download",iosdriver,"Pause",ScreenshotPath);
+		Assert.assertEquals("Resume", iosdriver.findElementByAccessibilityId("Resume").getText(), "Text Matched");
+	    }
 		
-//		drmcommonfunction.swipe(iosdrmpageobjects.downloadcomplete_button, iosdriver);		
+	//	Assert.assertEquals("Paused", iosdriver.findElementByAccessibilityId("Pause").getText(), "Text Matched");
+		Assert.assertEquals("Paused", iosdrmpageobjects.Download_Status1.getText(), "Text Matched");
+		Assert.assertEquals("Paused", iosdrmpageobjects.Download_Status2.getText(), "Text Matched");
 		
-		WebElement elements[] = {
-				//iosdrmpageobjects.downloadingStatus,
-				iosdrmpageobjects.downloadingVPID,
-				//iosdrmpageobjects.downloadingVPID_FileSize,
-				iosdrmpageobjects.downloadingVPID_Expiry,
-				iosdrmpageobjects.downloadingVPID_MediaType
-			};
-
+		drmcommonfunction.tapAccessabilityButton("Resume Download",iosdriver,"Resume",ScreenshotPath);
+		Assert.assertEquals("Pause", iosdriver.findElementByAccessibilityId("Pause").getText(), "Text Matched");
+		
+		Assert.assertNotEquals("Paused",iosdrmpageobjects.Download_Status1.getText(), "Text Doesn't Matched");
+		Assert.assertNotEquals("Paused",iosdrmpageobjects.Download_Status1.getText(), "Text Doesn't Matched");		
+	}
+	
+	
+	/*
+	 * Checking the VPID's MetaData
+	 * 
+	 */
+	
+	@Test(dependsOnMethods={"Download_Pause"})
+	public void check_Vpid() throws Exception, ArrayIndexOutOfBoundsException
+	{
 		try
 		{
-				for(int i1=0;i1<elements.length;i1++)
-			{
-							System.out.println("Downloading "+ elements[i1].getText());
-							Assert.assertEquals(elements[i1].getText(), elements[i1].getText());
-							//Assert.assertNotEquals(elements[i1].getText(), elements[i1].getText());
-						//	logger.log(LogStatus.PASS, elements[i1]);
-					
-			}	
-		
-		Thread.sleep(2000);
+		for(int i=0;i<iosdrmpageobjects.vpids.length;i++)
+		{
+			drmcommonfunction.isAccessabilityElementPresent(iosdriver, iosdrmpageobjects.vpids[i]);
+		}
+		for(int i=0;i<iosdrmpageobjects.mediatype.length;i++)
+		{
+			drmcommonfunction.isAccessabilityElementPresent(iosdriver, iosdrmpageobjects.mediatype[i]);
+			Assert.assertEquals(iosdrmpageobjects.mediatype[i], iosdriver.findElementByAccessibilityId(iosdrmpageobjects.mediatype[i]).getText());
+		}
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 	
 	
+	/*@Test(dependsOnMethods={"check_Vpid"})
+	public void turnWiFi_Off() throws Exception
+	{
+		
+		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
+		
+		Thread.sleep(1000);
+	}
 	
-//	@Test(dependsOnMethods={"check_Vpid"})
-//	public void turnWiFi_Off() throws Exception
-//	{
-//		//
-//		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Download Status After Network OFF "+ iosdrmpageobjects.progressStatus.getText());
-//		
-//		System.out.println("Download Status After Network OFF:- "+ iosdrmpageobjects.downloadingStatus.getText());
-//		AssertJUnit.assertEquals("Paused", iosdrmpageobjects.downloadingStatus.getText());
-//		Thread.sleep(3000);
-//	}
-//	
-//	@Test(dependsOnMethods={"turnWiFi_Off"})
-//	public void turnWiFi_ON() throws Exception
-//	{
-//		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Download Status After Network ON"+ iosdrmpageobjects.progressStatus.getText());
-//		
-//		System.out.println("Download Status After Network ON:- "+ iosdrmpageobjects.downloadingStatus.getText());
-//	//	AssertJUnit.assertEquals(iosdrmpageobjects.downloadingStatus.getText(), iosdrmpageobjects.downloadingStatus.getText());
-//		String inprogressText = iosdrmpageobjects.downloadingStatus.getText();
-//		AssertJUnit.assertEquals("In Progress",inprogressText.substring(0, 11));
-//		Thread.sleep(3000);
-//	}
+	@Test(dependsOnMethods={"turnWiFi_Off"})
+	public void turnWiFi_ON() throws Exception
+	{
+
+		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
+			
+	}*/
 	
-//	@Test(dependsOnMethods={"check_Vpid"})
-//	public void downloadPause() throws Exception
-//	{
-//		ioscommonfunction.tapbutton(iosdrmpageobjects.pause_resume_button, "Pausing the Download", iosdriver, ScreenshotPath);
-//		
-//		
-//	}
-//	
-//	@Test(dependsOnMethods={"downloadPause"})
-//	public void downloadResume() throws Exception
-//	{
-//		ioscommonfunction.tapbutton(iosdrmpageobjects.pause_resume_button, "Resume the Download", iosdriver, ScreenshotPath);
-//		
-//	}
-	
+	/*
+	 * Checking all the VPID's are download progress 
+	 * 
+	 */
 	
 	@Test(dependsOnMethods={"check_Vpid"})
 	public void DownloadProgress() throws Exception
 	{
 		
+		isElementPresent(iosdrmpageobjects.iOSDownload_Complete,80);
 		
-	//	WebElement progress_status = iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAProgressIndicator[1]"));
-		String downloadingstatus = iosdrmpageobjects.progressStatus.getText();
+		String downloadingstatus = iosdriver.findElementByAccessibilityId("Download Complete").getText();
 		
-		System.out.println("Before Download Completes"+downloadingstatus);
-		
-		waitForScreenToLoad(iosdriver, iosdrmpageobjects.downloadcomplete, 520);
-		
-		String downloadingstatus1 = iosdrmpageobjects.downloadcomplete.getText();
-		
-		System.out.println("After Download Completes "+downloadingstatus1);
+		System.out.println("After Download Completes "+downloadingstatus);
+
 		
 	}
 	
-	
-//	@Test(dependsOnMethods={"DownloadProgress"})
-//	public void DownloadComplete() throws Exception
-//	{
-//		{
-//			WebElement elements[] = {
-//					iosdrmpageobjects.downloadingStatus,
-//					iosdrmpageobjects.downloadingVPID,
-//					iosdrmpageobjects.downloadingVPID_FileSize,
-//					iosdrmpageobjects.downloadingVPID_Expiry,
-//					iosdrmpageobjects.downloadingVPID_MediaType
-//				};
-//
-//			try
-//			{
-//					for(int i1=0;i1<elements.length;i1++)
-//				{
-//								System.out.println("Downloaded "+ elements[i1].getText());
-//								Assert.assertEquals(elements[i1].getText(), elements[i1].getText(), "The Values Matched");
-//							//	logger.log(LogStatus.PASS, elements[i1]);
-//						
-//				}	
-//			
-//			}catch(Exception e)
-//			{
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		Thread.sleep(1000);
-//		}
+	/*
+	 * Checking all the VPID's are downloaded successfully
+	 * 
+	 */
 	
 	@Test(dependsOnMethods={"DownloadProgress"})
 	public void downloads_VPIDS_Completed() throws Exception
 	{
-		for(int i=1;i<6;i++)
+		isElementPresent(iosdrmpageobjects.iOSDownload_SecondComplete,40);
+		
+		for(int i=2;i<6;i++)
 		{
-			for(int j=1;j<3;j++)
-			{	
-		    String Downloaded_text = iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell["+j+"]/UIAStaticText["+i+"]")).getText();
-		    Assert.assertEquals(Downloaded_text, Downloaded_text, "The Values Matched");
-		    System.out.println("The Downloaded VPID ----"+ Downloaded_text);
-		    
+				
+		    WebElement Downloaded_text= iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText["+i+"]"));	
+		    System.out.println("The First Downloaded VPID ----"+ Downloaded_text.getText());
+		}
+		for(int j=2;j<6;j++)
+		{
+		for(int i=2;i<3;i++)
+		{		
+		    WebElement Downloaded_text= iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell["+i+"]/XCUIElementTypeStaticText["+j+"]"));	
+		    System.out.println("The Second Downloaded VPID ----"+ Downloaded_text.getText());
 		}
 		}
 		
 	}
+	
+	/*
+	 * Turn Off WiFi 
+	 * Playing the Downloading VPID's offline and Seeking Forward
+	 * Turn ON Wifi
+	 */
 	
 	@Test(dependsOnMethods = { "downloads_VPIDS_Completed" })
-	public void Playbackoffline() throws Exception {
-		//
-		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow, ScreenshotPath,
-				"Download Status After Network OFF " + iosdrmpageobjects.progressStatus.getText());
-		Thread.sleep(2000);
-
-		// drmcommonfunction.swipe(iosdrmpageobjects.downloadcomplete_button,
-		// iosdriver);
-
-		ioscommonfunction.tapbutton(iosdrmpageobjects.audio_downloadcomplete_button, "Clicking on Downloaded Audio",
-				iosdriver, ScreenshotPath);
-
-		ioscommonfunction.tapbutton(iosdrmpageobjects.play_pause_button, "tapping Play button", iosdriver,
-				ScreenshotPath);
-
-		Assert.assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")));
-
-		Assert.assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[1]/UIASlider[1]")));
-
-		Assert.assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAElement[4]")));
-
-		ioscommonfunction.seekingRandomly(iosdrmpageobjects.playback_progressbar, iosdriver, ScreenshotPath, 0.30);
-		String seekingduration_30 = iosdrmpageobjects.playbackduration.getText();
-
-		System.out.println("seekingduration_30 is" + seekingduration_30);
-
-		ioscommonfunction.seekingRandomly(iosdrmpageobjects.playback_progressbar, iosdriver, ScreenshotPath, 0.60);
-		String seekingduration_60 = iosdrmpageobjects.playbackduration.getText();
-
-		System.out.println("seekingduration_60 is" + seekingduration_60);
-
-		ioscommonfunction.seekingRandomly(iosdrmpageobjects.playback_progressbar, iosdriver, ScreenshotPath, 0.90);
-		String seekingduration_90 = iosdrmpageobjects.playbackduration.getText();
-
-		System.out.println("seekingduration_90 is" + seekingduration_90);
-
-		Thread.sleep(6000);
-
-		ioscommonfunction.tapbutton(iosdrmpageobjects.playbackClose, "Closing the Playback", iosdriver, ScreenshotPath);
-
-	}
-	
-	@Test(dependsOnMethods = { "Playbackoffline" })
-	public void Delete_Downloaded() throws Exception
+	public void Playback_offline() throws Exception
 	{
-		Thread.sleep(3000);
-		drmcommonfunction.swipe(iosdrmpageobjects.audio_downloadcomplete_button, iosdriver);
-		ioscommonfunction.tapbutton(iosdrmpageobjects.remove_downloaded_button, "Deleting the Downloaded Audio VPID", iosdriver, ScreenshotPath);
+		drmcommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
+		
+		drmcommonfunction.tapbutton(iosdrmpageobjects.iOSDownloadFirst_Complete, "Tapping on Downlaoded COntent", iosdriver, ScreenshotPath);
+		
+		drmcommonfunction.swipe_seekbar(iosdrmpageobjects.playbackseekbar, iosdriver, "Forward" ,300);
+		
+		drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Play Video", ScreenshotPath);
+		
+		playbackduration_beforeseek = iosdrmpageobjects.playbackduration.getText();
+		System.out.println("Duration when playback Started:- "+ playbackduration_beforeseek);
+		
+		Thread.sleep(10000);
+		
+		iospageobjects.playback_transportcontrol.click();
+		Thread.sleep(50);
+		
+		drmcommonfunction.swipe_seekbar(iosdrmpageobjects.playbackseekbar, iosdriver, "backward" ,200);
+		
+		playbackduration_afterseek = iosdrmpageobjects.playbackduration.getText();
+		System.out.println("Duration After playback seeked:- "+ playbackduration_afterseek);
+		
+		drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "smp_close_button", ScreenshotPath);
+		
+		Assert.assertNotEquals(playbackduration_beforeseek,playbackduration_afterseek, "Duration Doesn't Matched");	
+		
+		drmcommonfunction.tapbutton(iosdrmpageobjects.iOSDownloadSecond_Complete, "Tapping on Downloaded Content", iosdriver, ScreenshotPath);
+		
+		drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Play Video", ScreenshotPath);
+		
+		drmcommonfunction.swipe_seekbar(iosdrmpageobjects.playbackseekbar, iosdriver, "Forward" ,300);
+		
+		playbackduration_beforeseek = iosdrmpageobjects.playbackduration.getText();
+		System.out.println("Duration when playback Started:- "+ playbackduration_beforeseek);
+		
+		Thread.sleep(10000);
+		
+		iospageobjects.playback_transportcontrol.click();
+		Thread.sleep(50);
+		
+		drmcommonfunction.swipe_seekbar(iosdrmpageobjects.playbackseekbar, iosdriver, "Forward" ,700);
+		
+		playbackduration_afterseek = iosdrmpageobjects.playbackduration.getText();
+		System.out.println("Duration After playback seeked:- "+ playbackduration_afterseek);
+		
+		//drmcommonfunction.swipe(iosdrmpageobjects.seekbar, iosdriver);
+		
+		drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "smp_close_button", ScreenshotPath);
+		
+		Assert.assertNotEquals(playbackduration_beforeseek,playbackduration_afterseek, "Duration Doesn't Matched");
+		
+		/*
+		 * Deleting the downloaded VPID's one after the other
+		 */
+		for(int i=0;i<iosdrmpageobjects.vpids.length;i++)
+		{
+			if(iosdrmpageobjects.iOSDownloadFirst_Complete.isDisplayed())
+			{
+				drmcommonfunction.swipe(iosdrmpageobjects.iOSDownloadFirst_Complete, iosdriver);
+				drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Remove", ScreenshotPath);
+			}else
+			{
+				break;
+			}
+		}
+	/*	drmcommonfunction.swipe(iosdrmpageobjects.iOSDownloadFirst_Complete, iosdriver);
+		ioscommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Remove", ScreenshotPath);
+		
+		drmcommonfunction.swipe(iosdrmpageobjects.iOSDownloadFirst_Complete, iosdriver);
+		ioscommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Remove", ScreenshotPath);*/
 		
 		
-		Thread.sleep(3000);
-		drmcommonfunction.swipe(iosdrmpageobjects.audio_downloadcomplete_button, iosdriver);
-		ioscommonfunction.tapbutton(iosdrmpageobjects.remove_downloaded_button, "Deleting the Downloaded Vido VPID", iosdriver, ScreenshotPath);
-
-	
+		drmcommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, "Wi-Fi",
+				ScreenshotPath, "Wifi Off",deviceOS);
+		
 	}
 	
+	/*
+	 * Adding Multipel Vpid's And
+	 * Deleting all the VPID's which are In-progress, Queued
+	 * 
+	 */
 	
-	
+	@Test(dependsOnMethods={"Playback_offline"})
+	public void deleteAllQueued() throws Exception
+	{
+		
+		for(int i=0;i<iosdrmpageobjects.vpids_list.length;i++)
+		{
+			
+			drmcommonfunction.tapAccessabilityButton("Download Button", iosdriver, "Add", ScreenshotPath);		
+		Thread.sleep(1000);
+		
+		drmcommonfunction.tapAccessabilityButton("Clear Default VPID ", iosdriver, "Clear text", ScreenshotPath);
+		Thread.sleep(600);
+		
+		drmcommonfunction.enterText(iosdrmpageobjects.enterVPIDField, "Entering the VPID's", iosdrmpageobjects.vpids_list[i], iosdriver, ScreenshotPath);
+		
+		drmcommonfunction.tapAccessabilityButton("Downloading ", iosdriver, "Download", ScreenshotPath);
+		Thread.sleep(2000);
+		drmcommonfunction.isAccessabilityElementPresent(iosdriver, "Waiting for Media Selector");
+		Thread.sleep(6000);
+		}
+		
+		for(int i=0;i<iosdrmpageobjects.vpids_list.length;i++)
+		{
+			if(iosdrmpageobjects.downloadInProgress_button.isDisplayed())
+			{
+				drmcommonfunction.swipe(iosdrmpageobjects.downloadInProgress_button, iosdriver);
+				drmcommonfunction.tapAccessabilityButton("Playing Downlaoded", iosdriver, "Remove", ScreenshotPath);	
+			}else
+			{
+				break;
+			}
+			
+		}
+		
+	}
 	
 	@AfterClass
 	public void tearDown()
 	{
-		ioscommonfunction.GenerateReport();
+		drmcommonfunction.GenerateReport();
 		iosdriver.quit();
 		iosdriver.resetApp();
+		iosdriver.closeApp();
 		appiummanager.stopappium();
 	}
 	
@@ -372,5 +453,21 @@ public class iOSDRMTest {
 	    wait.until(ExpectedConditions.visibilityOf(element));
 	   
 	}
+	
+	
+	public boolean isElementPresent(WebElement elementName, int timeout){
+        try{
+            WebDriverWait wait = new WebDriverWait(iosdriver, timeout);
+            wait.until(ExpectedConditions.visibilityOf(elementName));
+//            if(elementName.isDisplayed())
+//            {
+//            	elementName.click();
+//            }
+            return true;
+           
+        }catch(Exception e){
+            return false;
+        }
+    }
 
 }

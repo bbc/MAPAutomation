@@ -134,7 +134,11 @@ public class SMPAndroidParallelExecution {
 		capa.setCapability("deviceName", deviceId);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
+<<<<<<< HEAD
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
+=======
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
+>>>>>>> SMP-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
