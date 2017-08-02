@@ -7,31 +7,34 @@
 											  <listener class-name="org.uncommons.reportng.HTMLReporter"/>
 											  <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 							 	</listeners> -->
-  <!-- <test name="KindleFire10">
+ <test name="KindleFire10">
 	     			<parameter name="deviceID" value="G000HH03536701X1"></parameter>
 	  		    	<parameter name="deviceOS" value="5.1.1"></parameter>
 	  		    	<parameter name="appiumPort" value="4745"></parameter>
 	  		    	<parameter name="deviceName" value="KindleFire10"></parameter>
-	  		    	<parameter name="deviceType" value="Tablet"></parameter>
-		    <classes>
-		      <class name="com.test.Appium.LiveRewind.LiveRewind_Demo" />
-		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
-		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
-		    </classes>
-  </test>  -->
+	  		    	<!-- <parameter name="deviceType" value="Tablet"></parameter> -->
+		<classes>
+		    	 <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback" />
+		    	 <!-- <class name="main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback" />
+		         <class name="main.java.test.smpMainTest.SMPAndroidOnDemandVideoPlayback" />  -->
+		        
+		</classes>
+  </test>
   
-  <test name="Test">
+  <!-- <test name="Test">
       			<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
   		    	<parameter name="deviceOS" value="6.0.1"></parameter>
   		    	<parameter name="appiumPort" value="4745"></parameter>
   		    	<parameter name="deviceName" value="Note4"></parameter>
   		    	<parameter name="deviceType" value="Mobile"></parameter>
 				    <classes>
-				      <class name="main.java.test.DRMMainTests.AndroidDRMTest"/>
+							 <class name="com.test.Appium.LiveRewind.LiveRewind_Demo" />
+					    	 <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
+					         <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" /> 
 				    </classes>
-</test> 
+</test>  
   
-   <!-- <test name="GalaxyS6">
+  <test name="GalaxyS6">
 	     			<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
 	  		    	<parameter name="deviceOS" value="6.0.1"></parameter>
 	  		    	<parameter name="AppiumPort" value="4746"></parameter>
@@ -42,9 +45,9 @@
 		      <class name="main.java.test.smpMainTest.SMPAndroidOnDemandAudioPlayback" />
 		     <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback" /> 
 		   </classes>
-  </test>  -->
+  </test>
   
- <!--   <test name="Test">
+ <test name="Test">
 	     			<parameter name="deviceID" value="FA69S0301938"></parameter>
 	  		    	<parameter name="deviceOS" value="7.1.1"></parameter>
 	  		    	<parameter name="appiumPort" value="4747"></parameter>
@@ -55,7 +58,7 @@
 		      <class name="com.test.Appium.OnDemand.OnDemand_Playback" />
 		       <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
 		    </classes>
-  </test> Test
+  </test>
   
   <test name="Test">
 	     			<parameter name="deviceID" value="09ee8996"></parameter>
@@ -69,7 +72,7 @@
 		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
 		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
 		    </classes>
-  </test> Test
+  </test>
   
   <test name="Test">
 	     			<parameter name="deviceID" value="51f09694"></parameter>
@@ -97,7 +100,7 @@
 		      <class name="com.test.Appium.LiveSimulcast.LiveSimulcast_Playback" />
 		      <class name="com.test.Appium.LiveRewind.LiveRewind_Playback" />
 		    </classes>
-  </test> Test -->
+  </test>  -->
   
   
   

@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -36,8 +36,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-failed">Suite</span>
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -47,37 +47,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>Android_AVTestHarness.xml</span>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="testlist-Suite">
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="group-Suite">
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="times-Suite">
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="reporter-Suite">
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="ignored-methods-Suite">
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="chronological-Suite">
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -90,84 +90,66 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">10 methods, 1 failed,  5 skipped,  4 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Download_Pause">Download_Pause</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
-                    </span>
-                    <div class="method-list-content skipped suite-Suite">
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Download_Resume">Download_Resume</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Downloaded_AudioPlayback_Offline">Downloaded_AudioPlayback_Offline</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Downloaded_VideoPlayback_Offline">Downloaded_VideoPlayback_Offline</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Downloads_Complete">Downloads_Complete</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="delete_Downloaded">delete_Downloaded</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content skipped suite-Suite -->
+                    <span class="method-stats">10 methods,   10 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Suite">
+                    <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Addingto_Queue">Addingto_Queue</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="CheckingPlayback_LiveRewind">CheckingPlayback_LiveRewind</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Open_DRMApp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)">Open_DRMApp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="CheckingPlayback_VOD">CheckingPlayback_VOD</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="Vpid_Download(Mobile)">Vpid_Download(Mobile)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="OpenAvtest">OpenAvtest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="main.java.test.DRMMainTests.AndroidDRMTest" hash-for-method="deleteQueued(Mobile)">deleteQueued(Mobile)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="Pause_LiveRewindTest">Pause_LiveRewindTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Suite -->
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="Pause_VideoOnDemand">Pause_VideoOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="Play_LiveRewindTest">Play_LiveRewindTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="Play_VideoOnDemand">Play_VideoOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="PlaybackRotation">PlaybackRotation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="getAllDetails">getAllDetails</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.Android_PumaTests" hash-for-method="setUp">setUp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -178,184 +160,132 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">main.java.test.DRMMainTests.AndroidDRMTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Download_Pause">
-                  </a> <!-- Download_Pause -->
-                  <span class="method-name">Download_Pause</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: Locator map: 
-- native content: &quot;By.xpath: //android.widget.TextView[@text=&apos;Paused&apos;]&quot; 
-- html content: &quot;by id or name &quot;download_paused&quot;&quot;
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.51.0&apos;, revision: &apos;1af067d&apos;, time: &apos;2016-02-05 19:15:17&apos;
-System info: host: &apos;mc-s104436.local&apos;, ip: &apos;10.10.3.204&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_102&apos;
-Driver info: driver.version: unknown
-	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:110)
-	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:57)
-	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$1cfb2d03.getText(&lt;generated&gt;)
-	at main.java.test.DRMMainTests.AndroidDRMTest.Download_Pause(AndroidDRMTest.java:334)
-... Removed 24 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
-          <div class="suite-Suite-class-skipped">
-            <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">main.java.test.DRMMainTests.AndroidDRMTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Download_Resume">
-                  </a> <!-- Download_Resume -->
-                  <span class="method-name">Download_Resume</span>
-                  <div class="stack-trace">java.lang.Throwable: Method AndroidDRMTest.Download_Resume()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-... Removed 17 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Downloaded_AudioPlayback_Offline">
-                  </a> <!-- Downloaded_AudioPlayback_Offline -->
-                  <span class="method-name">Downloaded_AudioPlayback_Offline</span>
-                  <div class="stack-trace">java.lang.Throwable: Method AndroidDRMTest.Downloaded_AudioPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-... Removed 17 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Downloaded_VideoPlayback_Offline">
-                  </a> <!-- Downloaded_VideoPlayback_Offline -->
-                  <span class="method-name">Downloaded_VideoPlayback_Offline</span>
-                  <div class="stack-trace">java.lang.Throwable: Method AndroidDRMTest.Downloaded_VideoPlayback_Offline()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-... Removed 17 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Downloads_Complete">
-                  </a> <!-- Downloads_Complete -->
-                  <span class="method-name">Downloads_Complete</span>
-                  <div class="stack-trace">java.lang.Throwable: Method AndroidDRMTest.Downloads_Complete(java.lang.String)[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-... Removed 17 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="delete_Downloaded">
-                  </a> <!-- delete_Downloaded -->
-                  <span class="method-name">delete_Downloaded</span>
-                  <div class="stack-trace">java.lang.Throwable: Method AndroidDRMTest.delete_Downloaded()[pri:0, instance:main.java.test.DRMMainTests.AndroidDRMTest@4973813a] depends on not successfully finished methods
-... Removed 17 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-skipped -->
-          <div class="suite-Suite-class-passed">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">main.java.test.DRMMainTests.AndroidDRMTest</span>
+              <span class="class-name">SMPANPUMA.PUMATest.Android_PumaTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Addingto_Queue">
-                  </a> <!-- Addingto_Queue -->
-                  <span class="method-name">Addingto_Queue</span>
+                  <a name="CheckingPlayback_LiveRewind">
+                  </a> <!-- CheckingPlayback_LiveRewind -->
+                  <span class="method-name">CheckingPlayback_LiveRewind</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Open_DRMApp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)">
-                  </a> <!-- Open_DRMApp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4) -->
-                  <span class="method-name">Open_DRMApp</span>
-                  <span class="parameters">(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)</span>
+                  <a name="CheckingPlayback_VOD">
+                  </a> <!-- CheckingPlayback_VOD -->
+                  <span class="method-name">CheckingPlayback_VOD</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Vpid_Download(Mobile)">
-                  </a> <!-- Vpid_Download(Mobile) -->
-                  <span class="method-name">Vpid_Download</span>
-                  <span class="parameters">(Mobile)</span>
+                  <a name="OpenAvtest">
+                  </a> <!-- OpenAvtest -->
+                  <span class="method-name">OpenAvtest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="deleteQueued(Mobile)">
-                  </a> <!-- deleteQueued(Mobile) -->
-                  <span class="method-name">deleteQueued</span>
-                  <span class="parameters">(Mobile)</span>
+                  <a name="Pause_LiveRewindTest">
+                  </a> <!-- Pause_LiveRewindTest -->
+                  <span class="method-name">Pause_LiveRewindTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Pause_VideoOnDemand">
+                  </a> <!-- Pause_VideoOnDemand -->
+                  <span class="method-name">Pause_VideoOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Play_LiveRewindTest">
+                  </a> <!-- Play_LiveRewindTest -->
+                  <span class="method-name">Play_LiveRewindTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Play_VideoOnDemand">
+                  </a> <!-- Play_VideoOnDemand -->
+                  <span class="method-name">Play_VideoOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="PlaybackRotation">
+                  </a> <!-- PlaybackRotation -->
+                  <span class="method-name">PlaybackRotation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getAllDetails">
+                  </a> <!-- getAllDetails -->
+                  <span class="method-name">getAllDetails</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="setUp">
+                  </a> <!-- setUp -->
+                  <span class="method-name">setUp</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-        </div> <!-- panel Suite -->
-        <div panel-name="test-xml-Suite" class="panel">
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Android_AVTestHarness.xml</span>
+            <span class="header-content">/private/var/folders/nd/v5m53p8918v0m9q7sryzqj00nqcphm/T/testng-eclipse--1284544100/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;deviceType&quot; value=&quot;Mobile&quot;/&gt;
-    &lt;parameter name=&quot;appiumPort&quot; value=&quot;4745&quot;/&gt;
-    &lt;parameter name=&quot;deviceOS&quot; value=&quot;6.0.1&quot;/&gt;
-    &lt;parameter name=&quot;deviceID&quot; value=&quot;1115fbd9e7622a04&quot;/&gt;
-    &lt;parameter name=&quot;deviceName&quot; value=&quot;Note4&quot;/&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;main.java.test.DRMMainTests.AndroidDRMTest&quot;/&gt;
+      &lt;class name=&quot;SMPANPUMA.PUMATest.Android_PumaTests&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
-&lt;/suite&gt; &lt;!-- Suite --&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Suite" class="panel">
+        <div panel-name="testlist-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Suite</span>
+            <span class="header-content">Tests for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Default test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Suite" class="panel">
+        <div panel-name="group-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Suite</span>
+            <span class="header-content">Groups for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Suite" class="panel">
+        <div panel-name="times-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Suite</span>
+            <span class="header-content">Times for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Suite');
-function tableData_Suite() {
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
@@ -363,105 +293,123 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(10);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'deleteQueued')
-data.setCell(0, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(0, 3, 63016);
+data.setCell(0, 1, 'CheckingPlayback_LiveRewind')
+data.setCell(0, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(0, 3, 102659);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Vpid_Download')
-data.setCell(1, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(1, 3, 20483);
+data.setCell(1, 1, 'Play_VideoOnDemand')
+data.setCell(1, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(1, 3, 70300);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'Open_DRMApp')
-data.setCell(2, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(2, 3, 18966);
+data.setCell(2, 1, 'CheckingPlayback_VOD')
+data.setCell(2, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(2, 3, 53932);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'Addingto_Queue')
-data.setCell(3, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(3, 3, 18110);
+data.setCell(3, 1, 'setUp')
+data.setCell(3, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(3, 3, 21603);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'Download_Pause')
-data.setCell(4, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(4, 3, 9450);
+data.setCell(4, 1, 'Pause_LiveRewindTest')
+data.setCell(4, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(4, 3, 17830);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'Downloaded_VideoPlayback_Offline')
-data.setCell(5, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(5, 3, 1);
+data.setCell(5, 1, 'Pause_VideoOnDemand')
+data.setCell(5, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(5, 3, 17829);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'Download_Resume')
-data.setCell(6, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(6, 3, 0);
+data.setCell(6, 1, 'PlaybackRotation')
+data.setCell(6, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(6, 3, 17603);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'Downloaded_AudioPlayback_Offline')
-data.setCell(7, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(7, 3, 0);
+data.setCell(7, 1, 'Play_LiveRewindTest')
+data.setCell(7, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(7, 3, 15063);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'delete_Downloaded')
-data.setCell(8, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(8, 3, 0);
+data.setCell(8, 1, 'OpenAvtest')
+data.setCell(8, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(8, 3, 7741);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'Downloads_Complete')
-data.setCell(9, 2, 'main.java.test.DRMMainTests.AndroidDRMTest')
-data.setCell(9, 3, 0);
-window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
+data.setCell(9, 1, 'getAllDetails')
+data.setCell(9, 2, 'SMPANPUMA.PUMATest.Android_PumaTests')
+data.setCell(9, 3, 7);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
-              <div id="times-div-Suite">
-              </div> <!-- times-div-Suite -->
+              <span class="suite-total-time">Total running time: 5 minutes</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Suite" class="panel">
+        <div panel-name="reporter-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Suite</span>
+            <span class="header-content">Reporter output for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Suite" class="panel">
+        <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Suite" class="panel">
+        <div panel-name="chronological-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">main.java.test.DRMMainTests.AndroidDRMTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">SMPANPUMA.PUMATest.Android_PumaTests</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)</span>
+                <span class="method-name">RunTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">Open_DRMApp(1115fbd9e7622a04, 6.0.1, 4745, Mobile, Note4)</span>
-                <span class="method-start">21631 ms</span>
+                <span class="method-name">getAllDetails</span>
+                <span class="method-start">271 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">deleteQueued(Mobile)</span>
-                <span class="method-start">40600 ms</span>
+                <span class="method-name">setUp</span>
+                <span class="method-start">280 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">Vpid_Download(Mobile)</span>
-                <span class="method-start">103617 ms</span>
+                <span class="method-name">OpenAvtest</span>
+                <span class="method-start">21885 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">Addingto_Queue</span>
-                <span class="method-start">124102 ms</span>
+                <span class="method-name">Play_LiveRewindTest</span>
+                <span class="method-start">29627 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">Download_Pause</span>
-                <span class="method-start">142214 ms</span>
+                <span class="method-name">CheckingPlayback_LiveRewind</span>
+                <span class="method-start">44691 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">PlaybackRotation</span>
+                <span class="method-start">147351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Pause_LiveRewindTest</span>
+                <span class="method-start">164955 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Play_VideoOnDemand</span>
+                <span class="method-start">182786 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">CheckingPlayback_VOD</span>
+                <span class="method-start">253087 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Pause_VideoOnDemand</span>
+                <span class="method-start">307020 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
-                <span class="method-name">teatDown</span>
-                <span class="method-start">152306 ms</span>
+                <span class="method-name">End</span>
+                <span class="method-start">324850 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

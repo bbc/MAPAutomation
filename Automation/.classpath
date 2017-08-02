@@ -92,5 +92,6 @@
 	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/lib/java-client-5.0.0-BETA8-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/lib/java-client-5.0.0-BETA8.jar"/>
+	<classpathentry kind="lib" path="lib/wiremock-standalone-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

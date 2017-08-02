@@ -2,6 +2,8 @@ package main.java.test.smpMainTest;
 
 import java.io.File;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +19,8 @@ import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDeviceActionShortcuts;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -41,9 +45,9 @@ public class SMPAndroidParallelExecution {
 	private StringBuffer verificationErrors = new StringBuffer();
 
 	// String filename = "SMPParallelTest";
-	String workingDirectory = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results"; /// System.getProperty("user.dir");
+	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";   // System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/AvTestHarness/AvTestHarness/Results/ParallelTests";
+	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
 	File file;// = new File(absoluteFilePath);
 	ExtentReports extent;
 	ExtentTest logger;
@@ -111,10 +115,13 @@ public class SMPAndroidParallelExecution {
 				System.out.println("The Device Name is " + appiumport);
 
 				setUp(appiumport, Deviceid, DeviceosName);
-
-
-
+				
+				//DecimalFormat df = new DecimalFormat("0.0.0");
+				
 				OpenAvtest();
+				NumberFormat numberformat = NumberFormat.getInstance();
+				Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
+				System.out.println("DeviceOS"+Device_OSversion);	
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -136,7 +143,7 @@ public class SMPAndroidParallelExecution {
 		capa.setCapability("deviceName", deviceId);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
+		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -165,8 +172,21 @@ public class SMPAndroidParallelExecution {
 			ondemandobjects = new OnDemandPageObjects();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 			
+			
+			NumberFormat numberformat = NumberFormat.getInstance();
+			Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
+			System.out.println("DeviceOS"+Device_OSversion);
+			
+			if(Device_OSversion >= 6.0)
+			{	
+			commonobjects.menuoptions.click();
+			Thread.sleep(3000);
+			}
+			else
+			{
 			commonobjects.menu.click();
 			Thread.sleep(3000);
+			}
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
 
@@ -181,7 +201,7 @@ public class SMPAndroidParallelExecution {
 			/*
 			 * Live Rewind Tests
 			 * 
-			 */
+			*/
 
 			commonfunction.CreateReport(absoluteFilePath + File.separator + "LiveRewind", Deviceid, DeviceosName,
 					Integer.toString(appiumport), Devicename);
@@ -192,7 +212,7 @@ public class SMPAndroidParallelExecution {
 
 			PlaybackContinues();
 
-			liveRewind_Assertions();
+		//	liveRewind_Assertions();
 
 			PlaybackRotation();
 
@@ -201,6 +221,9 @@ public class SMPAndroidParallelExecution {
 			playbackseeking_backard_forward();
 
 			LiveRewindplaybackpause();
+			
+//			driver.pressKeyCode(AndroidKeyCode.BACK);
+//			Thread.sleep(4000);
 
 			LiveRewindplaybackresume();
 
@@ -347,9 +370,9 @@ public class SMPAndroidParallelExecution {
 			commonfunction.playback_pause_resume(driver, commonobjects.Playback_Pause, "LiveRewind Playback Pause",
 					ScreenshotPath);
 
-			driver.manage().timeouts().implicitlyWait(580, TimeUnit.SECONDS);
+			//driver.manage().timeouts().implicitlyWait(580, TimeUnit.SECONDS);
 
-			System.out.println("Waited for 580 Secds");
+			//System.out.println("Waited for 580 Secds");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -367,8 +390,11 @@ public class SMPAndroidParallelExecution {
 			commonfunction.tapbutton("Existing the Full Screen button", commonobjects.vod_play_fullscreen_exit, driver,
 					ScreenshotPath);
 
-			commonfunction.Navigateback_MainMenu(driver, ScreenshotPath);
-
+			//commonfunction.Navigateback_MainMenu(driver, ScreenshotPath);
+			
+			driver.pressKeyCode(AndroidKeyCode.BACK);
+			Thread.sleep(4000);
+			
 			commonfunction.selectItemforPlayback(commonobjects.liveEpsiode, "LiveRewding Simulcast replayed",
 					commonobjects.element, driver,
 					commonobjects.listview, ScreenshotPath);

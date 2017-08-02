@@ -162,6 +162,10 @@ public class AndroidDRMPageObjects {
    
    @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.Button[@index='1']")
    public WebElement removeButton2;
+   
+    public String ParentDirectoy = "Results/AndroidDRM";
+	
+	public String SubDirectory =  "Screenshots";
 
 @AndroidFindBy(id = "uk.co.bbc.drmtestapp.android:id/buttonRemove")
 public WebElement downloadRemove;

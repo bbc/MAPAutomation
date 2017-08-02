@@ -18,13 +18,13 @@
  </test>
  
   <test name="GalaxyS6">
-  		    	<parameter name="deviceID" value="51f09694"></parameter>
+  		    	<parameter name="deviceID" value="1115fbd9e7622a04"></parameter>
   		    	<parameter name="deviceOS" value="6.0.1"></parameter>
   		    	<parameter name="appiumPort" value="4746"></parameter>
   		    	<parameter name="deviceName" value="GalaxyS6"></parameter>
   		    	<parameter name="deviceType" value="Mobile"></parameter>
 						    <classes>
-						      <class name="com.test.Appium.LiveSimulcast.AvTestParallel_Execution"/>
+						      <class name="com.test.Appium.LiveSimulcast.SMPAndroidLiveSimulcast"/>
 						    </classes>
  </test> <!-- Test -->
 </suite> <!-- Suite -->
