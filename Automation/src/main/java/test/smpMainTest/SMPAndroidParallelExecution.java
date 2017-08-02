@@ -44,17 +44,14 @@ public class SMPAndroidParallelExecution {
 	public WebDriverWait wait;
 	private StringBuffer verificationErrors = new StringBuffer();
 
-<<<<<<< HEAD
 	//String filename = "SMPParallelTest";
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory;
 	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/ParallelTests";
-=======
 	// String filename = "SMPParallelTest";
-	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";   // System.getProperty("user.dir");
-	String absoluteFilePath = workingDirectory;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
->>>>>>> DRM-AN
+	//String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";   // System.getProperty("user.dir");
+	//String absoluteFilePath = workingDirectory;
+	//public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
 	File file;// = new File(absoluteFilePath);
 	ExtentReports extent;
 	ExtentTest logger;
@@ -122,13 +119,11 @@ public class SMPAndroidParallelExecution {
 				System.out.println("The Device Name is " + appiumport);
 
 				setUp(appiumport, Deviceid, DeviceosName);
-<<<<<<< HEAD
 
-=======
-				
+		
 				//DecimalFormat df = new DecimalFormat("0.0.0");
 				
->>>>>>> DRM-AN
+
 				OpenAvtest();
 				NumberFormat numberformat = NumberFormat.getInstance();
 				Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
@@ -154,15 +149,7 @@ public class SMPAndroidParallelExecution {
 		capa.setCapability("deviceName", deviceId);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
-<<<<<<< HEAD
-<<<<<<< HEAD
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
-=======
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-25.4108-dev.apk");
->>>>>>> SMP-AN
-=======
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
->>>>>>> DRM-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");

@@ -51,13 +51,7 @@ public class SMPAndroidLiveRewindPlayback {
 	String filename = "LiveRewind";
 	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results"; /// System.getProperty("user.dir");
 	String absoluteFilePath = workingDirectory + File.separator + filename;
-<<<<<<< HEAD
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast_Rewind";
-//	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/LiveSimulcast";
-
-=======
 	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/SMP-AN";
->>>>>>> DRM-AN
 
 	File file;// = new File(absoluteFilePath);
 
@@ -86,12 +80,9 @@ public class SMPAndroidLiveRewindPlayback {
 		capa.setCapability("deviceName", deviceID);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", OS);
-<<<<<<< HEAD
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-27.4327.apk");
 		capa.setCapability("platformVersion", deviceOS);
-=======
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
->>>>>>> DRM-AN
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
@@ -106,11 +97,7 @@ public class SMPAndroidLiveRewindPlayback {
 	}
 
 	@Test
-<<<<<<< HEAD
-	@Parameters({ "deviceID", "appiumPort", "deviceOS", "deviceName" }) 
-=======
 	@Parameters({ "appiumPort", "deviceID", "deviceOS", "deviceName" })
->>>>>>> DRM-AN
 	public void OpenAvtest(String deviceID, String Port, String deviceOS, String deviceName) throws Exception
 	 {
 		
