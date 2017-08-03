@@ -40,8 +40,6 @@ public class Android_PumaTests {
 	public DesiredCapabilities capa;
 	public WebDriverWait wait;
 	
-	
-	public String Android_Path= "/../../../MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk";
 	File file;// = new File(absoluteFilePath);
 	
 	/*
@@ -76,18 +74,15 @@ public class Android_PumaTests {
 	String Devicename;
 	int appiumport;
 
-
 	DeviceList devicelist = new DeviceList();
-
 	PortFactory portFactory = new PortFactory();
 
-	
 	@BeforeClass
 	public void RunTest() throws Exception , InterruptedException{
 
 		try {
 
-			getAllDetails();
+			getDeviceDetails();
 			devicelist.populateDevices_IDs();
 			devicelist.populateDevices_OS();
 			devicelist.populateDevices_Names();
@@ -100,7 +95,7 @@ public class Android_PumaTests {
 	}
 
 	@Test // (dependsOnMethods = { "RunTest" })
-	public void getAllDetails() throws Exception {
+	public void getDeviceDetails() throws Exception {
 
 		for (int i = 0; i < devicelist.deviceOS.size(); i++) {
 			try {
@@ -112,24 +107,16 @@ public class Android_PumaTests {
 				System.out.println("The Device ID is " + Deviceid);
 				System.out.println("The Device port is " + Devicename);
 				System.out.println("The Device Name is " + appiumport);
-				System.out.println("App Path:-"+Android_Path);
-
-			
-				NumberFormat numberformat = NumberFormat.getInstance();
-				Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
-				System.out.println("DeviceOS"+Device_OSversion);	
-
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
 
 		}
-		// ap.stopappium();
+		
 	}
 
-	@Test(dependsOnMethods = {"getAllDetails"})
-//	public void setUp(int port, String deviceId, String OS, String appPath) throws Exception {
+	@Test(dependsOnMethods = {"getDeviceDetails"})
 	public void setUp() throws Exception {
 		try
 		{
@@ -170,6 +157,10 @@ public class Android_PumaTests {
 		}*/
 
 	}
+	
+	/*
+	 * initializing the pageobjects 
+	 */
 
 	@Test(dependsOnMethods = {"setUp"})
 	public void OpenAvtest() throws Exception {

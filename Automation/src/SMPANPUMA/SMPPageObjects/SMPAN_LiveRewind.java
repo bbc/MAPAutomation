@@ -30,18 +30,10 @@ public class SMPAN_LiveRewind {
 	    }
 		
 
-		@AndroidFindBy(xpath="//android.support.v7.widget.am[@index='1']")
-		public WebElement menu_tablet;
-		
-		//@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc='More options']")
-		@AndroidFindBy(xpath="//android.support.v7.widget.am[@index='1']")
-		public WebElement menu_phone;
-		
-		
+			
 		@AndroidFindBy(xpath="//android.widget.TextView[@text='Use Live RDot Environment']")
 		public WebElement enable_rDot;
-		
-		
+			
 		@AndroidFindBy(xpath="//android.widget.TextView[@text='Enable Live Rewind']")
 		public WebElement live_rewind_text;
 		
@@ -61,8 +53,8 @@ public class SMPAN_LiveRewind {
 		@AndroidFindBy(id="uk.co.bbc.avtestharnesssmp:id/thumb_container")
 		public WebElement live_rewind_thumb;
 		
-	// @AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/seek_progress_bar")
-	@AndroidFindBy(xpath = "//android.widget.ProgressBar[@index='1']")
+		// @AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/seek_progress_bar")
+		@AndroidFindBy(xpath = "//android.widget.ProgressBar[@index='1']")
 		public WebElement live_rewind_progressbar;
 		
 
