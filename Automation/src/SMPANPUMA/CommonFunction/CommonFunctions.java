@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.FileAlreadyExistsException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -340,26 +341,21 @@ public class CommonFunctions {
 
 		logger = extent.startTest("Checking the On-Demand Video Playing");
 
-
-		// waitForScreenToLoad(driver, element1, 100);//
-		// ondemand_page.vod_play_total_duration,
-													// 100);
-		String Total_Duration = element1.getText(); // ondemand_page.vod_play_total_duration.getText();
+		String Total_Duration = element1.getText(); 
 		logger.log(LogStatus.INFO, "Total Duration" + Total_Duration);
 		System.out.println("Total Duration" + Total_Duration);
 
 		int etime = 0;
 		String Elapsed_Time;
-		String Elapsed_Time_Start = element2.getText(); // ondemand_page.vod_play_elasped_duration.getText();
+		String Elapsed_Time_Start = element2.getText(); 
 		logger.log(LogStatus.INFO, "Elapsed Duration Start" + Elapsed_Time_Start);
 		System.out.println("ElapsedTime  When Playback Started:----   " + Elapsed_Time_Start);
 		do {
 
-			Elapsed_Time = element2.getText(); // ondemand_page.vod_play_elasped_duration.getText();
+			Elapsed_Time = element2.getText(); 
 			// driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/elapsed")).getText();
 			etime++;
 		} while (etime < 120);
-
 
 		Elapsed_Time = element2.getText(); // ondemand_page.vod_play_elasped_duration.getText();
 		logger.log(LogStatus.INFO, "Elapsed Duration End" + Elapsed_Time);
@@ -581,6 +577,36 @@ public class CommonFunctions {
 		Thread.sleep(3000);
 
 	}
+	
+	
+	public void MenuClick(String testname,String DeviceOSName, WebElement menuelement, AndroidDriver driver,String screenshotpaths) throws Exception
+	{
+		
+		logger = extent.startTest(testname);
+		
+		
+		NumberFormat numberformat = NumberFormat.getInstance();
+		Double Device_OSversion = numberformat.parse(DeviceOSName).doubleValue();
+		System.out.println("DeviceOS"+Device_OSversion);
+		if(Device_OSversion >= 6.0)
+		{	
+			menuelement.click();
+			logger.log(LogStatus.INFO, testname
+					+ logger.addScreenCapture(capture_ScreenShot(driver, screenshotpaths, testname)));
+		Thread.sleep(3000);
+		}
+		else
+		{
+			menuelement.click();
+			logger.log(LogStatus.INFO, testname
+					+ logger.addScreenCapture(capture_ScreenShot(driver, screenshotpaths, testname)));
+		Thread.sleep(3000);
+		}
+
+		((AndroidDeviceActionShortcuts) driver).pressKeyCode(AndroidKeyCode.BACK);
+		Thread.sleep(3000);
+	}
+	
 
 	public void LiveText_Checking(AppiumDriver<WebElement> driver, String path)
 			throws Exception, NullPointerException {
@@ -619,6 +645,8 @@ public class CommonFunctions {
 		logger.log(LogStatus.INFO, testname
 				+ logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
 
+		
+		
 		Thread.sleep(3000);
 
 
@@ -1037,11 +1065,12 @@ public class CommonFunctions {
 	   
 	}
 	
-	public void turnSubtitleON(String contentType, WebElement element, String ScreenshotPath)
+	public void turnSubtitleON(String testname, String contentType, WebElement element, String ScreenshotPath)
 	{
+		logger = extent.startTest(testname);
 		if (contentType == "Video") {
 			try {
-				tapbutton("Turning subtitle ON", element, driver, ScreenshotPath);
+				tapbutton(testname, element, driver, ScreenshotPath);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

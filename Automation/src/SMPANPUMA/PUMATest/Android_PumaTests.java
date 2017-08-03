@@ -40,9 +40,7 @@ public class Android_PumaTests {
 	public DesiredCapabilities capa;
 	public WebDriverWait wait;
 	
-	String workingDirectory = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results";   // System.getProperty("user.dir");
-	String absoluteFilePath = workingDirectory;
-	public String ScreenshotPath = "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/Results/PUMA/Screenshots";
+	
 	public String Android_Path= "/../../../MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk";
 	File file;// = new File(absoluteFilePath);
 	
@@ -150,8 +148,7 @@ public class Android_PumaTests {
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
 	//	capa.setCapability(AndroidMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
 		driver = new AndroidDriver<>(new URL(appiul_url), capa);
-			// capa.setCapability("newCommandTimeout", timeout);
-			driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
@@ -193,7 +190,7 @@ public class Android_PumaTests {
 				filename = "SMPAN_PUMATest";
 				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
 				absoluteFilePaths = workingDirectorys + File.separator + filename;
-				ScreenshotPaths =  workingDirectorys+ File.separator+commonfunct.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
+				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
 				//screenhotfiles = new File(ScreenshotPaths);
 				
 				commonfunct.CreateReport(absoluteFilePaths, Deviceid, Integer.toString(appiumport),
@@ -204,9 +201,11 @@ public class Android_PumaTests {
 					e.printStackTrace();
 				}
 		
-//			commonfunct.CreateReport(absoluteFilePath + File.separator + "SMPAN_PUMATest", Deviceid, DeviceosName,
-//					Integer.toString(appiumport), Devicename);
-			
+		/*
+		 * Check the device OS version if OS version less then 6.0, use a different Element ID to click Menu  
+		 * 	blocking this code for execution for PUMA
+		 
+	
 			NumberFormat numberformat = NumberFormat.getInstance();
 			Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
 			System.out.println("DeviceOS"+Device_OSversion);
@@ -222,7 +221,9 @@ public class Android_PumaTests {
 			}
 
 			driver.pressKeyCode(AndroidKeyCode.BACK);
-			Thread.sleep(3000);
+			Thread.sleep(3000);*/
+			 
+			 
 		}catch(Exception e)
 		{
 		e.printStackTrace();
@@ -232,9 +233,9 @@ public class Android_PumaTests {
 	/**
 	 * 
 	 * Puma Tests for VOD
-	 * @throws Exception
+	 *
 	 */
-	
+	//Select a a Panorama Video form the Mediated List and plays it in embedded view and then switches to Full Screen view
 	@Test(dependsOnMethods={"OpenAvtest"})
 	public void Play_VideoOnDemand() throws Exception 
 	{
@@ -250,11 +251,19 @@ public class Android_PumaTests {
 		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
 				driver, ScreenshotPaths);
 
-		commonfunct.turnSubtitleON("Video", commonobjects.vod_play_subtitle, ScreenshotPaths);
+	
+	}
+	
+	//Turn's the Subtitle On for the video playing
+	@Test(dependsOnMethods={"Play_VideoOnDemand"})
+	public void TurningSubtilte_ON() throws Exception 
+	{
+		commonfunct.turnSubtitleON("Truning Subtitle ON","Video", commonobjects.vod_play_subtitle, ScreenshotPaths);
 	}
 	
 	
-	@Test(dependsOnMethods={"Play_VideoOnDemand"})
+	//Plays a video for few minutes and compares the time difference from start of playback with the elapsed time
+	@Test(dependsOnMethods={"TurningSubtilte_ON"})
 	public void CheckingPlayback_VOD() throws Exception {
 
 		try {
@@ -272,6 +281,7 @@ public class Android_PumaTests {
 	}
 	
 	
+	//Pause a video , exits the full screen and navigates back to Mediated Menu List
 	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
 	public void Pause_VideoOnDemand() throws Exception 
 	{
@@ -287,10 +297,10 @@ public class Android_PumaTests {
 	/**
 	 * 
 	 * Puma Tests for AOD
-	 * @throws Exception
+	 *
 	 */
 	
-	
+	//Select a a Audio Asset form the Mediated List and plays it in embedded view and then switches to Full Screen view
 	@Test(dependsOnMethods={"Pause_VideoOnDemand"})
 	public void Play_AudioOnDemand() throws Exception 
 	{
@@ -304,10 +314,10 @@ public class Android_PumaTests {
 		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
 				driver, ScreenshotPaths);
 
-		commonfunct.turnSubtitleON("Video", commonobjects.vod_play_subtitle, ScreenshotPaths);
+		
 	}
 	
-	
+	//Plays a Audio for few minutes and compares the time difference from start of playback with the elapsed time
 	@Test(dependsOnMethods={"Play_AudioOnDemand"})
 	public void CheckingPlayback_AOD() throws Exception {
 
@@ -323,7 +333,7 @@ public class Android_PumaTests {
 
 	}
 	
-
+	//Pause a Audio , exits the full screen and navigates back to Mediated Menu List
 	@Test(dependsOnMethods={"CheckingPlayback_AOD"})
 	public void Pause_AudiooOnDemand() throws Exception 
 	{
