@@ -21,7 +21,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -32,14 +31,12 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import main.java.test.smpUtilityFunctions.CommandPrompt;
-import main.java.test.smpUtilityFunctions.DeviceList;
 import main.java.test.smpUtilityFunctions.PortFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDeviceActionShortcuts;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.android.Connection;
-import io.appium.java_client.ios.IOSDriver;
 
 public class CommonFunctions {
 
@@ -509,11 +506,7 @@ public class CommonFunctions {
 	
 	
 
-	private void assertFalse(boolean elementPresent) {
-		
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	public void seekingRandomly(WebElement element, AppiumDriver<WebElement> driver, String path, double d)
 			throws Exception {
@@ -1091,5 +1084,25 @@ public class CommonFunctions {
 	                   ((AndroidDriver) driver).lockDevice();
 	           }
 	   
+	}
+	
+	
+	public void creatingResultDir(String reportName, String dirName,String screenshots,String screenpathDir, String Deviceid, int appiumport, String DeviceosName, String Devicename ) throws FileAlreadyExistsException, InterruptedException, Exception
+	{
+		 try
+			{
+			String filename = reportName;
+			String workingDirectorys =  ResultFolder(dirName);  
+			String absoluteFilePaths = workingDirectorys + File.separator + filename;
+			screenshots = ResultFolder(screenpathDir);    //"/../Automation/Results/iOSDRM";
+			//screenhotfiles = new File(ScreenshotPaths);
+			
+			CreateReport(absoluteFilePaths, Deviceid, Integer.toString(appiumport),
+					DeviceosName,
+					Devicename);
+			}catch(NullPointerException e)
+			{
+				e.printStackTrace();
+			}
 	}
 }

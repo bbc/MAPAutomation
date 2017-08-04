@@ -67,8 +67,8 @@ public class iOSLiveSimulcastPlayback {
 		capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "uk.co.mediaat.mediaplayer-testharness-ios");
 		// capabilities.setCapability("bundleId",
 		// "uk.co.mediaat.mediaplayer-testharness-ios");
-		// capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS,
-		// true);
+		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+		capabilities.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, true);
 	//	capabilities.setCapability("xcodeConfigFile", "/usr/local/lib/node_modules/appium/"
 		// +
 		// "node_modules/appium-xcuitest-driver/WebDriverAgent/Config.xcconfig");
@@ -130,8 +130,8 @@ public class iOSLiveSimulcastPlayback {
 	public void turnWifiOff() throws Exception {
 
 
-		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
+//		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
+//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
 
 	}
 
@@ -141,11 +141,11 @@ public class iOSLiveSimulcastPlayback {
 		commonfunction.waitForScreenToLoad(iosdriver,
 				iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[3]")), 300);
 
-		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[3]")));
-
-		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[4]")));
+//		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
+//				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[3]")));
+//
+//		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
+//				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[4]")));
 
 
 		assertTrue("The Text Matched",
@@ -168,14 +168,14 @@ public class iOSLiveSimulcastPlayback {
 		iospageobjects.playback_errorDismiss_Button.click();
 		Thread.sleep(5000);
 
-		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi ON");
+//		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, iospageobjects.wifi_mode,
+//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi ON");
 
 		// WebElement playagain =
 		// iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]"));
 		// playagain.click();
-		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
-				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")));
+//		assertTrue(ioscommonfunction.isElementPresent(iosdriver,
+//				By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]")));
 		ioscommonfunction.tapbutton(iospageobjects.playback_start_button, "Starting the Playback", iosdriver, ScreenshotPath);
 
 

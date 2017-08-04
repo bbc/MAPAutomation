@@ -154,8 +154,8 @@ public class iOSOnDemand_VideoPlayback {
 
 	@Test(dependsOnMethods = { "OnDemand_PlaybackStart" })
 	public void turn_WiFiOff() throws Exception {
-		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
+//		ioscommonfunction.turnWifiON("Turning Off WiFi Connection", iosdriver, iospageobjects.wifi_mode,
+//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi Off");
 	}
 
 	@Test(dependsOnMethods = { "turn_WiFiOff" })
@@ -187,8 +187,8 @@ public class iOSOnDemand_VideoPlayback {
 		iospageobjects.playback_errorDismiss_Button.click();
 		Thread.sleep(5000);
 
-		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, iospageobjects.wifi_mode,
-				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi ON");
+//		ioscommonfunction.turnWifiON("Turning ON WiFi Connection", iosdriver, iospageobjects.wifi_mode,
+//				iospageobjects.dismiss_wholewindow,ScreenshotPath, "Wifi ON");
 
 		// WebElement playagain =
 		// iosdriver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[2]/UIAButton[6]"));
@@ -230,7 +230,7 @@ public class iOSOnDemand_VideoPlayback {
 			
 			iospageobjects.playback_transportcontrol.click();
 			Thread.sleep(100);
-			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX, 0.5);// 0.5);
+//			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX, 0.5);// 0.5);
 			screenhotfiles = ((TakesScreenshot) iosdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenhotfiles, new File("Seeking 50%%"));
 
@@ -239,7 +239,7 @@ public class iOSOnDemand_VideoPlayback {
 			Thread.sleep(100);
 			int startX1 = iospageobjects.playback_progressbar.getLocation().getX();
 			//ioscommonfunction.seekingRandomly(iospageobjects.playback_progressbar, iosdriver, ScreenshotPath, 0.60);
-			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX1, 0.95);
+//			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX1, 0.95);
 			screenhotfiles = ((TakesScreenshot) iosdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenhotfiles, new File("Seeking 95%"));
 
@@ -248,7 +248,7 @@ public class iOSOnDemand_VideoPlayback {
 			int startX2 = iospageobjects.playback_progressbar.getLocation().getX();
 
 			//ioscommonfunction.seekingRandomly(iospageobjects.playback_progressbar, iosdriver, ScreenshotPath, 0.90);
-			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX2, 0.3);
+//			ioscommonfunction.seek_bar_swipe(iosdriver, iospageobjects.playback_progressbar, startX2, 0.3);
 			screenhotfiles = ((TakesScreenshot) iosdriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenhotfiles, new File("Seeking 30%"));
 

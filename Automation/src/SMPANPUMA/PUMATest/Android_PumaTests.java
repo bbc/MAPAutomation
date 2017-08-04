@@ -2,33 +2,29 @@ package SMPANPUMA.PUMATest;
 
 import java.io.File;
 import java.net.URL;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.jbehave.core.annotations.ScenarioType;
-import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 
 import SMPANPUMA.CommonFunction.CommonFunctions;
 import SMPANPUMA.SMPPageObjects.SMPANPageObjects_Common;
 import SMPANPUMA.SMPPageObjects.SMPAN_LiveRewind;
 import SMPANPUMA.SMPPageObjects.SMPAN_OnDemand;
 import SMPANPUMA.CommonFunction.LiveRewindFunctions;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import main.java.test.smpUtilityFunctions.AppiumManager;
 import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.DeviceList;
@@ -133,12 +129,15 @@ public class Android_PumaTests {
 		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
-	//	capa.setCapability(AndroidMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+	//	capa.setCapability(AndroidMobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
+	//	capa.setCapability("autoAcceptAlerts", false);
+	//	capa.setCapability("autoDismissAlerts", true);
 		driver = new AndroidDriver<>(new URL(appiul_url), capa);
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
+		
 		
 		/*try
 		{
@@ -159,7 +158,7 @@ public class Android_PumaTests {
 	}
 	
 	/*
-	 * initializing the pageobjects 
+	 * initializing the page objects 
 	 */
 
 	@Test(dependsOnMethods = {"setUp"})
@@ -176,6 +175,15 @@ public class Android_PumaTests {
 			ondemandobjects = new SMPAN_OnDemand();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 			
+			
+//			commonfunct.creatingResultDir("SMPAN_PUMATest",commonobjects.ParentDirectoy,ScreenshotPaths,commonobjects.SubDirectory, Deviceid,
+//					appiumport, DeviceosName,Devicename);
+//			}
+//				catch(Exception e)
+//			{
+//				e.printStackTrace();
+//			}
+		
 			 try
 				{
 				filename = "SMPAN_PUMATest";
@@ -215,10 +223,7 @@ public class Android_PumaTests {
 			Thread.sleep(3000);*/
 			 
 			 
-		}catch(Exception e)
-		{
-		e.printStackTrace();
-		}
+		
 	}	
 		
 	/**

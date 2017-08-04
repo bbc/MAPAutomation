@@ -3,45 +3,22 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <class name="main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback">
-=======
       <class name="SMPANPUMA.PUMATest.Android_PumaTests">
->>>>>>> DRM-AN
         <methods>
+          <include name="Play_AudioOnDemand"/>
           <include name="Play_VideoOnDemand"/>
-          <include name="CheckingPlayback_LiveRewind"/>
-          <include name="PlaybackRotation"/>
           <include name="Pause_VideoOnDemand"/>
-          <include name="getAllDetails"/>
-          <include name="Play_LiveRewindTest"/>
-          <include name="Pause_LiveRewindTest"/>
           <include name="CheckingPlayback_VOD"/>
           <include name="RunTest"/>
+          <include name="getDeviceDetails"/>
           <include name="setUp"/>
+          <include name="TurningSubtilte_ON"/>
+          <include name="End"/>
+          <include name="CheckingPlayback_AOD"/>
           <include name="OpenAvtest"/>
+          <include name="Pause_AudiooOnDemand"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- main.java.test.smpMainTest.SMPAndroidLiveRewindPlayback -->
-=======
-      <class name="main.java.test.smpMainTest.iOSOnDemand_VideoPlayback">
-        <methods>
-          <include name="TurnWiFi_ON"/>
-          <include name="playbackseeking"/>
-          <include name="OpenAvtest"/>
-          <include name="playback_ErrorMessage"/>
-          <include name="OnDemand_PlaybackStart"/>
-          <include name="turn_WiFiOff"/>
-          <include name="Setup"/>
-          <include name="tearDown"/>
-          <include name="OnDemand_PlaybackPause"/>
-        </methods>
-      </class> <!-- main.java.test.smpMainTest.iOSOnDemand_VideoPlayback -->
->>>>>>> SMP-AN
-=======
       </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
->>>>>>> DRM-AN
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
