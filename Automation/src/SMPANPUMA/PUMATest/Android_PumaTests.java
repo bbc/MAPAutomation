@@ -175,17 +175,9 @@ public class Android_PumaTests {
 			ondemandobjects = new SMPAN_OnDemand();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 			
-			
-//			commonfunct.creatingResultDir("SMPAN_PUMATest",commonobjects.ParentDirectoy,ScreenshotPaths,commonobjects.SubDirectory, Deviceid,
-//					appiumport, DeviceosName,Devicename);
-//			}
-//				catch(Exception e)
-//			{
-//				e.printStackTrace();
-//			}
 		
-			 try
-				{
+		
+			 
 				filename = "SMPAN_PUMATest";
 				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
 				absoluteFilePaths = workingDirectorys + File.separator + filename;
@@ -199,6 +191,7 @@ public class Android_PumaTests {
 				{
 					e.printStackTrace();
 				}
+		}
 		
 		/*
 		 * Check the device OS version if OS version less then 6.0, use a different Element ID to click Menu  
@@ -224,7 +217,7 @@ public class Android_PumaTests {
 			 
 			 
 		
-	}	
+		
 		
 	/**
 	 * 
