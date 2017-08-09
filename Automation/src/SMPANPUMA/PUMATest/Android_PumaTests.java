@@ -376,7 +376,7 @@ public class Android_PumaTests {
 			{
 		try
 		{
-			commonfunct.GenerateReport();
+			//commonfunct.GenerateReport();
 			driver.closeApp();
 			driver.quit();
 			ap.stopappium();

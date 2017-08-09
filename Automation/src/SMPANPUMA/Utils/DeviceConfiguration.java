@@ -14,9 +14,9 @@ public class DeviceConfiguration {
 	CommandPrompt cmd = new CommandPrompt();
 	Map<String, String> devices = new HashMap<String, String>();
 	String devices1[];
-	String path="/Users/ramakh01/Downloads/android-sdk/platform-tools/";
+	String path=System.getenv("ANDROID_HOME") +"/platform-tools/";
 	
-	private static String sdkPath = "/Users/ramakh01/Downloads/android-sdk/";
+	private static String sdkPath = System.getenv("ANDROID_HOME");
 	private static String adbPath = sdkPath + "platform-tools" + File.separator + "adb";
 	
 	/**
