@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="SMPANPUMA.PUMATest.Android_PumaTests">
+        <methods>
+          <include name="Play_AudioOnDemand"/>
+          <include name="Play_VideoOnDemand"/>
+          <include name="Pause_VideoOnDemand"/>
+          <include name="CheckingPlayback_VOD"/>
+          <include name="RunTest"/>
+          <include name="getDeviceDetails"/>
+          <include name="setUp"/>
+          <include name="TurningSubtilte_ON"/>
+          <include name="End"/>
+          <include name="CheckingPlayback_AOD"/>
+          <include name="OpenAvtest"/>
+          <include name="Pause_AudiooOnDemand"/>
+        </methods>
+      </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

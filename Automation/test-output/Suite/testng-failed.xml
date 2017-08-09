@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="deviceType" value="Mobile"/>
+  <parameter name="AppiumPort" value="4746"/>
+  <parameter name="deviceOS" value="6.0.1"/>
+  <parameter name="deviceID" value="1115fbd9e7622a04"/>
+  <parameter name="deviceName" value="GalaxyS6"/>
+  <test name="GalaxyS6(failed)">
+    <parameter name="deviceType" value="Mobile"/>
+    <parameter name="AppiumPort" value="4746"/>
+    <parameter name="deviceOS" value="6.0.1"/>
+    <parameter name="deviceID" value="1115fbd9e7622a04"/>
+    <parameter name="deviceName" value="GalaxyS6"/>
+    <classes>
+      <class name="main.java.test.smpMainTest.OnDemandVideoPlayback">
+        <methods>
+          <include name="videoPlaying"/>
+          <include name="Playback_retry"/>
+          <include name="Playback_SeektoEnd"/>
+          <include name="OpenAvtest"/>
+          <include name="openVpidBrowser"/>
+          <include name="playback_resume"/>
+          <include name="vpideoPlayback"/>
+          <include name="playbackseeking"/>
+          <include name="PlaybackRotation"/>
+          <include name="playback_pause"/>
+        </methods>
+      </class> <!-- main.java.test.smpMainTest.OnDemandVideoPlayback -->
+    </classes>
+  </test> <!-- GalaxyS6(failed) -->
+</suite> <!-- Failed suite [Suite] -->
