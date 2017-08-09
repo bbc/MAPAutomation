@@ -420,8 +420,14 @@ public class CommonFunctions {
 	}
 
 	public void GenerateReport() throws Exception{
+		try
+		{
 		extent.endTest(logger);
 		extent.flush();
+		}catch(NullPointerException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void CreateReport(String absoluteFilePath, String deviceID, String deviceOS, String Port,

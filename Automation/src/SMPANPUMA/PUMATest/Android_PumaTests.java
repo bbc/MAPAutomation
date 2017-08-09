@@ -56,9 +56,9 @@ public class Android_PumaTests {
 	File screenhotfiles;
 
 
-	private static String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
-	private static String adbPath = sdkPath + "/adb";
-	String[] commandDevices = new String[] { adbPath, "devices" };
+//	private static String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
+//	private static String adbPath = sdkPath + "/adb";
+//	String[] commandDevices = new String[] { adbPath, "devices" };
 	CommandPrompt cmd = new CommandPrompt();
 
 	public List<String> deviceID = new ArrayList<String>();
@@ -154,9 +154,10 @@ public class Android_PumaTests {
 	public void setUp() throws Exception {
 		try
 		{
-		ap.startAppium(Integer.parseInt(appiumport));
-		ap.AppiumURL();
-		String appiul_url = ap.AppiumURL();
+		//ap.startAppium(Integer.parseInt(appiumport));
+		//ap.AppiumURL();
+		//String appiul_url = ap.AppiumURL();
+		String appiul_url = "http://localhost:"+appiumport+"/wd/hub";
 		System.out.println("Appium Service Address : - " + appiul_url);
 
 		capa = new DesiredCapabilities();
