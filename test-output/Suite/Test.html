@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/8</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Aug 09 11:51:15 BST 2017</td>
+<td>Started on:</td><td>Wed Aug 09 11:57:46 BST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>6 seconds (6340 ms)</td>
+<tr><td>Total time:</td><td>25 seconds (25403 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,8 +76,8 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='SMPANPUMA.PUMATest.Android_PumaTests.setUp()'><b>setUp</b><br>Test class: SMPANPUMA.PUMATest.Android_PumaTests</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: A new session could not be created. Details: The desiredCapabilities object was not valid for the following reason(s):  deviceName can&apos;t be blank, (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 166 milliseconds
+<td><div><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 22.05 seconds
 Build info: version: &apos;2.51.0&apos;, revision: &apos;1af067d&apos;, time: &apos;2016-02-05 19:15:17&apos;
 System info: host: &apos;mc-s104436.local&apos;, ip: &apos;10.10.3.204&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_102&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
@@ -98,7 +98,7 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:114)
 	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:132)
 	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:92)
-	at SMPANPUMA.PUMATest.Android_PumaTests.setUp(Android_PumaTests.java:135)
+	at SMPANPUMA.PUMATest.Android_PumaTests.setUp(Android_PumaTests.java:170)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -122,9 +122,9 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1151844284", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1151844284'><pre>org.openqa.selenium.SessionNotCreatedException: A new session could not be created. Details: The desiredCapabilities object was not valid for the following reason(s):  deviceName can&apos;t be blank, (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 166 milliseconds
+</pre></div><a href='#' onClick='toggleBox("stack-trace1789718525", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1789718525'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 22.05 seconds
 Build info: version: &apos;2.51.0&apos;, revision: &apos;1af067d&apos;, time: &apos;2016-02-05 19:15:17&apos;
 System info: host: &apos;mc-s104436.local&apos;, ip: &apos;10.10.3.204&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_102&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
@@ -145,7 +145,7 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:114)
 	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:132)
 	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:92)
-	at SMPANPUMA.PUMATest.Android_PumaTests.setUp(Android_PumaTests.java:135)
+	at SMPANPUMA.PUMATest.Android_PumaTests.setUp(Android_PumaTests.java:170)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -170,7 +170,7 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
 </pre></div></td>
-<td>3</td>
+<td>25</td>
 <td>SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -212,8 +212,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace737077247", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace737077247'><pre>java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace940584193", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace940584193'><pre>java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -252,8 +252,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1311146128", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1311146128'><pre>java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace925308434", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace925308434'><pre>java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -292,8 +292,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1324578393", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1324578393'><pre>java.lang.Throwable: Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace210156003", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace210156003'><pre>java.lang.Throwable: Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -332,8 +332,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1362546706", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1362546706'><pre>java.lang.Throwable: Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace931675031", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace931675031'><pre>java.lang.Throwable: Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -372,8 +372,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace464676531", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace464676531'><pre>java.lang.Throwable: Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace249034932", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace249034932'><pre>java.lang.Throwable: Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -412,8 +412,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace812446698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace812446698'><pre>java.lang.Throwable: Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace1278254413", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1278254413'><pre>java.lang.Throwable: Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -452,8 +452,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2003534796", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2003534796'><pre>java.lang.Throwable: Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace279593458", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace279593458'><pre>java.lang.Throwable: Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -492,8 +492,8 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.TestNG.run(TestNG.java:1048)
 	at org.testng.TestNG.privateMain(TestNG.java:1355)
 	at org.testng.TestNG.main(TestNG.java:1324)
-</pre></div><a href='#' onClick='toggleBox("stack-trace931496835", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace931496835'><pre>java.lang.Throwable: Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace989447607", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace989447607'><pre>java.lang.Throwable: Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
