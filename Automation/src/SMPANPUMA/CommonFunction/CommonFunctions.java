@@ -20,29 +20,37 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 
+import com.google.common.base.Predicate;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+import SMPANPUMA.SMPPageObjects.SMPANPageObjects_Common;
 import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.PortFactory;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDeviceActionShortcuts;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.android.Connection;
+import io.appium.java_client.ios.IOSDriver;
 
 public class CommonFunctions {
 
 	WebDriverWait wait;
 	public ExtentReports extent = null;
 	public ExtentTest logger = null;
+	public  final long TIME_OUT_IN_SECONDS = 30L;
+	public  Environment environment = Environment.LOCAL;
 
 	String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
 	String adbPath = sdkPath + File.separator + "./adb";
@@ -72,6 +80,7 @@ public class CommonFunctions {
 	
 	public AppiumDriver<WebElement> driver=null;
 	public char[][] DRM;
+	private static AppiumDriver<?> drivers = null;
 
 	/*
 	 * 
@@ -122,8 +131,9 @@ public class CommonFunctions {
 		{
 		
 		logger = extent.startTest(testname);
+		//waitForElementToBeDisplayed(element);
 		element.click();
-		Thread.sleep(1000);
+		
 		logger.log(LogStatus.INFO,
 				testname + logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
 		}catch(Exception e)
@@ -257,6 +267,19 @@ public class CommonFunctions {
 
 	}
 	
+	 protected static AppiumDriver<?> getDriver() {
+	        return drivers;
+	    }
+	
+	
+//	public void waitForElementToBeDisplayed(WebElement element) {
+//        new WebDriverWait(getDriver(), TIME_OUT_IN_SECONDS).until(new Predicate<WebDriver>() {
+//            @Override
+//            public boolean apply(WebDriver webDriver) {
+//                return element != null && element.isDisplayed();
+//            }
+//        });
+//    }
 	
 
 	public void playback_orientation(AppiumDriver<WebElement> driver , ScreenOrientation orientation,
@@ -836,7 +859,7 @@ public class CommonFunctions {
 	}
 
 	public void selectItemforPlayback(String item, String message, List<WebElement> ele,
-			AppiumDriver<WebElement> driver, String listview, String path)
+			AndroidDriver<WebElement> driver, String listview, String path)
 			throws Exception {
 
 		logger = extent.startTest("Selecting the Item for Playback from List View");
@@ -1105,4 +1128,69 @@ public class CommonFunctions {
 				e.printStackTrace();
 			}
 	}
+	
+	/* public void clickOnButtonWithText(SMPANPageObjects_Common pageObject, String text) {
+	        List<MobileElement> buttonsWithText = pageObject.getButtonsWithText(text);
+
+	        assertNotNull(buttonsWithText);
+	        assertEquals(1, buttonsWithText.size());
+
+	        buttonsWithText.get(0).click();
+	    }
+	    */
+	
+	protected void pressBack() {
+        if (getDriver() instanceof AndroidDriver) {
+            ((AndroidDriver) getDriver()).pressKeyCode(AndroidKeyCode.BACK);
+        }
+        else if (getDriver() instanceof IOSDriver) {
+            ((IOSDriver) getDriver()).navigate().back();
+        }
+        else {
+         //   fail("Driver is neither an Android or iOS driver!");
+        }
+    }
+	
+	
+	
+	    public  void setUp() throws Exception {
+	        if (getDriver() == null) {
+	   //         setUpEnvironment();
+	            setUpDriverForOS();
+	        }
+	    }
+
+	   
+	    public static void tearDown() throws Exception {
+	        if (getDriver() != null) {
+	            getDriver().quit();
+	            drivers = null;
+	        }
+	    }
+
+
+//	public  void setUpEnvironment() {
+//	        String env = System.getProperty("env");
+//
+//	        try {
+//	            environment = Environment.valueOf(env.toUpperCase());
+//	        } catch (RuntimeException e) {
+//	            fail("-Denv=local|ci|hive must be specified.");
+//	        }
+//	    }
+
+	    public void setUpDriverForOS() throws IOException {
+	        String os = System.getProperty("os");
+
+	        if (os != null && os.contains("android") && !os.contains("ios")) {
+	            drivers = AppiumDriverBuilder.forAndroid().build(environment);
+	        } else if (os != null && !os.contains("android") && os.contains("ios")) {
+	            drivers = AppiumDriverBuilder.forIOS().build(environment);
+	        } else {
+	           // fail("-Dos=android|ios must be specified.");
+	        }
+	    }
+	
+	
+	
 }

@@ -56,8 +56,8 @@ public class Android_PumaTests {
 	File screenhotfiles;
 
 
-	private static String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
-	private static String adbPath = sdkPath + File.separator + "./adb";
+	private static String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
+	private static String adbPath = sdkPath + "/adb";
 	String[] commandDevices = new String[] { adbPath, "devices" };
 	CommandPrompt cmd = new CommandPrompt();
 
@@ -68,7 +68,8 @@ public class Android_PumaTests {
 	String DeviceosName;
 	String Deviceid;
 	String Devicename;
-	int appiumport;
+	String appiumport;
+	String appPath;
 
 	DeviceList devicelist = new DeviceList();
 	PortFactory portFactory = new PortFactory();
@@ -76,7 +77,18 @@ public class Android_PumaTests {
 	@BeforeClass
 	public void RunTest() throws Exception , InterruptedException{
 
-		try {
+			try {
+
+				getDeviceDetails();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+		}
+		/*try {
 
 			getDeviceDetails();
 			devicelist.populateDevices_IDs();
@@ -88,7 +100,7 @@ public class Android_PumaTests {
 		
 		
 		
-	}
+	
 
 	@Test // (dependsOnMethods = { "RunTest" })
 	public void getDeviceDetails() throws Exception {
@@ -110,13 +122,39 @@ public class Android_PumaTests {
 
 		}
 		
+	}*/
+	
+	
+	@Test // (dependsOnMethods = { "RunTest" })
+	public void getDeviceDetails() throws Exception {
+
+		
+			try {
+				DeviceosName = System.getProperty("deviceOS");
+				Deviceid = System.getProperty("deviceID");
+				appiumport = System.getProperty("appiumPort");
+				Devicename = System.getProperty("deviceName");
+				appPath = System.getProperty("appPath");
+				System.out.println("The Device OS is " + DeviceosName);
+				System.out.println("The Device ID is " + Deviceid);
+				System.out.println("The Device Name is " + Devicename);
+				System.out.println("The Appium Port Name is " + appiumport);
+				System.out.println("The App path  is " + appPath);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+
+		
+		
 	}
+	
 
 	@Test(dependsOnMethods = {"getDeviceDetails"})
 	public void setUp() throws Exception {
 		try
 		{
-		ap.startAppium(appiumport);
+		ap.startAppium(Integer.parseInt(appiumport));
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
@@ -126,12 +164,9 @@ public class Android_PumaTests {
 		capa.setCapability("deviceName", Deviceid);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", DeviceosName);
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
+		capa.setCapability("app", appPath);
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
-	//	capa.setCapability(AndroidMobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
-	//	capa.setCapability("autoAcceptAlerts", false);
-	//	capa.setCapability("autoDismissAlerts", true);
 		driver = new AndroidDriver<>(new URL(appiul_url), capa);
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 		} catch (NullPointerException e) {
@@ -175,16 +210,13 @@ public class Android_PumaTests {
 			ondemandobjects = new SMPAN_OnDemand();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 			
-		
-		
-			 
-				filename = "SMPAN_PUMATest";
+			    filename = "SMPAN_PUMATest";
 				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
 				absoluteFilePaths = workingDirectorys + File.separator + filename;
 				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
 				//screenhotfiles = new File(ScreenshotPaths);
 				
-				commonfunct.CreateReport(absoluteFilePaths, Deviceid, Integer.toString(appiumport),
+				commonfunct.CreateReport(absoluteFilePaths, Deviceid, appiumport,
 						DeviceosName,
 						Devicename);
 				}catch(NullPointerException e)
@@ -216,7 +248,7 @@ public class Android_PumaTests {
 			Thread.sleep(3000);*/
 			 
 			 
-		
+	
 		
 		
 	/**
@@ -224,6 +256,7 @@ public class Android_PumaTests {
 	 * Puma Tests for VOD
 	 *
 	 */
+	
 	//Select a a Panorama Video form the Mediated List and plays it in embedded view and then switches to Full Screen view
 	@Test(dependsOnMethods={"OpenAvtest"})
 	public void Play_VideoOnDemand() throws Exception 
@@ -282,6 +315,8 @@ public class Android_PumaTests {
 		
 		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
 	}
+	
+	
 	
 	/**
 	 * 

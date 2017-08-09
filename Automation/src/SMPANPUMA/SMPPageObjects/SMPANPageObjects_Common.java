@@ -1,10 +1,13 @@
 package SMPANPUMA.SMPPageObjects;
 
+import java.awt.Button;
 import java.io.File;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
+
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class SMPANPageObjects_Common {
@@ -40,7 +43,7 @@ public class SMPANPageObjects_Common {
 	public WebElement bbc_two;
 
 	@AndroidFindBy(xpath = "//android.widget.ListView/android.widget.LinearLayout[2]/android.widget.ImageButton[@index='1']")
-	public WebElement live_rewind_playback;
+	public MobileElement live_rewind_playback;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/stop_button")
 	public WebElement simulcast_stop;
@@ -62,7 +65,7 @@ public class SMPANPageObjects_Common {
 	public WebElement buffer_spinner;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/pause_button")
-	public WebElement Playback_Pause;
+	public MobileElement Playback_Pause;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/play_button")
 	public WebElement LiveRewind_Playbutton;
@@ -84,7 +87,7 @@ public class SMPANPageObjects_Common {
 	public WebElement enable_liveRdot;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/placeholder_play_button")
-	public WebElement playbutton;
+	public MobileElement playbutton;
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/fullscreen_button")
 	public WebElement fullscreen_button;
@@ -211,6 +214,10 @@ public class SMPANPageObjects_Common {
 	
 	public String SubDirectory =  "Screenshots";
 	
-	public String Android_Path= "/../../../MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk";
+	
+	
+//	public List<MobileElement> getButtonsWithText(String text) {
+//        return new Button(buttons).withText(text);
+//    }
 
 }
