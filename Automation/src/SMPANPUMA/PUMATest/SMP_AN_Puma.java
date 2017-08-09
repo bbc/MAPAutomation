@@ -344,7 +344,7 @@ public class SMP_AN_Puma {
 			commonfunct.GenerateReport();
 			driver.closeApp();
 			driver.quit();
-			ap.stopappium();
+			//ap.stopappium();
 			}catch(NullPointerException e)
 		{
 				e.printStackTrace();
