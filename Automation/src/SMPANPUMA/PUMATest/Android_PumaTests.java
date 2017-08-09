@@ -380,7 +380,7 @@ public class Android_PumaTests {
 			commonfunct.GenerateReport();
 			driver.closeApp();
 			driver.quit();
-			ap.stopappium();
+			//ap.stopappium();
 			}catch(NullPointerException e)
 		{
 				e.printStackTrace();
