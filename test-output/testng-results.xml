@@ -2,33 +2,33 @@
 <testng-results skipped="8" failed="1" total="10" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="4007" started-at="2017-08-04T15:43:13Z" finished-at="2017-08-04T15:43:17Z">
+  <suite name="Suite" duration-ms="6340" started-at="2017-08-09T10:51:15Z" finished-at="2017-08-09T10:51:21Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="4007" started-at="2017-08-04T15:43:13Z" finished-at="2017-08-04T15:43:17Z">
+    <test name="Test" duration-ms="6340" started-at="2017-08-09T10:51:15Z" finished-at="2017-08-09T10:51:21Z">
       <class name="SMPANPUMA.PUMATest.Android_PumaTests">
-        <test-method status="PASS" signature="RunTest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="RunTest" is-config="true" duration-ms="86" started-at="2017-08-04T16:43:13Z" finished-at="2017-08-04T16:43:13Z">
+        <test-method status="PASS" signature="RunTest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="RunTest" is-config="true" duration-ms="3210" started-at="2017-08-09T11:51:15Z" finished-at="2017-08-09T11:51:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- RunTest -->
-        <test-method status="PASS" signature="getDeviceDetails()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="getDeviceDetails" duration-ms="0" started-at="2017-08-04T16:43:13Z" finished-at="2017-08-04T16:43:13Z">
+        <test-method status="PASS" signature="getDeviceDetails()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="getDeviceDetails" duration-ms="1" started-at="2017-08-09T11:51:18Z" finished-at="2017-08-09T11:51:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDeviceDetails -->
-        <test-method status="FAIL" signature="setUp()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="setUp" duration-ms="3904" started-at="2017-08-04T16:43:13Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.getDeviceDetails" finished-at="2017-08-04T16:43:17Z">
+        <test-method status="FAIL" signature="setUp()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="setUp" duration-ms="3117" started-at="2017-08-09T11:51:18Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.getDeviceDetails" finished-at="2017-08-09T11:51:21Z">
           <exception class="org.openqa.selenium.SessionNotCreatedException">
             <message>
               <![CDATA[A new session could not be created. Details: The desiredCapabilities object was not valid for the following reason(s):  deviceName can't be blank, (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 211 milliseconds
+Command duration or timeout: 166 milliseconds
 Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
-System info: host: 'mc-s104436.local', ip: '10.10.4.76', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
+System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
 Driver info: io.appium.java_client.android.AndroidDriver]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.SessionNotCreatedException: A new session could not be created. Details: The desiredCapabilities object was not valid for the following reason(s):  deviceName can't be blank, (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 211 milliseconds
+Command duration or timeout: 166 milliseconds
 Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
-System info: host: 'mc-s104436.local', ip: '10.10.4.76', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
+System info: host: 'mc-s104436.local', ip: '10.10.3.204', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_102'
 Driver info: io.appium.java_client.android.AndroidDriver
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -77,71 +77,13 @@ Driver info: io.appium.java_client.android.AndroidDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="OpenAvtest" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.setUp" finished-at="2017-08-04T16:43:17Z">
+        <test-method status="SKIP" signature="TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="TurningSubtilte_ON" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_VideoOnDemand" finished-at="2017-08-09T11:51:21Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
+              <![CDATA[Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.TestNG.privateMain(TestNG.java:1355)
-	at org.testng.TestNG.main(TestNG.java:1324)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OpenAvtest -->
-        <test-method status="SKIP" signature="Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="Play_VideoOnDemand" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.OpenAvtest" finished-at="2017-08-04T16:43:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.TestNG.privateMain(TestNG.java:1355)
-	at org.testng.TestNG.main(TestNG.java:1324)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Play_VideoOnDemand -->
-        <test-method status="SKIP" signature="TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="TurningSubtilte_ON" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_VideoOnDemand" finished-at="2017-08-04T16:43:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -164,17 +106,13 @@ Driver info: io.appium.java_client.android.AndroidDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TurningSubtilte_ON -->
-        <test-method status="PASS" signature="End()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="End" is-config="true" duration-ms="3" started-at="2017-08-04T16:43:17Z" finished-at="2017-08-04T16:43:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- End -->
-        <test-method status="SKIP" signature="CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="CheckingPlayback_AOD" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_AudioOnDemand" finished-at="2017-08-04T16:43:17Z">
+        <test-method status="SKIP" signature="Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="Play_VideoOnDemand" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.OpenAvtest" finished-at="2017-08-09T11:51:21Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
+              <![CDATA[Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -196,14 +134,14 @@ Driver info: io.appium.java_client.android.AndroidDriver
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CheckingPlayback_AOD -->
-        <test-method status="SKIP" signature="Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="Pause_AudiooOnDemand" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_AOD" finished-at="2017-08-04T16:43:17Z">
+        </test-method> <!-- Play_VideoOnDemand -->
+        <test-method status="SKIP" signature="OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="OpenAvtest" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.setUp" finished-at="2017-08-09T11:51:21Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
+              <![CDATA[Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -225,72 +163,14 @@ Driver info: io.appium.java_client.android.AndroidDriver
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Pause_AudiooOnDemand -->
-        <test-method status="SKIP" signature="Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="Play_AudioOnDemand" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Pause_VideoOnDemand" finished-at="2017-08-04T16:43:17Z">
+        </test-method> <!-- OpenAvtest -->
+        <test-method status="SKIP" signature="CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="CheckingPlayback_VOD" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.TurningSubtilte_ON" finished-at="2017-08-09T11:51:21Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
+              <![CDATA[Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.TestNG.privateMain(TestNG.java:1355)
-	at org.testng.TestNG.main(TestNG.java:1324)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Play_AudioOnDemand -->
-        <test-method status="SKIP" signature="Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="Pause_VideoOnDemand" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_VOD" finished-at="2017-08-04T16:43:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.TestNG.privateMain(TestNG.java:1355)
-	at org.testng.TestNG.main(TestNG.java:1324)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Pause_VideoOnDemand -->
-        <test-method status="SKIP" signature="CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca]" name="CheckingPlayback_VOD" duration-ms="0" started-at="2017-08-04T16:43:17Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.TurningSubtilte_ON" finished-at="2017-08-04T16:43:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@3d8c7aca] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
@@ -313,6 +193,126 @@ Driver info: io.appium.java_client.android.AndroidDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckingPlayback_VOD -->
+        <test-method status="SKIP" signature="Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="Pause_VideoOnDemand" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_VOD" finished-at="2017-08-09T11:51:21Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.TestNG.privateMain(TestNG.java:1355)
+	at org.testng.TestNG.main(TestNG.java:1324)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_VideoOnDemand -->
+        <test-method status="SKIP" signature="Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="Play_AudioOnDemand" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Pause_VideoOnDemand" finished-at="2017-08-09T11:51:21Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.TestNG.privateMain(TestNG.java:1355)
+	at org.testng.TestNG.main(TestNG.java:1324)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Play_AudioOnDemand -->
+        <test-method status="SKIP" signature="CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="CheckingPlayback_AOD" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.Play_AudioOnDemand" finished-at="2017-08-09T11:51:21Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.TestNG.privateMain(TestNG.java:1355)
+	at org.testng.TestNG.main(TestNG.java:1324)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckingPlayback_AOD -->
+        <test-method status="PASS" signature="End()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="End" is-config="true" duration-ms="2" started-at="2017-08-09T11:51:21Z" finished-at="2017-08-09T11:51:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- End -->
+        <test-method status="SKIP" signature="Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5]" name="Pause_AudiooOnDemand" duration-ms="0" started-at="2017-08-09T11:51:21Z" depends-on-methods="SMPANPUMA.PUMATest.Android_PumaTests.CheckingPlayback_AOD" finished-at="2017-08-09T11:51:21Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Android_PumaTests.Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.Android_PumaTests@21bcffb5] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1033)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.TestNG.privateMain(TestNG.java:1355)
+	at org.testng.TestNG.main(TestNG.java:1324)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_AudiooOnDemand -->
       </class> <!-- SMPANPUMA.PUMATest.Android_PumaTests -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

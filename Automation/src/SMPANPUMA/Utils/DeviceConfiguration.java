@@ -24,7 +24,7 @@ public class DeviceConfiguration {
 	 */
 	public void startADB() throws Exception
 	{
-		String output = cmd.runCommand(path + "./adb start-server");
+		String output = cmd.runCommand(path + "adb start-server");
 		String[] lines = output.split("\n");
 		if(lines.length==1)
 			System.out.println("adb service already started");
@@ -40,7 +40,7 @@ public class DeviceConfiguration {
 	 * This method stop adb server
 	 */
 	public void stopADB() throws Exception{
-		cmd.runCommand(path + "./adb kill-server");
+		cmd.runCommand(path + "adb kill-server");
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class DeviceConfiguration {
 		  String[] commandDevices = new String[] { adbPath, "devices" };
 		  Process process = new ProcessBuilder(commandDevices).start();
 		  
-		String output = cmd.runCommand(path+"./adb devices");
+		String output = cmd.runCommand(path+"adb devices");
 		String[] lines = output.split("\n");
 
 		if(lines.length<=1)
@@ -71,9 +71,9 @@ public class DeviceConfiguration {
 			{
 				lines[i]=lines[i].replaceAll("device", "");
 				String deviceID = lines[i];
-				String model = cmd.runCommand(path+"./adb -s "+deviceID+" shell getprop ro.product.model").replaceAll("\\s+", "");
-				String brand = cmd.runCommand(path+"./adb -s "+deviceID+" shell getprop ro.product.brand").replaceAll("\\s+", "");
-				String osVersion = cmd.runCommand(path+"./adb -s "+deviceID+" shell getprop ro.build.version.release").replaceAll("\\s+", "");
+				String model = cmd.runCommand(path+"adb -s "+deviceID+" shell getprop ro.product.model").replaceAll("\\s+", "");
+				String brand = cmd.runCommand(path+"adb -s "+deviceID+" shell getprop ro.product.brand").replaceAll("\\s+", "");
+				String osVersion = cmd.runCommand(path+"adb -s "+deviceID+" shell getprop ro.build.version.release").replaceAll("\\s+", "");
 				String deviceName = brand+" "+model;
 				
 //				devices.put("deviceID"+i, deviceID+"\n");

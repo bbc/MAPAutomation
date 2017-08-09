@@ -52,13 +52,13 @@ public class CommonFunctions {
 	public  final long TIME_OUT_IN_SECONDS = 30L;
 	public  Environment environment = Environment.LOCAL;
 
-	String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
-	String adbPath = sdkPath + File.separator + "./adb";
+	String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";;
+	String adbPath = sdkPath + File.separator + "adb";
 	String[] commandDevices = new String[] { adbPath, "devices" };
 	 String clearlogs = sdkPath + File.separator + "adb logcat " + "-c";
 	CommandPrompt cmd = new CommandPrompt();
 
-	 String AndroidsdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
+	 String AndroidsdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
 	 String mediaselector = sdkPath + File.separator + "adb shell logcat"+"|"+"grep " + "http://open.*";
 	 String rdot = sdkPath + File.separator + "adb shell logcat"+"|"+"grep " + "https://r.bbc.*";
 	
