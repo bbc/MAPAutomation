@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-passed">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">11 methods,   11 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="CheckingPlayback_AOD">CheckingPlayback_AOD</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="CheckingPlayback_VOD">CheckingPlayback_VOD</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="OpenAvtest">OpenAvtest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="Pause_AudiooOnDemand">Pause_AudiooOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="Pause_VideoOnDemand">Pause_VideoOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="Play_AudioOnDemand">Play_AudioOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="Play_VideoOnDemand">Play_VideoOnDemand</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="TurningSubtilte_OFF">TurningSubtilte_OFF</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="TurningSubtilte_ON">TurningSubtilte_ON</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="getDeviceDetails">getDeviceDetails</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="SMPANPUMA.PUMATest.SMP_AN_Puma" hash-for-method="setUp">setUp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">SMPANPUMA.PUMATest.SMP_AN_Puma</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CheckingPlayback_AOD">
+                  </a> <!-- CheckingPlayback_AOD -->
+                  <span class="method-name">CheckingPlayback_AOD</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="CheckingPlayback_VOD">
+                  </a> <!-- CheckingPlayback_VOD -->
+                  <span class="method-name">CheckingPlayback_VOD</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="OpenAvtest">
+                  </a> <!-- OpenAvtest -->
+                  <span class="method-name">OpenAvtest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Pause_AudiooOnDemand">
+                  </a> <!-- Pause_AudiooOnDemand -->
+                  <span class="method-name">Pause_AudiooOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Pause_VideoOnDemand">
+                  </a> <!-- Pause_VideoOnDemand -->
+                  <span class="method-name">Pause_VideoOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Play_AudioOnDemand">
+                  </a> <!-- Play_AudioOnDemand -->
+                  <span class="method-name">Play_AudioOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Play_VideoOnDemand">
+                  </a> <!-- Play_VideoOnDemand -->
+                  <span class="method-name">Play_VideoOnDemand</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TurningSubtilte_OFF">
+                  </a> <!-- TurningSubtilte_OFF -->
+                  <span class="method-name">TurningSubtilte_OFF</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TurningSubtilte_ON">
+                  </a> <!-- TurningSubtilte_ON -->
+                  <span class="method-name">TurningSubtilte_ON</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getDeviceDetails">
+                  </a> <!-- getDeviceDetails -->
+                  <span class="method-name">getDeviceDetails</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="setUp">
+                  </a> <!-- setUp -->
+                  <span class="method-name">setUp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/private/var/folders/nd/v5m53p8918v0m9q7sryzqj00nqcphm/T/testng-eclipse--654842634/testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;SMPANPUMA.PUMATest.SMP_AN_Puma&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(11);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'Play_VideoOnDemand')
+data.setCell(0, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(0, 3, 166747);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'CheckingPlayback_VOD')
+data.setCell(1, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(1, 3, 75821);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'CheckingPlayback_AOD')
+data.setCell(2, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(2, 3, 57873);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Play_AudioOnDemand')
+data.setCell(3, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(3, 3, 55083);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'Pause_VideoOnDemand')
+data.setCell(4, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(4, 3, 27677);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'Pause_AudiooOnDemand')
+data.setCell(5, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(5, 3, 25256);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'setUp')
+data.setCell(6, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(6, 3, 16145);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'TurningSubtilte_ON')
+data.setCell(7, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(7, 3, 5796);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'TurningSubtilte_OFF')
+data.setCell(8, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(8, 3, 2862);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'OpenAvtest')
+data.setCell(9, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(9, 3, 1468);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'getDeviceDetails')
+data.setCell(10, 2, 'SMPANPUMA.PUMATest.SMP_AN_Puma')
+data.setCell(10, 3, 6);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 7 minutes</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">SMPANPUMA.PUMATest.SMP_AN_Puma</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">RunTest</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">getDeviceDetails</span>
+                <span class="method-start">423 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">setUp</span>
+                <span class="method-start">432 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">OpenAvtest</span>
+                <span class="method-start">16579 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Play_VideoOnDemand</span>
+                <span class="method-start">18048 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">TurningSubtilte_ON</span>
+                <span class="method-start">184797 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">CheckingPlayback_VOD</span>
+                <span class="method-start">190594 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">TurningSubtilte_OFF</span>
+                <span class="method-start">266416 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Pause_VideoOnDemand</span>
+                <span class="method-start">269280 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Play_AudioOnDemand</span>
+                <span class="method-start">296958 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">CheckingPlayback_AOD</span>
+                <span class="method-start">352042 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Pause_AudiooOnDemand</span>
+                <span class="method-start">409917 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">End</span>
+                <span class="method-start">435174 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

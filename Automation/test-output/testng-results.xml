@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="11" passed="11">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="439707" started-at="2017-08-11T14:05:26Z" finished-at="2017-08-11T14:12:46Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="439707" started-at="2017-08-11T14:05:26Z" finished-at="2017-08-11T14:12:46Z">
+      <class name="SMPANPUMA.PUMATest.SMP_AN_Puma">
+        <test-method status="PASS" signature="RunTest()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="RunTest" is-config="true" duration-ms="420" started-at="2017-08-11T15:05:26Z" finished-at="2017-08-11T15:05:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RunTest -->
+        <test-method status="PASS" signature="getDeviceDetails()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="getDeviceDetails" duration-ms="6" started-at="2017-08-11T15:05:27Z" finished-at="2017-08-11T15:05:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDeviceDetails -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="setUp" duration-ms="16145" started-at="2017-08-11T15:05:27Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.getDeviceDetails" finished-at="2017-08-11T15:05:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="OpenAvtest()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="OpenAvtest" duration-ms="1468" started-at="2017-08-11T15:05:43Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.setUp" finished-at="2017-08-11T15:05:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OpenAvtest -->
+        <test-method status="PASS" signature="Play_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="Play_VideoOnDemand" duration-ms="166747" started-at="2017-08-11T15:05:44Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.OpenAvtest" finished-at="2017-08-11T15:08:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Play_VideoOnDemand -->
+        <test-method status="PASS" signature="TurningSubtilte_ON()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="TurningSubtilte_ON" duration-ms="5796" started-at="2017-08-11T15:08:31Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.Play_VideoOnDemand" finished-at="2017-08-11T15:08:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TurningSubtilte_ON -->
+        <test-method status="PASS" signature="CheckingPlayback_VOD()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="CheckingPlayback_VOD" duration-ms="75821" started-at="2017-08-11T15:08:37Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.TurningSubtilte_ON" finished-at="2017-08-11T15:09:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckingPlayback_VOD -->
+        <test-method status="PASS" signature="TurningSubtilte_OFF()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="TurningSubtilte_OFF" duration-ms="2862" started-at="2017-08-11T15:09:53Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.CheckingPlayback_VOD" finished-at="2017-08-11T15:09:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TurningSubtilte_OFF -->
+        <test-method status="PASS" signature="Pause_VideoOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="Pause_VideoOnDemand" duration-ms="27677" started-at="2017-08-11T15:09:55Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.TurningSubtilte_OFF" finished-at="2017-08-11T15:10:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_VideoOnDemand -->
+        <test-method status="PASS" signature="Play_AudioOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="Play_AudioOnDemand" duration-ms="55083" started-at="2017-08-11T15:10:23Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.Pause_VideoOnDemand" finished-at="2017-08-11T15:11:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Play_AudioOnDemand -->
+        <test-method status="PASS" signature="CheckingPlayback_AOD()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="CheckingPlayback_AOD" duration-ms="57873" started-at="2017-08-11T15:11:18Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.Play_AudioOnDemand" finished-at="2017-08-11T15:12:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckingPlayback_AOD -->
+        <test-method status="PASS" signature="Pause_AudiooOnDemand()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="Pause_AudiooOnDemand" duration-ms="25256" started-at="2017-08-11T15:12:16Z" depends-on-methods="SMPANPUMA.PUMATest.SMP_AN_Puma.CheckingPlayback_AOD" finished-at="2017-08-11T15:12:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Pause_AudiooOnDemand -->
+        <test-method status="PASS" signature="End()[pri:0, instance:SMPANPUMA.PUMATest.SMP_AN_Puma@73846619]" name="End" is-config="true" duration-ms="4526" started-at="2017-08-11T15:12:41Z" finished-at="2017-08-11T15:12:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- End -->
+      </class> <!-- SMPANPUMA.PUMATest.SMP_AN_Puma -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

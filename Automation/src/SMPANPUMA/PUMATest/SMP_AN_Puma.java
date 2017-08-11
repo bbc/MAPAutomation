@@ -56,6 +56,7 @@ public class SMP_AN_Puma {
 	public String absoluteFilePaths;
 	public String ScreenshotPaths;    //"/../Automation/Results/iOSDRM";
 	File screenhotfiles;
+	public String screenshot;
 
 
 	private static String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
@@ -70,7 +71,7 @@ public class SMP_AN_Puma {
 	String DeviceosName;
 	String Deviceid;
 	String Devicename;
-	String appiumport;
+	int appiumport;
 
 	DeviceList devicelist = new DeviceList();
 	PortFactory portFactory = new PortFactory();
@@ -81,42 +82,42 @@ public class SMP_AN_Puma {
 		try {
 
 			getDeviceDetails();
-			
+			devicelist.populateDevices_IDs();
+			devicelist.populateDevices_OS();
+			devicelist.populateDevices_Names();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		
+		}	
 		
 	}
 
 	@Test // (dependsOnMethods = { "RunTest" })
 	public void getDeviceDetails() throws Exception {
 
-		
+		for (int i = 0; i < devicelist.deviceOS.size(); i++) {
 			try {
-				DeviceosName = System.getProperty("deviceOS");
-				Deviceid = System.getProperty("deviceID");
-				appiumport = System.getProperty("appiumPort");
-				Devicename = System.getProperty("deviceName");
+				DeviceosName = devicelist.deviceOS.get(i);
+				Deviceid = devicelist.deviceID.get(i);
+				Devicename = devicelist.deviceName.get(i);
+				appiumport = portFactory.create();
 				System.out.println("The Device OS is " + DeviceosName);
 				System.out.println("The Device ID is " + Deviceid);
-				System.out.println("The Device Name is " + Devicename);
-				System.out.println("The Appium Port Name is " + appiumport);
+				System.out.println("The Device port is " + Devicename);
+				System.out.println("The Device Name is " + appiumport);
 			} catch (Exception e) {
 				e.printStackTrace();
-				throw new RuntimeException(e);
+			
 			}
 
-		
+		}
 		
 	}
 
 	@Test(dependsOnMethods = {"getDeviceDetails"})
-	public void setUp() throws Exception {
+	public void setUp() throws Exception, NullPointerException{
 		try
 		{
-		ap.startAppium(Integer.parseInt(appiumport));
+		ap.startAppium(appiumport);
 		ap.AppiumURL();
 		String appiul_url = ap.AppiumURL();
 		System.out.println("Appium Service Address : - " + appiul_url);
@@ -126,7 +127,7 @@ public class SMP_AN_Puma {
 		capa.setCapability("deviceName", Deviceid);
 		capa.setCapability("platformName", "Android");
 		capa.setCapability("platformVersion", DeviceosName);
-		capa.setCapability("app", "/Users/ramakh01/Desktop/MAP_Automation/MAPAutomation/Automation/BuildsSMP-AN/SMP-AN-28.4452-dev.apk");
+		capa.setCapability("app", "/Users/ramakh01/Downloads/SMP-AN-Builds/29.4512-dev.apk");
 		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
 		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
 	//	capa.setCapability(AndroidMobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
@@ -134,7 +135,8 @@ public class SMP_AN_Puma {
 	//	capa.setCapability("autoDismissAlerts", true);
 		driver = new AndroidDriver<>(new URL(appiul_url), capa);
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-		} catch (NullPointerException e) {
+		} catch (NullPointerException e) 
+		{
 			e.printStackTrace();
 		}
 		
@@ -178,10 +180,12 @@ public class SMP_AN_Puma {
 			    filename = "SMPAN_PUMATest";
 				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
 				absoluteFilePaths = workingDirectorys + File.separator + filename;
-				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
-				//screenhotfiles = new File(ScreenshotPaths);
+				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory); 
+				file = new File(ScreenshotPaths);
+				String screenshot = file.getAbsolutePath();
+				System.out.println("The ScreenShot Path is "+screenshot);
 				
-				commonfunct.CreateReport(absoluteFilePaths, Deviceid, appiumport,
+				commonfunct.CreateReport(absoluteFilePaths, Deviceid, Integer.toString(appiumport),
 						DeviceosName,
 						Devicename);
 				}catch(NullPointerException e)
@@ -227,16 +231,16 @@ public class SMP_AN_Puma {
 	public void Play_VideoOnDemand() throws Exception 
 	{
 	
-		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
-				ScreenshotPaths);
+		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "Selecting OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
+				file.getAbsolutePath());
 		
 
-		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
 		Thread.sleep(1000);
 
 		
-		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Entering Full Screen",commonobjects.playback_fullscreen,
+				driver, file.getAbsolutePath());
 
 	
 	}
@@ -245,7 +249,7 @@ public class SMP_AN_Puma {
 	@Test(dependsOnMethods={"Play_VideoOnDemand"})
 	public void TurningSubtilte_ON() throws Exception 
 	{
-		commonfunct.turnSubtitleON("Truning Subtitle ON","Video", commonobjects.vod_play_subtitle, ScreenshotPaths);
+		commonfunct.turnSubtitleON("Video-Subtitle ON","Video", commonobjects.vod_play_subtitle,driver ,file.getAbsolutePath());
 	}
 	
 	
@@ -256,7 +260,7 @@ public class SMP_AN_Puma {
 		try {
 
 			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, ScreenshotPaths, driver);
+					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
 
 
 
@@ -268,17 +272,25 @@ public class SMP_AN_Puma {
 	}
 	
 	
+		//Turn's the Subtitle OFF for the video playing
+		@Test(dependsOnMethods={"CheckingPlayback_VOD"})
+		public void TurningSubtilte_OFF() throws Exception 
+		{
+			commonfunct.turnSubtitleON("Video-Subtitle OFF","Video", commonobjects.vod_play_subtitle,driver ,file.getAbsolutePath());
+		}
+	
+	
 	//Pause a video , exits the full screen and navigates back to Mediated Menu List
-	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
+	@Test(dependsOnMethods={"TurningSubtilte_OFF"})
 	public void Pause_VideoOnDemand() throws Exception 
 	{
 	
-		commonfunct.tapbutton("Pause OnDemand_Video playback", commonobjects.Playback_Pause, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Pauseplayback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
 		
-		commonfunct.tapbutton("Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
+				driver, file.getAbsolutePath());
 		
-		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
+		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
 	}
 	
 	
@@ -294,14 +306,14 @@ public class SMP_AN_Puma {
 	public void Play_AudioOnDemand() throws Exception 
 	{
 	
-		commonfunct.selectItemforPlayback(commonobjects.audioEpisode, "OnDemandAudio", commonobjects.element, driver, commonobjects.listview,
-				ScreenshotPaths);
+		commonfunct.selectItemforPlayback(commonobjects.audioEpisode, "Selecting OnDemandAudio", commonobjects.element, driver, commonobjects.listview,
+				file.getAbsolutePath());
 	
-		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
 		Thread.sleep(1000);
 		
-		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Entering FullScreen",commonobjects.playback_fullscreen,
+				driver, file.getAbsolutePath());
 
 		
 	}
@@ -313,7 +325,7 @@ public class SMP_AN_Puma {
 		try {
 
 			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, ScreenshotPaths, driver);
+					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
 
 		} catch (Exception e) {
 
@@ -327,12 +339,12 @@ public class SMP_AN_Puma {
 	public void Pause_AudiooOnDemand() throws Exception 
 	{
 	
-		commonfunct.tapbutton("Pause OnDemand_Video playback", commonobjects.Playback_Pause, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Pause playback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
 		
-		commonfunct.tapbutton("Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
+				driver, file.getAbsolutePath());
 		
-		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
+		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
 	}
 	
 	

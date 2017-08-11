@@ -47,8 +47,8 @@ import io.appium.java_client.ios.IOSDriver;
 public class CommonFunctions {
 
 	WebDriverWait wait;
-	public ExtentReports extent = null;
-	public ExtentTest logger = null;
+	public ExtentReports extent;
+	public ExtentTest logger;
 	public  final long TIME_OUT_IN_SECONDS = 30L;
 	public  Environment environment = Environment.LOCAL;
 
@@ -140,6 +140,23 @@ public class CommonFunctions {
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public void turnSubtitleON(String testname, String contentType, WebElement element,AppiumDriver<WebElement> driver ,String path)
+	{
+		
+		if (contentType == "Video") 
+		try
+			{
+		logger = extent.startTest(testname);
+		element.click();
+		logger.log(LogStatus.INFO,
+				testname + logger.addScreenCapture(capture_ScreenShot(driver, path, testname)));
+			}catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 	}
 	
 	public void CheckMediaSelector()
@@ -359,7 +376,7 @@ public class CommonFunctions {
 	public void Checkplayback_duration(WebElement element1, WebElement element2, String path,
 			AndroidDriver<WebElement> adriver) throws Exception {
 
-		logger = extent.startTest("Checking the On-Demand Video Playing");
+		logger = extent.startTest("Checking the Playback");
 
 		String Total_Duration = element1.getText(); 
 		logger.log(LogStatus.INFO, "Total Duration" + Total_Duration);
@@ -1087,18 +1104,7 @@ public class CommonFunctions {
 	   
 	}
 	
-	public void turnSubtitleON(String testname, String contentType, WebElement element, String ScreenshotPath)
-	{
-		logger = extent.startTest(testname);
-		if (contentType == "Video") {
-			try {
-				tapbutton(testname, element, driver, ScreenshotPath);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+	
 	
 	@SuppressWarnings("rawtypes")
 	public void UnlockDevice()

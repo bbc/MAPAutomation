@@ -53,7 +53,7 @@ public class Android_PumaTests {
 	public String workingDirectorys;  
 	public String absoluteFilePaths;
 	public String ScreenshotPaths;    //"/../Automation/Results/iOSDRM";
-	File screenhotfiles;
+
 
 
 //	private static String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
@@ -86,7 +86,9 @@ public class Android_PumaTests {
 			}
 			
 			
-			
+			/*
+			 * commented out the starting appium programmatically since Hive take cares of it. To run locally un-comment the the code
+			 */		
 		}
 		/*try {
 
@@ -97,11 +99,6 @@ public class Android_PumaTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-	
-
 	@Test // (dependsOnMethods = { "RunTest" })
 	public void getDeviceDetails() throws Exception {
 
@@ -144,12 +141,12 @@ public class Android_PumaTests {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-
-		
-		
 	}
 	
 
+	/*
+	 * commented out the starting appium programmatically since Hive take cares of it. To run locally un-comment the the code
+	 */
 	@Test(dependsOnMethods = {"getDeviceDetails"})
 	public void setUp() throws Exception {
 		try
@@ -211,11 +208,12 @@ public class Android_PumaTests {
 			ondemandobjects = new SMPAN_OnDemand();
 			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 			
-			    filename = "SMPAN_PUMATest";
-				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
-				absoluteFilePaths = workingDirectorys + File.separator + filename;
-				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory);    //"/../Automation/Results/iOSDRM";
-				//screenhotfiles = new File(ScreenshotPaths);
+			filename = "SMPAN_PUMATest";
+			workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
+			absoluteFilePaths = workingDirectorys + File.separator + filename;
+			ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory); 
+			file = new File(ScreenshotPaths);
+			
 				
 				commonfunct.CreateReport(absoluteFilePaths, Deviceid, appiumport,
 						DeviceosName,
@@ -264,15 +262,15 @@ public class Android_PumaTests {
 	{
 	
 		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
-				ScreenshotPaths);
+				file.getAbsolutePath());
 		
 
-		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
 		Thread.sleep(1000);
 
 		
-		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Entering Full Screen",commonobjects.playback_fullscreen,
+				driver, file.getAbsolutePath());
 
 	
 	}
@@ -281,7 +279,7 @@ public class Android_PumaTests {
 	@Test(dependsOnMethods={"Play_VideoOnDemand"})
 	public void TurningSubtilte_ON() throws Exception 
 	{
-		commonfunct.turnSubtitleON("Truning Subtitle ON","Video", commonobjects.vod_play_subtitle, ScreenshotPaths);
+		commonfunct.turnSubtitleON("Video-Subtitle ON","Video", commonobjects.vod_play_subtitle, driver,file.getAbsolutePath());
 	}
 	
 	
@@ -292,7 +290,7 @@ public class Android_PumaTests {
 		try {
 
 			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, ScreenshotPaths, driver);
+					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
 
 
 
@@ -303,18 +301,25 @@ public class Android_PumaTests {
 
 	}
 	
+//	//Turn's the Subtitle OFF for the video playing
+//	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
+//	public void TurningSubtilte_OFF() throws Exception 
+//	{
+//		commonfunct.turnSubtitleON("Video-Subtitle OFF","Video", commonobjects.vod_play_subtitle,driver ,file.getAbsolutePath());
+//	}
+	
 	
 	//Pause a video , exits the full screen and navigates back to Mediated Menu List
 	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
 	public void Pause_VideoOnDemand() throws Exception 
 	{
 	
-		commonfunct.tapbutton("Pause OnDemand_Video playback", commonobjects.Playback_Pause, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Pause playback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
 		
-		commonfunct.tapbutton("Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Video-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
+				driver, file.getAbsolutePath());
 		
-		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
+		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
 	}
 	
 	
@@ -331,13 +336,13 @@ public class Android_PumaTests {
 	{
 	
 		commonfunct.selectItemforPlayback(commonobjects.audioEpisode, "OnDemandAudio", commonobjects.element, driver, commonobjects.listview,
-				ScreenshotPaths);
+				file.getAbsolutePath());
 	
-		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
 		Thread.sleep(1000);
 		
-		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Entering Full Screen",commonobjects.playback_fullscreen,
+				driver, file.getAbsolutePath());
 
 		
 	}
@@ -349,7 +354,7 @@ public class Android_PumaTests {
 		try {
 
 			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, ScreenshotPaths, driver);
+					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
 
 		} catch (Exception e) {
 
@@ -363,12 +368,12 @@ public class Android_PumaTests {
 	public void Pause_AudiooOnDemand() throws Exception 
 	{
 	
-		commonfunct.tapbutton("Pause OnDemand_Video playback", commonobjects.Playback_Pause, driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Pause playback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
 		
-		commonfunct.tapbutton("Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, ScreenshotPaths);
+		commonfunct.tapbutton("Audio-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
+				driver, file.getAbsolutePath());
 		
-		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
+		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
 	}
 	
 	
