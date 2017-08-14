@@ -260,6 +260,8 @@ public class Android_PumaTests {
 	@Test(dependsOnMethods={"OpenAvtest"})
 	public void Play_VideoOnDemand() throws Exception 
 	{
+		//setting the default rotation to potratit 
+		driver.rotate(ScreenOrientation.PORTRAIT);
 	
 		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
 				file.getAbsolutePath());
