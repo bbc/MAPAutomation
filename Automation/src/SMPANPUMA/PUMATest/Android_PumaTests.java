@@ -29,6 +29,7 @@ import main.java.test.smpUtilityFunctions.AppiumManager;
 import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.DeviceList;
 import main.java.test.smpUtilityFunctions.PortFactory;
+import org.openqa.selenium.ScreenOrientation;
 
 public class Android_PumaTests {
 
