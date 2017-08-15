@@ -43,20 +43,21 @@ All the Functions and Page Objects can be found in Folder : MAPAutomation/Automa
 
 Steps to run :
 - goto the Folder bin Folder and remove the files. To do that run below command
-rm -rf *
+```rm -rf *```
 
 - Have your all library into a shell script , to do that run the below command
-T=$(find Automation/lib -name "*jar" | tr "\n" ":")
-Type ehco $T, will show the library files
+```T=$(find Automation/lib -name "*jar" | tr "\n" ":")```
+Type echo $T, will show the library files
 
 - Then comiple the source by running below command To create class/bin file
-javac -d bin -sourcepath Automation/src -cp $T:bin Automation/src/SMPANPUMA/PUMATest/Android_PumaTests.java
+
+```javac -d bin -sourcepath Automation/src -cp $T:bin Automation/src/SMPANPUMA/PUMATest/Android_PumaTests.java```
 
 - run the appium from local by just typing 'appium' form terminal
 
 - To run the SMP-AN-Puma test , run below command
 
-java -cp bin:$LIB -DappiumPort="pass appium port" -DdeviceID="pass deviceID -DdeviceOS="pass device OS -DdeviceName="pass device name"  -DappPath="pass APK path"  org.testng.TestNG $HIVE_WORKING_DIRECTORY/Automation/SMP-AN-PUMA.xml
+ ```java -cp bin:$LIB -DappiumPort="pass appium port" -DdeviceID="pass deviceID -DdeviceOS="pass device OS -DdeviceName="pass device name"  -DappPath="pass APK path"  org.testng.TestNG $HIVE_WORKING_DIRECTORY/Automation/SMP-AN-PUMA.xml```
 
 - Once the exceution done, goto the MAPAutomation/Result folder to view the HTMLreport and MAPAutomation/Screenshots for all the screenshot taken from the test
 
