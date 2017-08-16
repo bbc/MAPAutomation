@@ -37,7 +37,7 @@ Latest Xcode
 
 # Running the Android PUMA Test on your local machine
 
-Tests are in folder MAPAutomation/Automation/src/SMPANPUMA/PUMATest
+Test can be found here :- MAPAutomation/Automation/src/SMPANPUMA/PUMATest/Android_PumaTests.java
 
 All the Functions and Page Objects can be found in Folder : MAPAutomation/Automation/src/SMPANPUMA
 
