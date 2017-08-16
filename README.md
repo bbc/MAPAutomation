@@ -29,6 +29,8 @@ After execution a ExtentReport will be created under Result folder with DeviceNa
 
 # iOS 
 
+```Please use the Appium iOS Setup document attached```
+
 You need a provisioned device
 
 iOS dev certs
