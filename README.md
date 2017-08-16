@@ -47,7 +47,7 @@ Steps to run :
 
 - Have your all library into a shell script , to do that run the below command
 ```lib=$(find Automation/lib -name "*jar" | tr "\n" ":")```
-Type echo $T, will show the library files
+Type echo $lib, will show the library files
 
 - Then compile the source by running below command To create class/bin file
 
