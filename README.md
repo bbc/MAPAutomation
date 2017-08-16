@@ -11,12 +11,12 @@ DRM-AN
 
 # Executing Scripts :
 
-## SMP-AN : Using TestNG
+## SMP-AN : with TestNG ( need to manually pass the device info's)
 
 To run scripts , run the SMP-AN-MainTest.xml file .  
 **Note:**  Change the device ID, OS version  to the devices connected in your system in the XML file , before you run it .
 
-## SMP-AN : without TestNG
+## SMP-AN : with TestNG ( no need to pass device info's)
 
 If you want to just connect the devices and run Automation, 
 
