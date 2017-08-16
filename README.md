@@ -42,18 +42,18 @@ Tests are in folder MAPAutomation/Automation/src/SMPANPUMA/PUMATest
 All the Functions and Page Objects can be found in Folder : MAPAutomation/Automation/src/SMPANPUMA
 
 Steps to run :
-- goto the Folder bin Folder and remove the files. To do that run below command
+- goto thebin Folder and remove the files. To do that run below command
 ```rm -rf *```
 
 - Have your all library into a shell script , to do that run the below command
-```T=$(find Automation/lib -name "*jar" | tr "\n" ":")```
+```lib=$(find Automation/lib -name "*jar" | tr "\n" ":")```
 Type echo $T, will show the library files
 
-- Then comiple the source by running below command To create class/bin file
+- Then compile the source by running below command To create class/bin file
 
-```javac -d bin -sourcepath Automation/src -cp $T:bin Automation/src/SMPANPUMA/PUMATest/Android_PumaTests.java```
+```javac -d bin -sourcepath Automation/src -cp $lib:bin Automation/src/SMPANPUMA/PUMATest/Android_PumaTests.java```
 
-- run the appium from local by just typing 'appium' form terminal
+- run the appium server from local by just typing 'appium' form terminal
 
 - To run the SMP-AN-Puma test , run below command
 
