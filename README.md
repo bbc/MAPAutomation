@@ -59,7 +59,7 @@ Type echo $lib, will show the library files
 
 - To run the SMP-AN-Puma test , run below command
 
- ```java -cp bin:$LIB -DappiumPort="pass appium port" -DdeviceID="pass deviceID -DdeviceOS="pass device OS -DdeviceName="pass device name"  -DappPath="pass APK path"  org.testng.TestNG $HIVE_WORKING_DIRECTORY/Automation/SMP-AN-PUMA.xml```
+ ```java -cp bin:$LIB -DappiumPort="pass appium port" -DdeviceID="pass deviceID -DdeviceOS="pass device OS -DdeviceName="pass device name"  -DappPath="pass APK path"  org.testng.TestNG /Automation/SMP-AN-PUMA.xml```
 
 - Once the exceution done, goto the MAPAutomation/Result folder to view the HTMLreport and MAPAutomation/Screenshots for all the screenshot taken from the test
 
