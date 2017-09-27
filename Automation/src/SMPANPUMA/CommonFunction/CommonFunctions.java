@@ -23,6 +23,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
@@ -947,7 +948,12 @@ public class CommonFunctions {
 
 			}
 
-
+    /////////// My dummy code
+	
+	
+	public void clickMediaItem() {
+		
+	}
 
 	public void scrolling(AppiumDriver<WebElement> driver) throws InterruptedException {
 		// Get the size of screen.
@@ -1202,6 +1208,156 @@ public class CommonFunctions {
 	           // fail("-Dos=android|ios must be specified.");
 	        }
 	    }
+	    public void waitforElementById(AppiumDriver<WebElement> driver, String id, int seconds) {
+
+	    	//	driver.get("http://somedomain/url_that_delays_loading");
+//	    		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+//	    				.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
+	    		FluentWait<WebDriver> wait = new WebDriverWait(driver, seconds);
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+	    	}
+	    
+	    public boolean verifyPlaybackDuration(WebElement element1, WebElement element2, String path,
+				AndroidDriver<WebElement> adriver) throws Exception {
+
+			logger = extent.startTest("Checking the Playback");
+			boolean playback_status = false;
+			String Total_Duration = element1.getText(); 
+			logger.log(LogStatus.INFO, "Total Duration" + Total_Duration);
+			System.out.println("Total Duration" + Total_Duration);
+
+			int etime = 0;
+			String Elapsed_Time;
+			String Elapsed_Time_Start = element2.getText(); 
+			logger.log(LogStatus.INFO, "Elapsed Duration Start" + Elapsed_Time_Start);
+			System.out.println("ElapsedTime  When Playback Started:----   " + Elapsed_Time_Start);
+			do {
+
+				Elapsed_Time = element2.getText(); 
+				// driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/elapsed")).getText();
+				etime++;
+			} while (etime < 120);
+
+			Elapsed_Time = element2.getText(); // ondemand_page.vod_play_elasped_duration.getText();
+			logger.log(LogStatus.INFO, "Elapsed Duration End" + Elapsed_Time);
+
+			System.out.println("Total ElapsedTime After Playback Stoped:----   " + Elapsed_Time);
+
+			if (!Elapsed_Time_Start.equals(Elapsed_Time)) {
+				logger.log(LogStatus.PASS, "Elapsed time doesn't Match");
+				System.out.println("Not Matched");
+				playback_status = true;
+			} else {
+				logger.log(LogStatus.FAIL, "Elapsed time  Match");
+				System.out.println(" Matched");
+				playback_status = false;
+			}
+			logger.log(LogStatus.INFO,
+					"Snapshot below: " + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Playback-Duration")));
+			return playback_status;
+
+		}
+	    
+	    public boolean verifyAudioPlaybackDuration(WebElement element1, WebElement element2, String path,
+				AndroidDriver<WebElement> adriver) throws Exception {
+
+			logger = extent.startTest("Checking the Playback");
+			boolean playback_status = false;
+			String Total_Duration = element1.getText(); 
+			logger.log(LogStatus.INFO, "Total Duration" + Total_Duration);
+			System.out.println("Total Duration" + Total_Duration);
+
+			int etime = 0;
+			String Elapsed_Time;
+			String Elapsed_Time_Start = element2.getText(); 
+			logger.log(LogStatus.INFO, "Elapsed Duration Start" + Elapsed_Time_Start);
+			System.out.println("ElapsedTime  When Playback Started:----   " + Elapsed_Time_Start);
+			do {
+
+				Elapsed_Time = element2.getText(); 
+				// driver.findElement(By.id("uk.co.bbc.avtestharnesssmp:id/elapsed")).getText();
+				etime++;
+			} while (etime < 120);
+
+			Elapsed_Time = element2.getText(); // ondemand_page.vod_play_elasped_duration.getText();
+			logger.log(LogStatus.INFO, "Elapsed Duration End" + Elapsed_Time);
+
+			System.out.println("Total ElapsedTime After Playback Stoped:----   " + Elapsed_Time);
+
+			if (!Elapsed_Time_Start.equals(Elapsed_Time)) {
+				logger.log(LogStatus.PASS, "Elapsed time doesn't Match");
+				System.out.println("Not Matched");
+				playback_status = true;
+			} else {
+				logger.log(LogStatus.FAIL, "Elapsed time  Match");
+				System.out.println(" Matched");
+				playback_status = false;
+			}
+			logger.log(LogStatus.INFO,
+					"Snapshot below: " + logger.addScreenCapture(capture_ScreenShot(adriver, path, "Playback-Duration")));
+			return playback_status;
+
+		}
+	    
+	    public boolean verify_PlaybackContinue(String text,WebElement element, AppiumDriver<WebElement> adriver, String path)
+				throws Exception {
+
+			logger = extent.startTest(text);
+			boolean playback_status = false;
+
+			String startduration = element.getText();
+
+			System.out.println("*****Time When Playback Started*******" + startduration);
+
+			logger.log(LogStatus.INFO, "Playback time " + startduration);
+
+			logger.log(LogStatus.INFO, "Time After Some Playback:--" + startduration
+					+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Time_Played_Before")));
+
+			logger.log(LogStatus.INFO, "Live Text  Present: "
+					+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "LiveText_Present")));
+			System.out.println("Live Text  Present");
+
+			int etime = 0;
+			String durationCount;
+			do {
+				// timecount = liverewind.live_simulcat_rewind_time.getText();
+				durationCount = element.getText();
+				
+				etime++;
+			} while (etime < 240);
+			//logger.log(LogStatus.PASS, getRDOTURL(rdot));
+			// String Time_Played_After =
+			// liverewind.live_simulcat_rewind_time.getText();
+			String durationElapsed = element.getText();
+
+			// logger.log(LogStatus.INFO, "Playback time After some period " +
+			// Time_Played_After);
+			System.out.println("Time After Some Playback :-------" + durationElapsed);
+			logger.log(LogStatus.INFO, "Time After Some Playback:--" + durationElapsed
+					+ logger.addScreenCapture(capture_ScreenShot(adriver, path, "Time_Played_After")));
+			boolean time_match = assertNotEquals(startduration, durationElapsed);
+			if (!startduration.equals(durationElapsed)) {
+				logger.log(LogStatus.PASS, "Time Duration Din't matched: ");
+				System.out.println("Time Before and After Din't Matcahed :-------" + time_match);
+				playback_status = true;
+			} else {
+				logger.log(LogStatus.FAIL, "Time Duration  matched: ");
+				System.out.println("Time Before and After  Matcahed :-------" + time_match);
+				playback_status = false;
+			}
+
+			return playback_status;
+		}
+	    
+	    public String playbackOrientation(AppiumDriver<WebElement> driver , ScreenOrientation orientation,
+				String message,
+				String path) throws Exception {
+			logger = extent.startTest(message);
+			driver.rotate(orientation);
+			Thread.sleep(5000);
+			return driver.getOrientation().toString();
+		}
 	
 	
 	

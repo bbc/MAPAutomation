@@ -66,6 +66,7 @@ public class SMPANPageObjects_Common {
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/pause_button")
 	public MobileElement Playback_Pause;
+	public String playPauseId = "uk.co.bbc.avtestharnesssmp:id/pause_button";
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/play_button")
 	public WebElement LiveRewind_Playbutton;
@@ -82,6 +83,7 @@ public class SMPANPageObjects_Common {
 
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/placeholder_play_button")
 	public WebElement play_button;
+	public String playBtnId= "uk.co.bbc.avtestharnesssmp:id/placeholder_play_button";
 	
 	@AndroidFindBy(xpath= "//android.widget.TextView[@text='Use Live RDot Environment' and @index='0']")
 	public WebElement enable_liveRdot;
@@ -113,6 +115,24 @@ public class SMPANPageObjects_Common {
 	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/exit_fullscreen_button")
 	public WebElement vod_play_fullscreen_exit;
 
+	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/asset_title")
+	public WebElement assetTitle;
+	
+	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/primary_title")
+	public MobileElement primaryTitle;
+	
+	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/secondary_title")
+	public MobileElement secondaryTitle;
+	
+	@AndroidFindBy(id = "uk.co.bbc.avtestharnesssmp:id/subtitles_button")
+	public WebElement subtitlesBtn; 
+	
+	@AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc='disable subtitles']")
+	public WebElement disbledSubTitleBtn;
+	
+	@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc='More options']")
+	public WebElement moreOptionBtn;
+	
 	public String Simulcast_assertions[] = {
 
 			"uk.co.bbc.avtestharnesssmp:id/stop_button",

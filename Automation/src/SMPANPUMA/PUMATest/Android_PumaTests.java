@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +25,7 @@ import SMPANPUMA.SMPPageObjects.SMPAN_LiveRewind;
 import SMPANPUMA.SMPPageObjects.SMPAN_OnDemand;
 import SMPANPUMA.CommonFunction.LiveRewindFunctions;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -30,6 +34,7 @@ import main.java.test.smpUtilityFunctions.CommandPrompt;
 import main.java.test.smpUtilityFunctions.DeviceList;
 import main.java.test.smpUtilityFunctions.PortFactory;
 import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.WebDriver;
 
 public class Android_PumaTests {
 
@@ -37,7 +42,7 @@ public class Android_PumaTests {
 	public DesiredCapabilities capa;
 	public WebDriverWait wait;
 	
-	File file;// = new File(absoluteFilePath);
+	File file;
 	
 	/*
 	 * 
@@ -53,13 +58,8 @@ public class Android_PumaTests {
 	public String filename;
 	public String workingDirectorys;  
 	public String absoluteFilePaths;
-	public String ScreenshotPaths;    //"/../Automation/Results/iOSDRM";
-
-
-
-//	private static String sdkPath = System.getenv("ANDROID_HOME") +"/platform-tools/";
-//	private static String adbPath = sdkPath + "/adb";
-//	String[] commandDevices = new String[] { adbPath, "devices" };
+	public String ScreenshotPaths;    
+	
 	CommandPrompt cmd = new CommandPrompt();
 
 	public List<String> deviceID = new ArrayList<String>();
@@ -77,57 +77,18 @@ public class Android_PumaTests {
 
 	@BeforeClass
 	public void RunTest() throws Exception , InterruptedException{
-
-			try {
-
+		
+		try {
 				getDeviceDetails();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				setUp();
+				OpenAvtest();	
+			}	catch (Exception e) {
+					e.printStackTrace();
+				}						
+	}
 			
-			
-			/*
-			 * commented out the starting appium programmatically since Hive take cares of it. To run locally un-comment the the code
-			 */		
-		}
-		/*try {
-
-			getDeviceDetails();
-			devicelist.populateDevices_IDs();
-			devicelist.populateDevices_OS();
-			devicelist.populateDevices_Names();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	@Test // (dependsOnMethods = { "RunTest" })
 	public void getDeviceDetails() throws Exception {
-
-		for (int i = 0; i < devicelist.deviceOS.size(); i++) {
-			try {
-				DeviceosName = devicelist.deviceOS.get(i);
-				Deviceid = devicelist.deviceID.get(i);
-				Devicename = devicelist.deviceName.get(i);
-				appiumport = portFactory.create();
-				System.out.println("The Device OS is " + DeviceosName);
-				System.out.println("The Device ID is " + Deviceid);
-				System.out.println("The Device port is " + Devicename);
-				System.out.println("The Device Name is " + appiumport);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-
-		}
-		
-	}*/
-	
-	
-	@Test // (dependsOnMethods = { "RunTest" })
-	public void getDeviceDetails() throws Exception {
-
-		
-			try {
+		try {
 				DeviceosName = System.getProperty("deviceOS");
 				Deviceid = System.getProperty("deviceID");
 				appiumport = System.getProperty("appiumPort");
@@ -138,191 +99,181 @@ public class Android_PumaTests {
 				System.out.println("The Device Name is " + Devicename);
 				System.out.println("The Appium Port Name is " + appiumport);
 				System.out.println("The App path  is " + appPath);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
+				
+			} 	catch (Exception e) {
+					e.printStackTrace();
+					throw new RuntimeException(e);
+				}
 	}
 	
-
-	/*
-	 * commented out the starting appium programmatically since Hive take cares of it. To run locally un-comment the the code
-	 */
-	@Test(dependsOnMethods = {"getDeviceDetails"})
 	public void setUp() throws Exception {
-		try
-		{
-		//ap.startAppium(Integer.parseInt(appiumport));
-		//ap.AppiumURL();
-		//String appiul_url = ap.AppiumURL();
-		String appiul_url = "http://localhost:"+appiumport+"/wd/hub";
-		System.out.println("Appium Service Address : - " + appiul_url);
-
-		capa = new DesiredCapabilities();
-		capa.setCapability("appium-version", "1.0");
-		capa.setCapability("deviceName", Deviceid);
-		capa.setCapability("platformName", "Android");
-		capa.setCapability("platformVersion", DeviceosName);
-		capa.setCapability("app", appPath);
-		capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
-		capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
-		driver = new AndroidDriver<>(new URL(appiul_url), capa);
-		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
-		
-		
-		/*try
-		{
-		String sdkPath = "/Users/ramakh01/Downloads/android-sdk/platform-tools/";
-			Runtime.getRuntime().exec(sdkPath + File.separator +"adb shell input keyevent KEYCODE_POWER");
-			Thread.sleep(2000);
-			Runtime.getRuntime().exec(sdkPath + File.separator +"adb shell input swipe 572 235 1260 1564");
-			Thread.sleep(3000);
-			
-			Runtime.getRuntime().exec(sdkPath + File.separator +"adb shell input text 1234");
-			Thread.sleep(3000);
-			Runtime.getRuntime().exec(sdkPath + File.separator +"adb shell input keyevent KEYCODE_ENTER");
-			}catch(NullPointerException e)
-		{
-			e.printStackTrace();
-		}*/
-
+		try {
+				
+				String appiul_url = "http://localhost:"+appiumport+"/wd/hub";
+				System.out.println("Appium Service Address : - " + appiul_url);
+				capa = new DesiredCapabilities();
+				capa.setCapability("appium-version", "1.0");
+				capa.setCapability("deviceName", Deviceid);
+				capa.setCapability("platformName", "Android");
+				capa.setCapability("platformVersion", DeviceosName);
+				capa.setCapability("app", appPath);
+				capa.setCapability("appPackage", "uk.co.bbc.avtestharnesssmp");
+				capa.setCapability("appActivity", "uk.co.bbc.avtestharnesssmp.MainActivity");
+				driver = new AndroidDriver<>(new URL(appiul_url), capa);
+				driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+				
+			 }	catch (NullPointerException e) {
+					e.printStackTrace();
+				}
 	}
 	
 	/*
 	 * initializing the page objects 
 	 */
-
-	@Test(dependsOnMethods = {"setUp"})
 	public void OpenAvtest() throws Exception {
 		try {
-		
-
-			commonobjects = new SMPANPageObjects_Common();
-			PageFactory.initElements(new AppiumFieldDecorator(driver), commonobjects);
-
-			liverewindobject = new SMPAN_LiveRewind();
-			PageFactory.initElements(new AppiumFieldDecorator(driver), liverewindobject);
-
-			ondemandobjects = new SMPAN_OnDemand();
-			PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
-			
-			filename = "SMPAN_PUMATest";
-			workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
-			absoluteFilePaths = workingDirectorys + File.separator + filename;
-			ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory); 
-			file = new File(ScreenshotPaths);
-			
+				commonobjects = new SMPANPageObjects_Common();
+				PageFactory.initElements(new AppiumFieldDecorator(driver), commonobjects);
+	
+				liverewindobject = new SMPAN_LiveRewind();
+				PageFactory.initElements(new AppiumFieldDecorator(driver), liverewindobject);
+	
+				ondemandobjects = new SMPAN_OnDemand();
+				PageFactory.initElements(new AppiumFieldDecorator(driver), ondemandobjects);
 				
+				filename = "SMPAN_PUMATest";
+				workingDirectorys =  commonfunct.ResultFolder(commonobjects.ParentDirectoy);  
+				absoluteFilePaths = workingDirectorys + File.separator + filename;
+				ScreenshotPaths = commonfunct.ResultFolder(commonobjects.SubDirectory); 
+				file = new File(ScreenshotPaths);	
 				commonfunct.CreateReport(absoluteFilePaths, Deviceid, appiumport,
-						DeviceosName,
-						Devicename);
-				}catch(NullPointerException e)
-				{
+							DeviceosName,
+							Devicename);
+			}	catch(NullPointerException e){
+						e.printStackTrace();
+				 }
+	}
+	
+	@Test(priority = 0)
+	public void playLiveRewindTest() throws Exception {
+		//setting the default rotation to potratit 
+		driver.rotate(ScreenOrientation.PORTRAIT);
+		commonfunct.selectItemforPlayback(commonobjects.liveEpsiode, "LiveSimulcast_Video", commonobjects.element, driver, commonobjects.listview,
+					ScreenshotPaths);
+		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+		
+		// Verify that Pause button is present after clicking the Play button
+		Assert.assertTrue("Live Video Pause button is not displayed",commonobjects.Playback_Pause.isDisplayed());
+			
+		// Verify that media Title is present
+		Assert.assertTrue("Live video Embedded view Title is not displayed",commonobjects.assetTitle.isDisplayed());
+		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
+					driver, ScreenshotPaths);
+	}
+		
+	@Test(dependsOnMethods={"playLiveRewindTest"})
+	public void checkingPlaybackLiveRewind(){
+		try {
+				boolean status;
+					status = commonfunct.verify_PlaybackContinue("Live Rewind Playback",liverewindobject.live_simulcat_rewind_time, driver, ScreenshotPaths);
+					Assert.assertTrue("Live video play back is not started",status);
+			}	catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}
-		
-		/*
-		 * Check the device OS version if OS version less then 6.0, use a different Element ID to click Menu  
-		 * 	blocking this code for execution for PUMA
-		 
+	}
+			
+	@Test(dependsOnMethods={"checkingPlaybackLiveRewind"})
+	public void playbackRotation() throws Exception {
+		try {
+				driver.rotate(ScreenOrientation.LANDSCAPE);
+				String screenOrientation = commonfunct.playbackOrientation(driver, ScreenOrientation.LANDSCAPE, "Playing in LANDSCAPE",
+								ScreenshotPaths);
+				Assert.assertEquals("Mobile screen is not rotated to Landscape mode", screenOrientation, "LANDSCAPE");		
+			}	catch (Exception e) {
+				e.printStackTrace();
+				}
+		try {
 	
-			NumberFormat numberformat = NumberFormat.getInstance();
-			Double Device_OSversion = numberformat.parse(DeviceosName).doubleValue();
-			System.out.println("DeviceOS"+Device_OSversion);
-			if(Device_OSversion >= 6.0)
-			{	
-			commonobjects.menuoptions.click();
-			Thread.sleep(3000);
-			}
-			else
-			{
-			commonobjects.menu.click();
-			Thread.sleep(3000);
-			}
-
-			driver.pressKeyCode(AndroidKeyCode.BACK);
-			Thread.sleep(3000);*/
-			 
-			 
+				String screenOrientation = commonfunct.playbackOrientation(driver, ScreenOrientation.PORTRAIT, "Playing in PORTRAIT",
+								ScreenshotPaths);
+				Assert.assertEquals("Mobile screen is not rotated to Portrait mode", screenOrientation, "PORTRAIT");
+				//Click on the full screen button
+				commonfunct.tapbutton("Video-Entering Full Screen",commonobjects.vod_play_fullscreen_exit,
+								driver, file.getAbsolutePath());			
+				driver.pressKeyCode(AndroidKeyCode.BACK);
+						
+			}	catch (Exception e) {
+						e.printStackTrace();
+				}
+	}
+		
 	
-		
-		
+//	
 	/**
 	 * 
 	 * Puma Tests for VOD
+	 * @throws Exception 
 	 *
 	 */
 	
 	//Select a a Panorama Video form the Mediated List and plays it in embedded view and then switches to Full Screen view
-	@Test(dependsOnMethods={"OpenAvtest"})
-	public void Play_VideoOnDemand() throws Exception 
-	{
-		//setting the default rotation to potratit 
-		driver.rotate(ScreenOrientation.PORTRAIT);
-	
+	@Test(dependsOnMethods={"playbackRotation"})
+	public void playVideoOnDemand() throws Exception {
+		
 		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
-				file.getAbsolutePath());
-		
-
+					file.getAbsolutePath());
 		commonfunct.tapbutton("Video-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
-		Thread.sleep(1000);
-
-		
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+			
+		// Verify that Pause button is present after clicking the Play button
+		Assert.assertTrue("VOD Pause button is not displayed",commonobjects.Playback_Pause.isDisplayed());
+			
+		// Verify that media Title is present
+		Assert.assertTrue("VOD embedded view Tittle is not displayed",commonobjects.assetTitle.isDisplayed());
+			
+		//Click on the full screen button
 		commonfunct.tapbutton("Video-Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, file.getAbsolutePath());
-
-	
+					driver, file.getAbsolutePath());     
+		// Verify the Media Title on the Full-screen
+		Assert.assertTrue("VOD Portrait mode Primary Title is not displayed",commonobjects.primaryTitle.isDisplayed());
+		Assert.assertTrue("VOD Portrait mode Secondary Title is not displayed",commonobjects.secondaryTitle.isDisplayed());
+			
+		// Clicking the SubTitle Button
+		commonfunct.turnSubtitleON("Video-Subtitle ON","Video", commonobjects.subtitlesBtn, driver,file.getAbsolutePath());
+			
+		// Verify that Disable-Subtitle button is enabled.
+		Assert.assertTrue("Disabled Subtitle button is not displayed",commonobjects.disbledSubTitleBtn.isDisplayed());
+			
+		// Clicking the Disable SubTitle Button
+		commonfunct.turnSubtitleON("Video-Subtitle Off","Video", commonobjects.disbledSubTitleBtn, driver,file.getAbsolutePath());   
+		   
+		// Verify that Subtitle button is enabled.
+		Assert.assertTrue("Enable Subtitle button is not displayed ",commonobjects.subtitlesBtn.isDisplayed());
+		
 	}
-	
-	//Turn's the Subtitle On for the video playing
-	@Test(dependsOnMethods={"Play_VideoOnDemand"})
-	public void TurningSubtilte_ON() throws Exception 
-	{
-		commonfunct.turnSubtitleON("Video-Subtitle ON","Video", commonobjects.vod_play_subtitle, driver,file.getAbsolutePath());
-	}
-	
 	
 	//Plays a video for few minutes and compares the time difference from start of playback with the elapsed time
-	@Test(dependsOnMethods={"TurningSubtilte_ON"})
-	public void CheckingPlayback_VOD() throws Exception {
-
+	@Test(dependsOnMethods={"playVideoOnDemand"})
+	public void checkingPlaybackVOD() throws Exception {
 		try {
-
-			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
-
-
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-	}
-	
-//	//Turn's the Subtitle OFF for the video playing
-//	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
-//	public void TurningSubtilte_OFF() throws Exception 
-//	{
-//		commonfunct.turnSubtitleON("Video-Subtitle OFF","Video", commonobjects.vod_play_subtitle,driver ,file.getAbsolutePath());
-//	}
-	
-	
-	//Pause a video , exits the full screen and navigates back to Mediated Menu List
-	@Test(dependsOnMethods={"CheckingPlayback_VOD"})
-	public void Pause_VideoOnDemand() throws Exception 
-	{
-	
-		commonfunct.tapbutton("Video-Pause playback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
-		
-		commonfunct.tapbutton("Video-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, file.getAbsolutePath());
-		
-		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
+				boolean playback_status;
+				playback_status = commonfunct.verifyPlaybackDuration(ondemandobjects.vod_play_total_duration,
+							ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
+					
+				// Verify that the playback started.
+				Assert.assertTrue("VOD Play back is not started",playback_status);
+					
+				//Click on the full screen button
+				commonfunct.tapbutton("Video-Entering Full Screen",commonobjects.vod_play_fullscreen_exit,
+							driver, file.getAbsolutePath());
+					
+				driver.pressKeyCode(AndroidKeyCode.BACK);
+					
+			}	catch (Exception e) {
+					e.printStackTrace();
+			}
 	}
 	
 	
@@ -334,126 +285,56 @@ public class Android_PumaTests {
 	 */
 	
 	//Select a a Audio Asset form the Mediated List and plays it in embedded view and then switches to Full Screen view
-	@Test(dependsOnMethods={"Pause_VideoOnDemand"})
-	public void Play_AudioOnDemand() throws Exception 
+	@Test(dependsOnMethods={"playVideoOnDemand"})
+	public void playAudioOnDemand() throws Exception 
 	{
 	
 		commonfunct.selectItemforPlayback(commonobjects.audioEpisode, "OnDemandAudio", commonobjects.element, driver, commonobjects.listview,
 				file.getAbsolutePath());
 	
 		commonfunct.tapbutton("Audio-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
-		Thread.sleep(1000);
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+		
+		// Verify that Pause button is present after clicking the Play button
+		Assert.assertTrue("AOD Stop button is not displayed ",commonobjects.Playback_Pause.isDisplayed());
+		
+		// Verify that media Title is present
+		Assert.assertTrue("AOD enbedded view Title is not displayed",commonobjects.assetTitle.isDisplayed());
 		
 		commonfunct.tapbutton("Audio-Entering Full Screen",commonobjects.playback_fullscreen,
 				driver, file.getAbsolutePath());
-
 		
+		// Verify the Media Title on the Full-screen
+		Assert.assertTrue("AOD Portrait view Primary Title is not displayed",commonobjects.primaryTitle.isDisplayed());
+		Assert.assertTrue("AOD Protrait view secondary Title is not displayed",commonobjects.secondaryTitle.isDisplayed());
 	}
 	
 	//Plays a Audio for few minutes and compares the time difference from start of playback with the elapsed time
-	@Test(dependsOnMethods={"Play_AudioOnDemand"})
-	public void CheckingPlayback_AOD() throws Exception {
-
+	@Test(dependsOnMethods={"playAudioOnDemand"})
+	public void checkingPlaybackAOD() throws Exception {
 		try {
+				boolean audio_palyback_status;
+				audio_palyback_status = commonfunct.verifyAudioPlaybackDuration(ondemandobjects.vod_play_total_duration,
+						ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
+				Assert.assertTrue("AOD playback is not started", audio_palyback_status);
+				driver.pressKeyCode(AndroidKeyCode.BACK);
 
-			commonfunct.Checkplayback_duration(ondemandobjects.vod_play_total_duration,
-					ondemandobjects.vod_play_elasped_duration, file.getAbsolutePath(), driver);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
+			}	catch (Exception e) {
+					e.printStackTrace();
 		}
-
 	}
-	
-	//Pause a Audio , exits the full screen and navigates back to Mediated Menu List
-	@Test(dependsOnMethods={"CheckingPlayback_AOD"})
-	public void Pause_AudiooOnDemand() throws Exception 
-	{
-	
-		commonfunct.tapbutton("Audio-Pause playback", commonobjects.Playback_Pause, driver, file.getAbsolutePath());
 		
-		commonfunct.tapbutton("Audio-Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, file.getAbsolutePath());
-		
-		commonfunct.Navigateback_MainMenu(driver, file.getAbsolutePath());
-	}
-	
-	
 	@AfterClass
-	public void End() throws Exception
-			{
+	public void End() throws Exception{
 		try
 		{
 			commonfunct.GenerateReport();
 			driver.closeApp();
 			driver.quit();
 			//ap.stopappium();
-			}catch(NullPointerException e)
-		{
+		}	catch(NullPointerException e){
 				e.printStackTrace();
 		}
-			}
+	}
 }
 
-
-/*
- * @Test(dependsOnMethods={"OpenAvtest"})
-	public void Play_LiveRewindTest() throws Exception 
-	{
-		
-		commonfunct.selectItemforPlayback(commonobjects.liveEpsiode, "LiveSimulcast_Video", commonobjects.element, driver, commonobjects.listview,
-				ScreenshotPaths);
-		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
-		
-		commonfunct.tapbutton("Entering Full Screen",commonobjects.playback_fullscreen,
-				driver, ScreenshotPaths);
-	}
-	
-	@Test(dependsOnMethods={"Play_LiveRewindTest"})
-	public void CheckingPlayback_LiveRewind()
-	{
-		try {
-			commonfunct.PlaybackContinue("Live Rewind Playback",liverewindobject.live_simulcat_rewind_time, driver, ScreenshotPaths);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-		
-	@Test(dependsOnMethods={"CheckingPlayback_LiveRewind"})
-	public void PlaybackRotation() throws Exception {
-
-		try {
-
-		driver.rotate(ScreenOrientation.LANDSCAPE);
-			commonfunct.playback_orientation(driver, ScreenOrientation.LANDSCAPE, "Playing in LANDSCAPE",
-					ScreenshotPaths);
-		
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-		try {
-
-			commonfunct.playback_orientation(driver, ScreenOrientation.PORTRAIT, "Playing in PORTRAIT",
-					ScreenshotPaths);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-	}
-	
-	@Test(dependsOnMethods={"PlaybackRotation"})
-	public void Pause_LiveRewindTest() throws Exception 
-	{
-	
-		commonfunct.tapbutton("Pause LiveRewind_playback", commonobjects.Playback_Pause, driver, ScreenshotPaths);
-		
-		commonfunct.tapbutton("Exiting Full Screen",commonobjects.vod_play_fullscreen_exit,
-				driver, ScreenshotPaths);
-		
-		commonfunct.Navigateback_MainMenu(driver, ScreenshotPaths);
-	}*/
