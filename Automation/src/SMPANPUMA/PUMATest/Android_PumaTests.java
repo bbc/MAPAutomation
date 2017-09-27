@@ -161,7 +161,7 @@ public class Android_PumaTests {
 		commonfunct.selectItemforPlayback(commonobjects.liveEpsiode, "LiveSimulcast_Video", commonobjects.element, driver, commonobjects.listview,
 					ScreenshotPaths);
 		commonfunct.tapbutton("Clicking on Play Button", commonobjects.play_button, driver, ScreenshotPaths);
-		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 40);
 		
 		// Verify that Pause button is present after clicking the Play button
 		Assert.assertTrue("Live Video Pause button is not displayed",commonobjects.Playback_Pause.isDisplayed());
