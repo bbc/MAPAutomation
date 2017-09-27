@@ -225,7 +225,7 @@ public class Android_PumaTests {
 		commonfunct.selectItemforPlayback(commonobjects.videoEpisode, "OnDemandVideo", commonobjects.element, driver, commonobjects.listview,
 					file.getAbsolutePath());
 		commonfunct.tapbutton("Video-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
-		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 40);
 			
 		// Verify that Pause button is present after clicking the Play button
 		Assert.assertTrue("VOD Pause button is not displayed",commonobjects.Playback_Pause.isDisplayed());
@@ -293,7 +293,7 @@ public class Android_PumaTests {
 				file.getAbsolutePath());
 	
 		commonfunct.tapbutton("Audio-Clicking on Play Button", commonobjects.play_button, driver, file.getAbsolutePath());
-		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 10);
+		commonfunct.waitforElementById(driver, commonobjects.playPauseId, 40);
 		
 		// Verify that Pause button is present after clicking the Play button
 		Assert.assertTrue("AOD Stop button is not displayed ",commonobjects.Playback_Pause.isDisplayed());
